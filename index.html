@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天喜旅行 | 精彩回憶，依然天喜 - 從黃金年代到逆境重生 . 再到全新定位的品牌旅程</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome (圖標用) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- 自定義 CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- 導覽列 Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-skylark fixed-top">
+        <div class="container">
+            <!-- Logo 區：已更新 -->
+            <a class="navbar-brand" href="index.html">
+                <!-- 請確認路徑正確，並加上 class="navbar-logo" -->
+                <img src="assets/images/logo/logo.png" alt="天喜旅行 Skylark" class="navbar-logo">
+            </a>
+
+            <!-- 手機版漢堡選單按鈕 -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- 選單連結 (保持不變) -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">序 <small class="d-block text-muted" style="font-size: 0.6em;">Home</small></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="origin.html">源 <small class="d-block text-muted" style="font-size: 0.6em;">Origin</small></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.html">跡 <small class="d-block text-muted" style="font-size: 0.6em;">History</small></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="memory.html">憶 <small class="d-block text-muted" style="font-size: 0.6em;">Memory</small></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vision.html">願 <small class="d-block text-muted" style="font-size: 0.6em;">Vision</small></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- ==========================================
+         1. Hero Section: 序 (首頁主視覺)
+         ========================================== -->
+    <header class="hero-section d-flex align-items-center position-relative">
+        <div class="container-fluid p-0 h-100">
+            <div class="row g-0 h-100">
+                
+                <!-- 左側：意象圖 (支援動態切換) -->
+                <div class="col-lg-6 d-none d-lg-block position-relative overflow-hidden">
+                    
+                    <!-- 1. 背景圖片層 (動態切換) -->
+                    <div id="heroImageLayer" class="hero-image-layer" style="
+                        background-size: cover;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        opacity: 0;
+                        transition: opacity 1s ease-in-out;
+                    "></div>
+
+                    <!-- 2. 質感疊加層 -->
+                    <div class="texture-overlay"></div>
+
+                    <!-- 3. 右側漸層遮罩 -->
+                    <div class="gradient-mask" style="
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 25%;
+                        height: 100%;
+                        background: linear-gradient(to right, transparent, var(--skylark-bg));
+                        z-index: 2;
+                    "></div>
+                </div>
+
+                <!-- 手機版背景圖 (淡化處理) -->
+                <div class="d-lg-none position-absolute w-100 h-100" id="mobileHeroBg" style="
+                    background-size: cover;
+                    background-position: center;
+                    opacity: 0;
+                    transition: opacity 1s ease-in-out;
+                    z-index: -1;
+                "></div>
+                <!-- 右側：直書文案 -->
+                <div class="col-lg-6 col-12 d-flex justify-content-center justify-content-lg-end align-items-center position-relative">
+                    
+                    <div class="hero-text-group pe-lg-5 me-lg-5">
+                        
+                        <!-- 最左側：品牌旅程 -->
+                        <div class="vertical-text hero-desc text-muted ms-3">
+                            再到全新定位的品牌旅程
+                        </div>
+
+                        <!-- 中間：重生敘事 -->
+                        <div class="vertical-text hero-desc text-muted ms-3">
+                            從黃金年代到逆境重生
+                        </div>
+                        
+                        <!-- 裝飾線與年份 -->
+                        <div class="vertical-divider ms-4 me-4">
+                            <span class="year-tag">SINCE 1990</span>
+                        </div>
+
+                        <!-- 最右側：核心 Slogan -->
+                        <div class="vertical-text hero-title">
+                            <span style="color: var(--skylark-blue);">精彩回憶，</span>
+                            <br>
+                            <span style="color: var(--skylark-dark-blue);">依然天喜。</span>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- 底部裝飾：向下捲動提示 -->
+        <div class="scroll-indicator">
+            <span class="text-muted" style="font-size: 0.8rem; letter-spacing: 2px;">SCROLL</span>
+            <div class="line"></div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         2. Manifesto Section: 品牌宣言 (敘事)
+         ========================================== -->
+    <style>
+        .watermark-bg {
+            opacity: 0.04; /* 從 0.10 調低 */
+        }
+        .manifesto-lines span {
+            display: block;
+            line-height: 2.4;
+            margin-bottom: 8px;
+        }
+        .memory-object-container img {
+            border-radius: 3px;
+            border: 8px solid #fff;
+            box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
+        }
+        .memory-object-container:hover img {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.18);
+        }
+        section.manifesto {
+            background: linear-gradient(180deg, #F9F7F2 0%, #F7F4EE 50%, #F9F7F2 100%);
+        }
+
+    </style>
+
+    <section class="section-padding position-relative manifesto-section">
+        <!-- Logo 浮水印 -->
+        <div class="watermark-bg">
+            <img src="assets/images/logo/logo2.png" alt="Skylark Logo">
+        </div>
+
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 manifesto-container">
+
+                    <!-- 【序】 -->
+                    <div class="fade-in-text delay-intro text-center">
+                        <p class="chapter-tag">【序】</p>
+                        <h2 class="manifesto-title">天喜不是消失了。</h2>
+                        <p class="manifesto-lead">只是，我們蹲下來了。</p>
+                        <span class="breathing-line"></span>
+                    </div>
+
+                    <!-- 小綠芽 -->
+                    <div class="fade-in-text delay-memory mt-4 mb-5 text-center">
+                        <span class="sprout-marker">🌱</span>
+                    </div>
+
+                    <!-- 【他記得】 -->
+                    <div class="fade-in-text delay-memory" style="max-width: 520px; margin: 0 auto;">
+                        <p class="chapter-tag text-start">【他記得】</p>
+                        <p class="body-text">
+                            <span class="year-highlight">1990</span>年，郭正利先生帶著一句信念創立天喜：
+                        </p>
+                        <blockquote class="quote-block">「讓每個客人，都被記得。」</blockquote>
+                        <p class="manifesto-lines">
+                            他記得誰不吃生魚片；<br>
+                            記得誰喜歡靠窗的位置；<br>
+                            記得誰的媽媽腳不好，要安排電梯房。
+                        </p>
+                    </div>
+
+                    <!-- 記憶物件 -->
+                    <figure class="memory-object fade-in-text delay-object">
+                        <img src="assets/images/index/memory-notebook.png" alt="郭先生的筆記本">
+                        <figcaption>郭先生的行前備忘 <span>（每一頁都是被記住的名字）</span></figcaption>
+                    </figure>
+
+                    <!-- 【傳遞】 -->
+                    <div class="fade-in-text delay-legacy" style="max-width: 520px; margin: 0 auto;">
+                        <p class="chapter-tag text-start">【傳遞】</p>
+                        <p class="body-text">
+                            <span class="year-highlight">2016</span>年，他離開了。<br>
+                            但那些被記得的溫暖，<span class="emphasis">仍在我們心裡慢慢延續。</span>
+                        </p>
+                        <p class="body-text">現在，我們想把這些記憶找回來。</p>
+                    </div>
+
+                    <!-- 【邀請】 -->
+                    <div class="fade-in-text delay-invite text-center mt-5">
+                        <p class="chapter-tag">【邀請】</p>
+                        <p class="body-text">
+                            如果你也曾經被天喜照顧過，<br>
+                            如果你還記得那趟旅行的感動……
+                        </p>
+                        <h3 class="welcome-home">歡迎回家。</h3>
+                        <p class="closing-line">我們一直在這裡，等你的消息。</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========================================
+         3. Monument Section: 精神堡壘 (金句碑)
+         ========================================== -->
+    <section class="monument-section d-flex align-items-center justify-content-center">
+        
+        <!-- 背景紋理 (模擬石材/星空) -->
+        <div class="monument-texture"></div>
+
+        <div class="container text-center position-relative" style="z-index: 2;">
+            <div class="monument-content fade-in-text">
+                
+                <!-- 主金句 -->
+                <h2 class="monument-quote">
+                    「客人的噴嚏，<br class="d-md-none">就是我們的地震。」
+                </h2>
+
+                <!-- 落款 -->
+                <p class="monument-author">
+                    郭正利，1990
+                </p>
+
+                <!-- 裝飾線 (極細金線) -->
+                <div class="monument-divider"></div>
+
+                <!-- 極小副標 -->
+                <p class="monument-subtext">
+                    一期一會，款待的極致永不過時。
+                </p>
+
+            </div>
+        </div>
+    </section>
+    <!-- 頁尾 Footer -->
+    <footer class="footer-skylark">
+        <div class="container">
+            <div class="row align-items-center gy-4">
+                <!-- 左側：Logo 與品牌宣言 -->
+                <div class="col-md-6 text-md-start text-center">
+                    <div class="footer-brand d-flex align-items-center justify-content-md-start justify-content-center">
+                        <img src="assets/images/logo/logo.png" alt="天喜旅行 Skylark" class="footer-logo">
+                        <div class="footer-tagline">
+                            <p class="mb-1">天喜旅行社</p>
+                            <small class="text-muted">精彩回憶，依然天喜</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右側：聯絡資訊與社群 -->
+                <div class="col-md-6 text-md-end text-center">
+                    <div class="footer-links">
+                        <a href="origin.html">源</a>
+                        <a href="history.html">跡</a>
+                        <a href="memory.html">憶</a>
+                        <a href="vision.html">願</a>
+                    </div>
+                    <div class="footer-contact text-muted mt-2">
+                        <small>重啟計畫進行中｜聯絡：<a href="mailto:lk1992world@gmail.com">lk1992world@gmail.com - 呂偉正</a></small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="row">
+                <div class="col text-center">
+                    <small class="text-muted">&copy; 2025 Skylark Travel. All Rights Reserved.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定義 JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

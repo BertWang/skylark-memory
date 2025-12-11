@@ -1,0 +1,735 @@
+/* ==========================================================================
+   Skylark Memory (天喜記憶庫) - Main Stylesheet
+   Theme: Wa-Modern (和風現代)
+   ========================================================================== */
+
+/* --- 1. 字體引入 (Google Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600;700&display=swap');
+
+/* --- 2. 全域變數定義 (CSS Variables) --- */
+:root {
+    /* [配色系統] - 日本傳統色轉譯 */
+    
+    /* 畫布：生成色 (Kinari) - 溫潤的紙張白 */
+    --skylark-bg: #F9F7F2;
+    
+    /* 墨水：深縹 (Koki-hanada) - 品牌主色 */
+    --skylark-blue: #004B87; 
+    --skylark-dark-blue: #1a2b48; /* 深邃文字色 */
+    
+    /* 新生：若草 (Wakakusa) - 點綴/按鈕/連結 */
+    --skylark-green: #78BE20;
+    
+    /* 記憶：紫苑 (Shion) - 裝飾/年份/次要資訊 (帶紫的暖灰) */
+    --skylark-purple: #887f7a;
+    
+    /* 質感：香檳金 - 分隔線/榮耀 */
+    --skylark-gold: #C5A065;
+
+    /* [字體設定] */
+    --font-heading: 'Noto Serif TC', serif; /* 明體：優雅、歷史感 */
+    --font-body: 'Noto Sans TC', sans-serif; /* 黑體：易讀、現代 */
+}
+
+/* --- 3. 基礎重置與全域設定 (Base Styles) --- */
+body {
+    background-color: var(--skylark-bg);
+    color: var(--skylark-dark-blue);
+    font-family: var(--font-body);
+    line-height: 1.8; /* 增加行高，創造呼吸感 */
+    letter-spacing: 0.05em; /* 增加字距 */
+    overflow-x: hidden; /* 防止橫向卷軸 */
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--skylark-blue);
+}
+
+a {
+    text-decoration: none;
+    color: var(--skylark-blue);
+    transition: all 0.3s ease;
+}
+
+/* --- 4. 導覽列 (Navbar) --- */
+.navbar-skylark {
+    background-color: rgba(249, 247, 242, 0.95); /* 半透明背景 */
+    backdrop-filter: blur(10px); /* 毛玻璃效果 */
+    border-bottom: 1px solid rgba(0, 75, 135, 0.05);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Logo 設定 */
+.navbar-brand {
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 55px; /* 電腦版高度 */
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+/* 選單連結 */
+.nav-link {
+    font-family: var(--font-heading);
+    color: var(--skylark-dark-blue) !important;
+    font-size: 1.05rem;
+    margin: 0 15px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--skylark-blue) !important;
+}
+
+/* 連結下方的綠色小新芽效果 */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--skylark-green);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 20px;
+}
+
+/* --- 5. 元件樣式 (Components) --- */
+
+/* 圓角按鈕 */
+.btn-skylark {
+    background-color: var(--skylark-blue);
+    color: #fff;
+    border-radius: 50px;
+    padding: 12px 35px;
+    border: none;
+    font-family: var(--font-heading);
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.btn-skylark:hover {
+    background-color: var(--skylark-green);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(120, 190, 32, 0.3);
+}
+
+/* 文字連結 */
+.btn-link-skylark {
+    color: var(--skylark-blue);
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+}
+
+.btn-link-skylark:hover {
+    color: var(--skylark-green);
+    border-bottom-color: var(--skylark-green);
+}
+
+/* 標籤 Badge */
+.badge-skylark {
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid var(--skylark-blue);
+    color: var(--skylark-blue);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    font-family: var(--font-heading);
+}
+
+/* --- Hero Section (父層) --- */
+.hero-section {
+    height: 100vh;
+    background-color: var(--skylark-bg);
+    padding-top: 80px;
+    overflow: hidden;
+    position: relative; 
+    z-index: 1; 
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* 紙張紋理遮罩 */
+.texture-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1; /* 確保在圖片之上 */
+}
+
+/* 直書文字群組容器 */
+.hero-text-group {
+    display: flex;
+    flex-direction: row-reverse; /* 從右到左排列 */
+    height: 70vh;
+    align-items: flex-start; /* 靠上對齊 */
+}
+
+/* 直書通用設定 */
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: var(--font-heading);
+}
+
+/* 主標題 */
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.6;
+    letter-spacing: 0.5rem;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+/* 背景圖層 */
+.hero-image-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    animation: breatheEffect 15s ease-in-out infinite alternate; /* 加入呼吸動畫 */
+}
+
+/* 副標題/敘事句 */
+.hero-desc {
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+    line-height: 2;
+    color: #888;
+    height: auto;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 0.8s forwards; /* 延遲進場 */
+}
+
+/* 中間的分隔線與年份 */
+.vertical-divider {
+    width: 1px;
+    height: 300px;
+    background-color: var(--skylark-gold);
+    position: relative;
+    opacity: 0;
+    animation: growLine 1.5s ease-out 0.5s forwards;
+}
+
+/* SINCE 1990 標籤 */
+.year-tag {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--skylark-blue);
+    white-space: nowrap;
+    font-family: sans-serif;
+}
+
+/* 向下捲動提示 */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.6;
+    z-index: 10;
+}
+
+.scroll-indicator .line {
+    width: 1px;
+    height: 40px;
+    background-color: var(--skylark-green);
+    margin-top: 10px;
+    animation: scrollDown 2s infinite;
+}
+
+/* --- 7. 內容區塊樣式 (Content Sections) --- */
+.section-padding {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--skylark-dark-blue);
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+}
+
+.manifesto-text p {
+    font-size: 1.15rem;
+    line-height: 2.4;
+    font-family: var(--font-heading);
+    color: #666;
+}
+
+/* 照片相框效果 */
+.photo-frame {
+    position: relative;
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease;
+}
+
+.photo-frame img {
+    width: 100%;
+    display: block;
+    filter: sepia(10%);
+}
+
+.photo-caption {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: #999;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.rotate-left {
+    transform: rotate(-2deg);
+}
+
+.photo-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 10;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+/* --- 8. 動畫 Keyframes --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes growLine {
+    from { height: 0; opacity: 0; }
+    to { height: 300px; opacity: 0.6; }
+}
+
+@keyframes scrollDown {
+    0% { height: 0; opacity: 0; }
+    50% { height: 40px; opacity: 1; }
+    100% { height: 40px; opacity: 0; transform: translateY(10px); }
+}
+
+/* --- 9. RWD 響應式調整 (Mobile) --- */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar-logo {
+        height: 40px;
+    }
+    
+    /* Hero Section */
+    .hero-title {
+        font-size: 2.2rem;
+        letter-spacing: 0.3rem;
+    }
+    
+    .hero-desc {
+        font-size: 0.9rem;
+        letter-spacing: 0.15rem;
+    }
+    
+    .hero-text-group {
+        height: 60vh;
+        justify-content: center; /* 手機版置中 */
+        padding-top: 20px;
+    }
+    
+    .vertical-divider {
+        height: 200px;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+
+    /* Content */
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .photo-frame {
+        margin-bottom: 30px;
+        transform: rotate(0); /* 手機版不旋轉 */
+    }
+}
+
+/* --- Footer --- */
+.footer-skylark {
+    background-color: #fff;
+    padding: 60px 0 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-skylark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.12'/%3E%3C/svg%3E");
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.footer-skylark .container {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-brand {
+    gap: 18px;
+}
+
+.footer-logo {
+    width: 48px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 75, 135, 0.15));
+}
+
+.footer-tagline p {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--skylark-blue);
+    letter-spacing: 0.08em;
+}
+
+.footer-links a {
+    font-family: var(--font-heading);
+    color: var(--skylark-dark-blue);
+    margin-left: 18px;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--skylark-green);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.footer-links a:hover {
+    color: var(--skylark-green);
+}
+
+.footer-links a:hover::after {
+    width: 16px;
+}
+
+.footer-divider {
+    margin: 40px 0 25px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 75, 135, 0.18), transparent);
+}
+
+/* 手機版調整 */
+@media (max-width: 768px) {
+    .footer-skylark {
+        padding: 50px 0 25px;
+    }
+
+    .footer-links a {
+        margin: 0 12px;
+    }
+
+    .footer-brand {
+        flex-direction: column;
+    }
+}
+
+/* --- Manifesto 宣言區塊 --- */
+.manifesto-title {
+    font-size: 2.5rem;
+    color: var(--skylark-blue);
+    letter-spacing: 0.2em;
+    font-weight: 700;
+}
+
+.manifesto-lead {
+    font-size: 1.5rem;
+    color: #666;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+}
+
+.year-highlight {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.4rem;
+    color: var(--skylark-gold);
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.quote-block {
+    border-left: 3px solid var(--skylark-green);
+    padding-left: 20px;
+    font-size: 1.4rem;
+    font-family: var(--font-heading);
+    color: var(--skylark-dark-blue);
+    font-style: italic;
+    margin: 2rem 0;
+}
+
+.divider-line {
+    width: 50px;
+    height: 1px;
+    background-color: var(--skylark-gold);
+}
+
+.welcome-home {
+    
+    font-size: 2.4rem;
+    letter-spacing: 0.4em;
+    color: var(--skylark-green);
+    position: relative;
+}
+.welcome-home::after {
+    content: 'Skylark Memory';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    color: var(--skylark-purple);
+}
+
+/* --- 捲動淡入動畫 (Scroll Reveal) --- */
+/* 每段進場時間不同，保持“有人在講故事”的節奏 */
+.manifesto-section {
+    background-color: var(--skylark-bg);
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- 修正後的 Logo 浮水印：巨型裁切風格 --- */
+.watermark-bg {
+    position: absolute;
+    
+    /* 位置：往左上角推，讓 Logo 的圓弧與葉子「切」進畫面 */
+    top: -0%;       
+    left: -5%;      
+    
+    /* 大小：大幅增加寬度，創造視覺張力 */
+    width: 65vw;           /* 佔據螢幕寬度的 65% */
+    max-width: 800px;      /* 電腦版最大限制 */
+    min-width: 300px;      /* 手機版最小限制 */
+    
+    /* 能見度：提升到 0.08 ~ 0.1，讓它清晰可見但退居後方 */
+    opacity: 0.1;  
+    
+    /* 質感處理 */
+    filter: grayscale(100%); /* 維持黑白，不搶文字顏色 */
+    transform: rotate(-15deg); /* 旋轉角度，增加動態感 */
+    
+    pointer-events: none; 
+    z-index: 0;
+    
+    /* 確保不會因為放大而產生橫向卷軸 */
+    overflow: hidden; 
+}
+
+/* 手機版微調：避免在小螢幕上佔據太多文字空間 */
+@media (max-width: 768px) {
+    .watermark-bg {
+        width: 90vw; /* 手機版稍微大一點，讓線條更明顯 */
+        top: -5%;
+        left: -15%;
+        opacity: 0.06; /* 手機版稍微淡一點，避免干擾閱讀 */
+    }
+}
+
+.watermark-bg img { width: 100%; height: auto; }
+
+.manifesto-container { position: relative; z-index: 1; }
+
+.chapter-tag {
+    font-family: var(--font-heading);
+    letter-spacing: 0.35em;
+    font-size: 0.95rem;
+    color: var(--skylark-purple);
+    margin-bottom: 1rem;
+}
+
+.breathing-line {
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--skylark-gold), transparent);
+    margin-top: 1.5rem;
+}
+
+.sprout-marker { font-size: 1.8rem; color: var(--skylark-green); }
+
+.manifesto-title { font-size: 2.6rem; letter-spacing: 0.2em; }
+.manifesto-lead { font-size: 1.3rem; color: #746d68; }
+
+.manifesto-lines {
+    font-size: 1.05rem;
+    color: #7a726d;
+    line-height: 2.2;
+    margin-top: 1.5rem;
+}
+
+.memory-object {
+    max-width: min(35vw, 280px);
+    width: min(32vw, 320px);   /* 桌機：大約三分之一欄寬，上限 320px */
+    margin: 3rem auto;
+    display: inline-block;
+    margin: 3rem auto;
+    text-align: center;
+}
+.memory-object img {
+    border: 10px solid #fff;
+    border-radius: 4px;
+    box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+    width: 100%;
+    height: auto;
+}
+.memory-object figcaption {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #8f847c;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+    .memory-object { width: 70vw; }
+}
+
+.welcome-home {
+    font-size: 2.3rem;
+    letter-spacing: 0.35em;
+    color: var(--skylark-green);
+}
+
+.closing-line {
+    margin-top: 1rem;
+    letter-spacing: 0.2em;
+    color: #7f756d;
+}
+
+.fade-in-text {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1.4s ease, transform 1.4s ease;
+}
+.fade-in-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.delay-intro { transition-delay: 0s; }
+.delay-memory { transition-delay: 0.4s; }
+.delay-object { transition-delay: 0.8s; }
+.delay-legacy { transition-delay: 1.2s; }
+.delay-invite { transition-delay: 1.6s; }
+
+/* --- Monument Section: 精神堡壘 --- */
+.monument-section {
+    background-color: #0f1a2b; /* 比品牌主色更深，接近黑色的藍 */
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+    color: var(--skylark-gold); /* 全域金色 */
+}
+
+/* 石材/雜訊紋理 */
+.monument-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* 主金句 */
+.monument-quote {
+    font-family: var(--font-heading); /* 明體 */
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.15em;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, #C5A065, #e6c896, #C5A065); /* 仿金屬漸層 */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5); /* 深邃陰影 */
+}
+
+/* 落款 */
+.monument-author {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    color: rgba(197, 160, 101, 0.8); /* 稍微暗一點的金 */
+    margin-bottom: 3rem;
+}
+
+/* 分隔線 */
+.monument-divider {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--skylark-gold), transparent);
+    margin: 0 auto 3rem;
+    opacity: 0.5;
+}
+
+/* 極小副標 */
+.monument-subtext {
+    font-family: var(--font-body); /* 黑體，易讀 */
+    font-size: 0.75rem; /* 很小很小的字 */
+    letter-spacing: 0.5em; /* 字距拉極寬 */
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3); /* 幾乎融入背景的白金色 */
+    margin: 0;
+}
+
+/* RWD 調整 */
+@media (max-width: 768px) {
+    .monument-quote {
+        font-size: 1.8rem; /* 手機版字體調整 */
+        line-height: 1.6;
+    }
+    .monument-section {
+        padding: 80px 0;
+    }
+}

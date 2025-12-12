@@ -843,6 +843,51 @@ a:hover {
     line-height: 1;
 }
 
+/* --- Origin 頁專用：價格價值比較表 --- */
+.value-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 2rem 0;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(31,84,134,0.05);
+}
+
+.value-table th {
+    background-color: var(--skylark-dark-blue);
+    color: #fff;
+    padding: 1.2rem;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.value-table td {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    color: var(--skylark-text);
+    vertical-align: middle;
+}
+
+.value-table tr:last-child td {
+    border-bottom: none;
+}
+
+.value-table .highlight-cell {
+    color: var(--skylark-blue);
+    font-weight: 600;
+    background-color: rgba(38, 114, 184, 0.03);
+}
+
+/* 手機版表格調整 */
+@media (max-width: 768px) {
+    .value-table { font-size: 0.9rem; }
+    .value-table th, .value-table td { padding: 0.8rem; }
+}
+
 /* 可沿用既有的 .fade-in-text 和 delay-1 class 動畫 */
 
 /* 手機版微調 */

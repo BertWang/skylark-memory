@@ -8,23 +8,22 @@
 
 /* --- 2. 全域變數定義 (CSS Variables) --- */
 :root {
-    /* [配色系統] - 日本傳統色轉譯 */
-    
-    /* 畫布：生成色 (Kinari) - 溫潤的紙張白 */
-    --skylark-bg: #F9F7F2;
-    
-    /* 墨水：深縹 (Koki-hanada) - 品牌主色 */
-    --skylark-blue: #2672B8; 
-    --skylark-dark-blue: #1f5486; /* 深邃文字色 */
-    
-    /* 新生：若草 (Wakakusa) - 點綴/按鈕/連結 */
-    --skylark-green: #78BE20;
-    
-    /* 記憶：紫苑 (Shion) - 裝飾/年份/次要資訊 (帶紫的暖灰) */
-    --skylark-purple: #887f7a;
-    
-    /* 質感：香檳金 - 分隔線/榮耀 */
-    --skylark-gold: #C5A065;
+    /* === 天喜品牌主軸色系 === */
+    --skylark-blue: #2672B8;    /* 主藍：代表穩定、信任與旅程 */
+    --skylark-dark-blue: #1F5486; /* 深藍：用在主標題或暗底強調 */
+    --skylark-lilac: #C1A6D8;   /* 粉紫：代表溫潤、記憶與重生 */
+    --skylark-purple: #6D597A;  /* 深粉紫：輔助陰影或漸層深端 */
+    --skylark-gold: #C5A065;    /* 香檳金：強調文字或分隔細線 */
+    --skylark-bg: #F9F7F2;      /* 背景：紙張質感 */
+    --skylark-text: #5D5650;    /* 主文字（溫灰） */
+    --skylark-green: #78BE20;   /* 清新綠：延續品牌記憶（葉） */
+
+    /* === 功能性映射 === */
+    --primary: var(--skylark-blue);
+    --accent: var(--skylark-lilac);
+    --highlight: var(--skylark-gold);
+    --text-color: var(--skylark-text);
+    --background: var(--skylark-bg);
 
     /* [字體設定] */
     --font-heading: 'Noto Serif TC', serif; /* 明體：優雅、歷史感 */
@@ -47,10 +46,21 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
     color: var(--skylark-blue);
 }
 
+hr.custom-line {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--skylark-blue));
+  opacity: 0.6;
+}
+
 a {
     text-decoration: none;
     color: var(--skylark-blue);
     transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent);
 }
 
 /* --- 4. 導覽列 (Navbar) --- */
@@ -111,7 +121,7 @@ a {
 
 /* 圓角按鈕 */
 .btn-skylark {
-    background-color: var(--skylark-blue);
+    background-color: var(--primary);
     color: #fff;
     border-radius: 50px;
     padding: 12px 35px;
@@ -122,7 +132,7 @@ a {
 }
 
 .btn-skylark:hover {
-    background-color: var(--skylark-green);
+    background-color: var(--accent);
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(120, 190, 32, 0.3);
@@ -800,6 +810,10 @@ a {
 .revival-contact-link:hover {
   color: var(--skylark-green);
   border-color: var(--skylark-blue);
+}
+
+#hero {
+  background: linear-gradient(135deg, var(--skylark-blue) 0%, var(--skylark-lilac) 100%);
 }
 
 /* 可沿用既有的 .fade-in-text 和 delay-1 class 動畫 */

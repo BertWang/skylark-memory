@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>源 Origin｜天喜の記憶 - 被記得的信仰與起心動念</title>
+  <!-- Meta SEO -->
+  <meta name="description" content="源 Origin：天喜從來不是一間旅行社，我們是一群記得您名字的人。聽郭正利親口訴說1990年的選擇，與那些關於款待的極致細節。">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#F9F7F2">
+  <link rel="icon" href="assets/images/logo/favicon.png" type="image/png">
+  
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* =========================
+      Origin - Layered Reading UI
+      ========================= */
+
+    /* 避免 fixed navbar 造成錨點被遮到 */
+    html { scroll-padding-top: 96px; }
+
+    /* 進度條 */
+    .origin-progress{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: 2000;
+      background: rgba(197,160,101,0.12);
+    }
+    .origin-progress__bar{
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--skylark-gold), var(--skylark-lilac));
+    }
+
+    /* 兩欄布局 */
+    .origin-layout{
+      padding-top: 110px; /* 讓內容避開 navbar */
+    }
+
+    /* Sticky 目錄 */
+    .origin-toc{
+      top: 105px; /* sticky-top 的偏移（配合 navbar 高度） */
+      padding: 18px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(31,84,134,0.08);
+      box-shadow: 0 18px 45px rgba(31,84,134,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .origin-toc__title{
+      font-family: var(--font-heading);
+      color: var(--skylark-dark-blue);
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .origin-toc__link{
+      display: block;
+      padding: 10px 10px;
+      border-radius: 10px;
+      color: var(--skylark-dark-blue);
+      font-family: var(--font-heading);
+      letter-spacing: 0.08em;
+      font-size: 0.92rem;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .origin-toc__link:hover{
+      background: rgba(193,166,216,0.18);
+      color: var(--skylark-blue);
+    }
+
+    .origin-toc__link--sub{
+      font-family: var(--font-body);
+      letter-spacing: 0.06em;
+      font-size: 0.86rem;
+      color: #7a726d;
+    }
+
+    .origin-toc__divider{
+      height: 1px;
+      margin: 14px 0;
+      background: linear-gradient(90deg, transparent, rgba(197,160,101,0.45), transparent);
+    }
+
+    /* Accordion 質感 */
+    .origin-accordion .accordion-item{
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(31,84,134,0.08);
+      box-shadow: 0 18px 40px rgba(31,84,134,0.06);
+      background: #fff;
+      margin-bottom: 14px;
+    }
+
+    .origin-accordion .accordion-button{
+      font-family: var(--font-heading);
+      letter-spacing: 0.08em;
+      color: var(--skylark-dark-blue);
+      background: linear-gradient(135deg, rgba(249,247,242,0.92), rgba(193,166,216,0.12));
+    }
+
+    .origin-accordion .accordion-button:not(.collapsed){
+      color: var(--skylark-blue);
+      box-shadow: inset 0 -1px 0 rgba(31,84,134,0.08);
+    }
+
+    .origin-accordion .accordion-body{
+      background: rgba(249,247,242,0.55);
+    }
+
+    /* Quote block 出處小字（你已補 quote-block，本段是加強用） */
+    .quote-source{
+      display: block;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--skylark-purple);
+    }
+
+    /* 案例卡（口述中的「證據」感） */
+    .origin-case{
+      padding: 14px 14px 12px;
+      border: 1px solid rgba(197,160,101,0.22);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.72);
+      margin: 14px 0;
+    }
+    .origin-case__title{
+      font-family: var(--font-heading);
+      color: var(--skylark-dark-blue);
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .origin-case__note{
+      font-size: 0.88rem;
+      color: #7a726d;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 導覽列 -->
+  <nav class="navbar navbar-expand-lg navbar-skylark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo/logo.png" alt="天喜旅行 Skylark" class="navbar-logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">序 <small class="d-block text-muted" style="font-size: 0.6em;">Home</small></a></li>
+          <li class="nav-item"><a class="nav-link active" href="origin.html">源 <small class="d-block text-muted" style="font-size: 0.6em;">Origin</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="history.html">跡 <small class="d-block text-muted" style="font-size: 0.6em;">History</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="memory.html">憶 <small class="d-block text-muted" style="font-size: 0.6em;">Memory</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="vision.html">願 <small class="d-block text-muted" style="font-size: 0.6em;">Vision</small></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Reading Progress (Origin) -->
+  <div class="origin-progress" aria-hidden="true">
+    <div class="origin-progress__bar" id="originProgressBar"></div>
+  </div>
+  
+<main class="origin-main">
+
+  <div class="container origin-layout">
+    <div class="row g-5">
+
+      <!-- Left: Sticky TOC -->
+      <aside class="col-lg-3 d-none d-lg-block">
+        <nav class="origin-toc sticky-top" aria-label="Origin 章節目錄">
+          <div class="origin-toc__title">源 Origin</div>
+
+          <a class="origin-toc__link" href="#origin-opening">開場</a>
+          <a class="origin-toc__link" href="#origin-1">壹｜1990</a>
+          <a class="origin-toc__link" href="#origin-2">貳｜四層次細節</a>
+          <a class="origin-toc__link" href="#origin-3">參｜價格真相</a>
+          <a class="origin-toc__link" href="#origin-4">肆｜堅持代價</a>
+          <a class="origin-toc__link" href="#origin-5">伍｜時間見證</a>
+          <a class="origin-toc__link" href="#origin-6">陸｜信仰</a>
+          <a class="origin-toc__link" href="#origin-7">柒｜結語</a>
+
+          <div class="origin-toc__divider"></div>
+
+          <a class="origin-toc__link origin-toc__link--sub" href="index.html">← 返回首頁</a>
+          <a class="origin-toc__link origin-toc__link--sub" href="history.html">下一頁：跡 History →</a>
+        </nav>
+      </aside>
+
+      <!-- Right: Content -->
+      <div class="col-lg-9">
+
+        <header class="hero-section d-flex align-items-center position-relative" style="height: 80vh; overflow: hidden;">
+              
+              <!-- 背景圖層：origin-hero.jpg -->
+              <div class="position-absolute w-100 h-100" style="
+                background-image: url('assets/images/origin/origin-hero.png');
+                background-size: cover;
+                background-position: center;
+                filter: brightness(0.6); /* 稍微調暗讓文字清楚 */
+                z-index: 0;
+              "></div>
+
+              <div class="texture-overlay"></div> <!-- 紙張紋理 -->
+
+              <div class="container position-relative" style="z-index: 2;">
+                <div class="row justify-content-center">
+                  <div class="col-lg-9 text-center">
+                    <p class="chapter-tag fade-in-text" style="color: rgba(255,255,255,0.9);">【源 Origin】</p>
+
+                    <h1 class="fade-in-text" style="color: #fff; font-weight: 700; letter-spacing: 0.18em; line-height: 1.4; text-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                      天喜從來不是一間旅行社。<br class="d-md-none">
+                      我們是一群<br class="d-md-none">記得您名字的人。
+                    </h1>
+
+                    <div class="mt-5 fade-in-text delay-2">
+                      <a href="#origin-1" class="btn-skylark" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.5);">往下閱讀</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+
+            
+            <!-- ==========================================
+                壹｜1990年，一個選擇的開始
+                ========================================== -->
+            <section id="origin-1" class="section-padding position-relative manifesto-section">
+              <div class="watermark-bg"><img src="assets/images/logo/logo2.png" alt="Skylark Logo"></div>
+
+              <div class="container position-relative">
+                <div class="row justify-content-center align-items-center g-5">
+                  
+                  <!-- 左側：文字 -->
+                  <div class="col-lg-6 fade-in-text delay-1">
+                    <p class="chapter-tag">【壹】1990年，一個選擇的開始</p>
+                    <h2 class="manifesto-title mb-4">市場飽和了，<br>你憑什麼進來？</h2>
+                    
+                    <p class="body-text">
+                      1990年6月18日，我在台北市南京東路一棟租來的8坪辦公室裡，用僅有的40萬元資本，掛上了「天喜旅行社」的招牌。
+                    </p>
+                    <p class="body-text">
+                      那時候，台灣已經有39家旅行社在做日本團，4,000元就能飛一趟。很多人勸我：「郭正利，你瘋了嗎？」
+                    </p>
+                    
+                    <div class="my-4 ps-3 border-start border-3 border-warning">
+                      <p class="body-text mb-0">
+                        我的答案很簡單：<br>
+                        <span class="emphasis" style="font-size: 1.2rem;">「因為沒有人在乎客人的名字。」</span>
+                      </p>
+                    </div>
+
+                    <p class="body-text">
+                      我看過太多導遊拿著麥克風喊「1號先生」、「2號太太」。客人像貨物一樣被編號、被趕行程。
+                      但我相信，旅行的價值不在便宜，而在於那些被看見、被記住、被照顧的瞬間。
+                    </p>
+
+                    <blockquote class="quote-block mt-4">
+                      「便宜的價格會被遺忘，<br>但極致的感動會被記住。」
+                    </blockquote>
+                  </div>
+
+                  <!-- 右側：郭先生坐姿圖 -->
+                  <div class="col-lg-5 fade-in-text delay-2">
+                    <figure class="memory-object w-100" style="max-width: 100%;">
+                      <img src="assets/images/origin/origin-founder.png" alt="郭正利先生" class="img-fluid rounded shadow-lg">
+                      <figcaption class="mt-2 text-center">1990年的初心，至今未變。</figcaption>
+                    </figure>
+                  </div>
+
+                </div>
+              </div>
+            </section>
+
+            <!-- ==========================================
+                貳｜服務哲學：細節的四個層次
+                ========================================== -->
+            <section id="origin-2" class="section-padding" style="background: var(--skylark-bg);">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-lg-10">
+
+                    <div class="text-center mb-5 fade-in-text">
+                      <p class="chapter-tag">【貳】服務哲學｜細節的四個層次</p>
+                      <h2 class="manifesto-title">不是 SOP，而是對人的凝視。</h2>
+                      <p class="manifesto-lead">讓讀者像站在現場，聽見他怎麼把款待拆解成方法。</p>
+                      <span class="breathing-line"></span>
+                    </div>
+
+                    <div class="accordion origin-accordion" id="originDetailAccordion">
+
+                      <!-- 01 -->
+                      <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingOne">
+                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            第一層｜看得見的細節（把標準做成尊重）
+                          </button>
+                        </h3>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#originDetailAccordion">
+                          <div class="accordion-body">
+                            <p class="body-text">筷子擺放的角度必須整齊劃一。有人趕時間斜放，被當場退回重擺。</p>
+
+                            <blockquote class="quote-block">
+                              「客人看不見的地方，才是品牌真正的底線。」
+                              <span class="quote-source">—— 郭正利</span>
+                            </blockquote>
+
+                            <ul class="body-text">
+                              <li>領帶長度精確到褲頭上緣</li>
+                              <li>行李標籤朝向統一</li>
+                              <li>遊覽車窗簾高度一致</li>
+                              <li>每日儀容檢查，歪 1 公分也不放過</li>
+                            </ul>
+
+                            <p class="body-text" style="color: var(--skylark-purple);">
+                              「這不是刁難，是對品質的承諾。客人的噴嚏，就是我們的地震。」
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- 02 -->
+                      <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingTwo">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            第二層｜感受到的細節（把用心做成不必開口）
+                          </button>
+                        </h3>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#originDetailAccordion">
+                          <div class="accordion-body">
+                            <ul class="body-text">
+                              <li>記住慣用手，遞筷子不需要換手</li>
+                              <li>記住不吃生魚片，提前安排替代菜色</li>
+                              <li>記住行動不便，住宿先排電梯可達房型</li>
+                              <li>記住靠窗偏好，每次搭車都預留</li>
+                              <li>記住紀念日，在旅程中悄悄準備驚喜</li>
+                            </ul>
+
+                            <blockquote class="quote-block">
+                              「客人不會記得你說了什麼，但會記得你讓他『感覺』到什麼。」
+                              <span class="quote-source">—— 郭正利</span>
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- 03 -->
+                      <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingThree">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            第三層｜超越期待的設計（把擔憂消失在開口之前）
+                          </button>
+                        </h3>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#originDetailAccordion">
+                          <div class="accordion-body">
+                            <p class="body-text">這一層的工作，是提前多想幾步，讓事情「既貼心、又優雅」。</p>
+
+                            <div class="origin-case">
+                              <div class="origin-case__title">案例｜2007.09.09 喜來登：紅玫瑰辨識系統</div>
+                              <p class="body-text">機場接機遞上紅玫瑰，飯店人員看到玫瑰就直接引導到專案櫃檯。</p>
+                              <div class="origin-case__note">吳芳梅（喜來登）：「提前想了好幾步，而且用很簡單有效的方式去處理。」</div>
+                            </div>
+
+                            <div class="origin-case">
+                              <div class="origin-case__title">案例｜晚宴視線檢查</div>
+                              <blockquote class="quote-block">
+                                「我在確認，不論坐在哪個位置，客人都能完整看到舞台全貌。」
+                                <span class="quote-source">—— 郭正利</span>
+                              </blockquote>
+                            </div>
+
+                            <div class="origin-case">
+                              <div class="origin-case__title">案例｜200 位客人：200 次跪下敬酒</div>
+                              <p class="body-text">榻榻米包廂，一位一位跪下敬酒。那一晚，他跪了 200 次。</p>
+                              <div class="origin-case__note">劉婉琪：「大哥這麼大費周章，就是表達『珍惜客人』的心意。」</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- 04 -->
+                      <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingFour">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            第四層｜體貼到看不見的角落（把被忽略的人也放進光裡）
+                          </button>
+                        </h3>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#originDetailAccordion">
+                          <div class="accordion-body">
+                            <div class="origin-case">
+                              <div class="origin-case__title">案例｜小朋友的獎狀</div>
+                              <p class="body-text">另外安排孩子上台領獎狀與禮物，讓他們也「被看見」。</p>
+                            </div>
+
+                            <div class="origin-case">
+                              <div class="origin-case__title">案例｜錯過美秀博物館（Miho Museum）</div>
+                              <p class="body-text">補償書籍費、半價招待補看、親自致電道歉並先體諒失望。</p>
+                              <div class="origin-case__note">「只要是他很在乎的，就是優先要處理的。」—— 郭正利</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div><!-- /accordion -->
+
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ==========================================
+                參｜價格的真相
+                ========================================== -->
+            <section id="origin-3" class="section-padding position-relative manifesto-section">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-lg-9 fade-in-text">
+                    <p class="chapter-tag text-center">【參】價格的真相</p>
+                    <h2 class="manifesto-title text-center mb-5">憑什麼貴一倍？</h2>
+                    
+                    <div class="row g-5 align-items-center">
+                      <div class="col-lg-6">
+                        <p class="body-text">
+                          1995年，有位客人在電話裡直接問我：「郭先生，你們的團費是別人的兩倍，憑什麼？」
+                        </p>
+                        <p class="body-text">
+                          我沒有生氣，反而很感謝他。我說：<br>
+                          「先生，我想問您一個問題：<span class="emphasis">您願意用多少錢，買到『被當成家人』的感覺？</span>」
+                        </p>
+                        <p class="body-text">
+                          別人的導遊叫不出您的名字，我們的導遊記得您不吃生魚片；<br>
+                          別人的巴士是租的，我們的巴士是自己買的，因為我不想讓您坐在「別人的車」上。
+                        </p>
+                        <p class="body-text emphasis" style="color: var(--skylark-blue);">
+                          「這個價差，買的不是景點，是尊嚴。」
+                        </p>
+                        <p class="body-text small text-muted mt-3">
+                          那位客人後來成了天喜20年的常客。
+                        </p>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <!-- 價格對比表 -->
+                        <div class="table-responsive rounded shadow-sm" style="border: 1px solid var(--skylark-gold);">
+                          <table class="table table-hover mb-0 text-center" style="font-family: var(--font-body);">
+                            <thead style="background-color: var(--skylark-dark-blue); color: #fff;">
+                              <tr>
+                                <th scope="col" class="py-3">項目</th>
+                                <th scope="col" class="py-3">市場行情</th>
+                                <th scope="col" class="py-3" style="background-color: var(--skylark-blue);">天喜標準</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="fw-bold text-muted">團費</td>
+                                <td>4,000元</td>
+                                <td class="fw-bold text-primary">8,000~12,000元</td>
+                              </tr>
+                              <tr>
+                                <td class="fw-bold text-muted">住宿</td>
+                                <td>商務旅館</td>
+                                <td class="fw-bold text-primary">天皇御宿、百選溫泉</td>
+                              </tr>
+                              <tr>
+                                <td class="fw-bold text-muted">交通</td>
+                                <td>租用公車</td>
+                                <td class="fw-bold text-primary">自購專屬遊覽車 (20台)</td>
+                              </tr>
+                              <tr>
+                                <td class="fw-bold text-muted">導遊比例</td>
+                                <td>1 : 40</td>
+                                <td class="fw-bold text-primary">1 : 20</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="text-center mt-3 text-muted small">
+                          「您付的不是團費，是對『被尊重』的投資。」
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ==========================================
+                肆｜堅持的代價
+                ========================================== -->
+            <section id="origin-4" class="section-padding" style="background: #fff;">
+              <div class="container">
+                <div class="row justify-content-center align-items-center g-5">
+                  
+                  <div class="col-lg-6 fade-in-text delay-1">
+                    <p class="chapter-tag">【肆】堅持的代價</p>
+                    <h2 class="manifesto-title mb-4">不妥協的骨氣。</h2>
+                    
+                    <h5 class="text-dark mt-4">自購資產的傻勁</h5>
+                    <p class="body-text">
+                      2001年，我決定在日本自購20台專屬遊覽車。業界笑我傻：「租就好了，幹嘛買？」<br>
+                      我的理由很簡單：「我不想讓客人坐在『別人的車』上。」<br>
+                      天喜的車，座椅間距多10公分，每個座位都有獨立溫控。因為那是我們家的車，要讓客人有回家的感覺。
+                    </p>
+
+                    <h5 class="text-dark mt-4">龜毛的 DNA 傳承</h5>
+                    <p class="body-text">
+                      天喜的導遊訓練，業界聞名「龜毛」。背誦120位常客禁忌、儀容檢查歪1公分也不放過、3000字反省報告。<br>
+                      有人受不了離開了，但留下來的，都成了「天喜家族」。
+                    </p>
+                    
+                    <div class="mt-4" style="color: var(--skylark-purple);">
+                      「勢不讓人，態度讓人。我對職員嚴格，但我更愛他們。」
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 fade-in-text delay-2">
+                    <figure class="memory-object w-100" style="max-width: 100%; margin:0;">
+                      <img src="assets/images/origin/origin-team.png" alt="天喜團隊合照" class="img-fluid rounded shadow">
+                      <figcaption class="mt-2 text-center">天喜家族與郭總裁</figcaption>
+                    </figure>
+                  </div>
+
+                </div>
+              </div>
+            </section>
+
+            <!-- ==========================================
+                伍｜時間見證 (時間軸)
+                ========================================== -->
+            <section id="origin-5" class="section-padding position-relative" style="background: var(--skylark-bg);">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-lg-8">
+                    <div class="text-center fade-in-text">
+                      <p class="chapter-tag">【伍】時間見證</p>
+                      <h2 class="manifesto-title">從 1990 到 2025</h2>
+                    </div>
+
+                    <div class="timeline-box mt-5 fade-in-text delay-1 p-4 bg-white rounded shadow-sm border">
+                      
+                      <h5 class="text-primary mb-3">【黃金年代】</h5>
+                      <ul class="list-unstyled body-text">
+                        <li class="mb-2"><span class="fw-bold text-dark">1990.06.18</span>｜台北創立，南京東路8坪辦公室，3人團隊</li>
+                        <li class="mb-2"><span class="fw-bold text-dark">1992</span>｜年營收突破1億，職員增至120人</li>
+                        <li class="mb-2"><span class="fw-bold text-dark">1999</span>｜年營收2.8億，成為台灣日本團領導品牌</li>
+                        <li class="mb-2"><span class="fw-bold text-dark">2001</span>｜自購日本專屬遊覽車</li>
+                        <li class="mb-2"><span class="fw-bold text-dark">2004</span>｜巔峰時期，年營收52億，職員2,800人</li>
+                        <li class="mb-2"><span class="fw-bold text-dark">2007</span>｜擴張日本車隊至20台，連續兩年成長4成</li>
+                      </ul>
+
+                      <hr class="custom-line my-4">
+
+                      <h5 class="text-danger mb-3">【墜落與烈火】</h5>
+                      <ul class="list-unstyled body-text">
+                        <li class="mb-2"><span class="fw-bold text-dark">2008</span>｜金融海嘯，旅遊業受衝擊</li>
+                        <li class="mb-2"><span class="fw-bold text-dark">2010-2014</span>｜投資失利，財務風暴，負債15億</li>
+                      </ul>
+                      <p class="body-text small text-muted fst-italic">
+                        那段時間，我每天凌晨3點醒來，盯著天花板問自己：「是不是我太堅持了？」<br>
+                        但我沒有逃，因為我記得那600位職員的臉。
+                      </p>
+
+                      <hr class="custom-line my-4">
+
+                      <h5 class="text-muted mb-3">【泥濘中的優雅】</h5>
+                      <ul class="list-unstyled body-text">
+                        <li class="mb-2"><span class="fw-bold text-dark">2015</span>｜迪化街賣麻油雞。穿著西裝，彎著腰端湯。</li>
+                        <li class="mb-2"><span class="fw-bold text-dark">2016.11.10</span>｜郭正利辭世，享年59歲。</li>
+                      </ul>
+                      <p class="body-text small text-muted">
+                        最讓我感動的是，600位前職員輪流回來幫我洗碗。<br>
+                        「郭總，您當年照顧我們，現在換我們照顧您。」
+                      </p>
+
+                      <hr class="custom-line my-4">
+
+                      <h5 class="text-success mb-3">【傳承與重生】</h5>
+                      <ul class="list-unstyled body-text">
+                        <li class="mb-2"><span class="fw-bold text-dark">2025</span>｜品牌重生，精神延續。</li>
+                      </ul>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ==========================================
+                陸｜留下的不是財富，是信仰
+                ========================================== -->
+            <section id="origin-6" class="section-padding position-relative" style="background: #0F1419; color: #fff;">
+              <div class="position-absolute w-100 h-100" style="
+                top:0; left:0;
+                background-image: url('assets/images/origin/origin-vision.png');
+                background-size: cover;
+                background-position: center;
+                opacity: 0.2;
+                z-index: 0;"></div>
+
+              <div class="container position-relative" style="z-index: 2;">
+                <div class="row justify-content-center">
+                  <div class="col-lg-8 text-center">
+                    
+                    <div class="fade-in-text">
+                      <p class="chapter-tag" style="color: var(--skylark-gold);">【陸】信仰</p>
+                      <h2 class="manifesto-title" style="color: #fff;">留下的不是財富，是信仰。</h2>
+                    </div>
+
+                    <div class="my-5 fade-in-text delay-1">
+                      <p class="body-text" style="color: rgba(255,255,255,0.8); font-size: 1.1rem;">
+                        2016年，我離開了。我沒有留下40億的身價，但我留下了一句話：
+                      </p>
+                      <blockquote class="founder-quote" style="color: var(--skylark-gold); font-size: 1.8rem; margin: 2rem 0;">
+                        「蹲下，是為了跳得更高。」
+                      </blockquote>
+                      <p class="body-text" style="color: rgba(255,255,255,0.8);">
+                        為什麼600位前職員願意回來幫我洗碗？<br>
+                        不是因為我有錢，而是因為我曾經把他們當家人。<br>
+                        我記得誰的孩子要上學，誰的父母生病。<br>
+                        喜來登的業務說：「他這麼大的客戶，居然還幫我倒茶水。」
+                      </p>
+                      <div class="mt-4" style="color: var(--skylark-lilac); letter-spacing: 0.1em;">
+                        「情義，才是品牌最深的護城河。」
+                      </div>
+                    </div>
+
+                    <div class="fade-in-text delay-2 mt-5 pt-5 border-top border-secondary">
+                      <p class="chapter-tag" style="color: var(--skylark-gold);">【柒】結語</p>
+                      <h3 class="text-white mb-4" style="font-family: var(--font-heading); letter-spacing: 0.1em;">這份信仰，我們想交到您手上。</h3>
+                      
+                      <p class="body-text" style="color: rgba(255,255,255,0.8);">
+                        天喜的源頭，不在1990年的那張營業執照，<br>
+                        而在每一次被記住的名字、每一個被看見的需求。
+                      </p>
+                      
+                      <p class="body-text mt-4" style="color: rgba(255,255,255,0.8);">
+                        如果您也相信，旅行的價值不在便宜，而在被記得；<br>
+                        如果您也願意，把自己或家人交給一群「記得您名字」的人——
+                      </p>
+
+                      <div class="mt-5">
+                        <span class="emphasis" style="color: var(--skylark-green); font-size: 1.4rem; letter-spacing: 0.2em;">我們在這裡，等您。</span>
+                      </div>
+                    </div>
+
+                    <div class="mt-5 pt-4 fade-in-text delay-3">
+                      <a href="history.html" class="btn-skylark">繼續閱讀：跡 History →</a>
+                      <a href="index.html" class="btn-link-skylark ms-3" style="color: #fff;">返回首頁</a>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </section>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+  <!-- Footer -->
+  <footer class="footer-skylark">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-md-6 text-md-start text-center">
+          <div class="footer-brand d-flex align-items-center justify-content-md-start justify-content-center">
+            <img src="assets/images/logo/logo.png" alt="天喜旅行 Skylark" class="footer-logo">
+            <div class="footer-tagline">
+              <p class="mb-1">天喜の記憶</p>
+              <small class="text-muted">精彩回憶，依然天喜</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-md-end text-center">
+          <div class="footer-links">
+            <a href="origin.html">源</a>
+            <a href="history.html">跡</a>
+            <a href="memory.html">憶</a>
+            <a href="vision.html">願</a>
+          </div>
+            <div class="footer-contact text-muted mt-2">
+                <small>重啟計畫進行中｜聯絡：<a href="mailto:1990skylark@gmail.com">1990skylark@gmail.com - 天喜重建籌備團隊</a></small>
+            </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="row">
+        <div class="col text-center">
+          <small class="text-muted">&copy; 2025 Skylark Memory. All Rights Reserved.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

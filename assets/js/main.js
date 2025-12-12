@@ -89,3 +89,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const fadeElements = document.querySelectorAll('.fade-in-text');
     fadeElements.forEach(el => observer.observe(el));
 });
+
+
+// Origin reading progress bar
+(function () {
+  const bar = document.getElementById('originProgressBar');
+  if (!bar) return;
+
+  const update = () => {
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop || document.body.scrollTop;
+    const scrollHeight = doc.scrollHeight - doc.clientHeight;
+    const p = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    bar.style.width = `${Math.min(100, Math.max(0, p))}%`;
+  };
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+})();

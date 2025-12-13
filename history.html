@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>跡 History｜天喜の記憶 - 35年的軌跡</title>
+  <!-- Meta SEO -->
+  <meta name="description" content="跡 History：從1990年的開封街8坪辦公室，到2025年的品牌重生。這35年，天喜走過巔峰也走過泥濘，始終堅持款待的本質。">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#F9F7F2">
+  <link rel="icon" href="assets/images/logo/favicon.png" type="image/png">
+  
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    /* History 頁面專屬樣式 */
+    .timeline-section {
+        position: relative;
+        padding-left: 2rem;
+        border-left: 2px solid rgba(197, 160, 101, 0.3); /* Skylark Gold 淡化 */
+        margin-left: 1rem;
+    }
+    
+    .timeline-year {
+        font-family: var(--font-heading);
+        color: var(--skylark-blue);
+        font-weight: 700;
+        font-size: 1.5rem;
+        position: relative;
+    }
+
+    .timeline-year::before {
+        content: '';
+        position: absolute;
+        left: -2.6rem; /* 對齊線條 */
+        top: 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        background: #fff;
+        border: 3px solid var(--skylark-gold);
+        border-radius: 50%;
+    }
+
+    .timeline-card {
+        background: #fff;
+        border: 1px solid rgba(0,0,0,0.05);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        transition: transform 0.3s ease;
+    }
+
+    .timeline-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .era-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--skylark-dark-blue);
+        position: relative;
+        display: inline-block;
+    }
+    
+    .era-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: var(--skylark-gold);
+        margin: 1rem auto 0;
+    }
+
+    .data-table-container {
+        overflow-x: auto;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .lesson-card {
+        background: rgba(255,255,255,0.8);
+        border-left: 4px solid var(--skylark-blue);
+        padding: 1.5rem;
+        height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 導覽列 -->
+  <nav class="navbar navbar-expand-lg navbar-skylark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo/logo.png" alt="天喜旅行 Skylark" class="navbar-logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">序 <small class="d-block text-muted" style="font-size: 0.6em;">Home</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="origin.html">源 <small class="d-block text-muted" style="font-size: 0.6em;">Origin</small></a></li>
+          <li class="nav-item"><a class="nav-link active" href="history.html">跡 <small class="d-block text-muted" style="font-size: 0.6em;">History</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="memory.html">憶 <small class="d-block text-muted" style="font-size: 0.6em;">Memory</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="vision.html">願 <small class="d-block text-muted" style="font-size: 0.6em;">Vision</small></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <header class="hero-section d-flex align-items-center position-relative" style="height: 60vh; background: #1a1a1a;">
+      <div class="position-absolute w-100 h-100" style="
+        background-image: url('assets/images/history/history-hero.png'); 
+        background-size: cover; 
+        background-position: center; 
+        opacity: 0.4;">
+      </div>
+      <div class="container position-relative text-center text-white z-2">
+        <p class="chapter-tag text-white-50 mb-2">【跡 History】</p>
+        <h1 class="display-4 fw-bold mb-4">35年的軌跡</h1>
+        <div class="mx-auto" style="max-width: 600px;">
+            <p class="lead mb-4" style="font-weight: 300; letter-spacing: 0.1em;">
+                這35年，我們走過巔峰，也走過泥濘。<br>
+                但無論在哪裡，我們始終記得——<br>
+                <span style="color: var(--skylark-gold);">款待的本質，從來不在紅地毯上。</span>
+            </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- 壹｜黃金年代 -->
+    <section class="section-padding" style="background: var(--skylark-bg);">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="era-title">【壹】黃金年代 (1990-2007)<br><small class="text-muted fs-5 fw-normal">當我們定義「日本團」這件事</small></h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline-section">
+                        
+                        <!-- 1990 -->
+                        <div class="mb-5 fade-in-text">
+                            <div class="timeline-year">1990</div>
+                            <h4 class="mt-2 mb-3">櫻花季的誕生｜開封街 8 坪的開始</h4>
+                            <div class="timeline-card">
+                                <p class="body-text">
+                                    1990年6月18日，郭正利在<strong>台北市開封街</strong>租下一間8坪的辦公室，用40萬元資本創立「天喜旅行社」。
+                                </p>
+                                <p class="body-text">
+                                    當時台灣已有39家旅行社經營日本團，市場價格殺到4,000元一趟。但郭正利沒有加入價格戰，他選擇了一條更難的路：
+                                </p>
+                                <blockquote class="quote-block my-3">「讓每個客人，都被記得。」</blockquote>
+                                <hr class="my-3 text-muted opacity-25">
+                                <h5 class="text-primary fs-6">第一團｜3位客人的實驗</h5>
+                                <p class="body-text small mb-0">
+                                    天喜的第一團只有3位客人。郭正利親自帶團，在飛機上記住每個人的名字、飲食習慣、座位偏好。那趟旅程結束後，3位客人都成了天喜的終身顧客。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 1992 -->
+                        <div class="mb-5 fade-in-text">
+                            <div class="timeline-year">1992</div>
+                            <h4 class="mt-2 mb-3">突破1億的里程碑</h4>
+                            <div class="timeline-card">
+                                <p class="body-text">天喜年營收突破1億，職員從3人增至120人。郭正利開始建立<strong>「天喜式」的導遊訓練系統</strong>：</p>
+                                <ul class="body-text text-muted small">
+                                    <li>每位導遊必須背誦120位常客的飲食禁忌</li>
+                                    <li>每天早上儀容檢查，領帶歪1公分也不放過</li>
+                                    <li>每趟行程結束，必須寫3,000字的反省報告</li>
+                                </ul>
+                                <div class="text-end text-primary small mt-2">「服務不是SOP，而是對人的凝視。」</div>
+                            </div>
+                        </div>
+
+                        <!-- 1999-2000 -->
+                        <div class="mb-5 fade-in-text">
+                            <div class="timeline-year">1999-2000</div>
+                            <h4 class="mt-2 mb-3">日本旅遊的代名詞</h4>
+                            <div class="timeline-card">
+                                <p class="body-text">
+                                    年營收達2.8億至5億。客人願意付兩倍價格，因為他們買到的是「被記得的尊嚴」。
+                                </p>
+                                <p class="body-text">
+                                    有一年，日本溫泉旅館主動為天喜的客人升起中華民國國旗，這是台灣旅行團從未有過的榮耀。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 2001-2002 -->
+                        <div class="mb-5 fade-in-text">
+                            <div class="timeline-year">2001-2002</div>
+                            <h4 class="mt-2 mb-3">自購資產的承諾</h4>
+                            <div class="timeline-card">
+                                <p class="body-text">
+                                    <strong>2001｜自購日本專屬遊覽車</strong><br>
+                                    業界笑他傻，他說：「我不想讓客人坐在『別人的車』上。天喜的車，車窗擦得比誰都亮，座椅間距多10公分。」
+                                </p>
+                                <p class="body-text mt-3">
+                                    <strong>2002｜買下台北市中心總部</strong><br>
+                                    他說：「我不想讓職員在『隨時可能搬走的辦公室』裡工作。天喜的每一樣東西，都要有家的感覺。」
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 2004-2007 -->
+                        <div class="mb-5 fade-in-text">
+                            <div class="timeline-year">2004-2007</div>
+                            <h4 class="mt-2 mb-3">巔峰與盛典</h4>
+                            <div class="timeline-card">
+                                <p class="body-text">
+                                    <strong>2004｜巔峰時期</strong><br>
+                                    年營收52億，職員2,800人，日本專屬遊覽車20台。郭正利從來來飯店的小弟，成為台灣旅遊業的傳奇。
+                                </p>
+                                <hr class="my-3 text-muted opacity-25">
+                                <p class="body-text">
+                                    <strong>2007.09.09｜台北喜來登的婚禮</strong><br>
+                                    包下200多間客房。他在機場遞給每位貴賓一朵紅玫瑰作為識別，讓飯店人員能精準接待。
+                                </p>
+                                <blockquote class="quote-block small my-2">
+                                    「他的厲害之處，就是會提前想了好幾步...到了客戶這一端，就會感受到既貼心、又優雅。」<br>
+                                    <span class="text-muted">—— 喜來登吳芳梅 (理財周刊, 2008)</span>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 貳｜墜落與烈火 -->
+    <section class="section-padding" style="background: #fff;">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="era-title" style="color: #8B0000;">【貳】墜落與烈火 (2008-2014)<br><small class="text-muted fs-5 fw-normal">當巨人跌倒</small></h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline-section" style="border-left-color: #8B0000;">
+                        
+                        <div class="mb-5 fade-in-text">
+                            <div class="timeline-year" style="color: #8B0000;">2008</div>
+                            <h4 class="mt-2 mb-3">金融海嘯的衝擊</h4>
+                            <div class="timeline-card">
+                                <p class="body-text">
+                                    全球金融海嘯席捲，旅遊業首當其衝。天喜營收下滑，但郭正利堅持不裁員、不降品質。
+                                    <br><span class="text-muted">「客人可以少，但品質不能少。天喜的招牌，不是用來賤賣的。」</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mb-5 fade-in-text">
+                            <div class="timeline-year" style="color: #8B0000;">2010-2014</div>
+                            <h4 class="mt-2 mb-3">風暴與停業</h4>
+                            <div class="timeline-card">
+                                <p class="body-text">
+                                    投資失利與擴張過快，財務缺口擴大。郭正利承受巨大壓力，常常徹夜難眠。
+                                </p>
+                                <p class="body-text mt-3">
+                                    <strong>2014.06.19｜天喜正式停業</strong><br>
+                                    從巔峰到谷底，媒體用「落難大亨」形容他。但他沒有逃避債務，選擇了一條最難的路：「一塊錢一塊錢還。」
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 參｜泥濘中的優雅 -->
+    <section class="section-padding" style="background: #f4f4f4;">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="era-title" style="color: #555;">【參】泥濘中的優雅 (2015-2016)<br><small class="text-muted fs-5 fw-normal">當西裝沾上油煙</small></h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline-section" style="border-left-color: #555;">
+                        
+                        <div class="mb-5 fade-in-text">
+                            <div class="timeline-year" style="color: #555;">2015</div>
+                            <h4 class="mt-2 mb-3">迪化街賣麻油雞</h4>
+                            <div class="timeline-card">
+                                <p class="body-text">
+                                    他依然穿著筆挺的西裝，彎著腰，用雙手端湯。有人問他覺得丟臉嗎？他說：
+                                </p>
+                                <blockquote class="quote-block my-3">「丟臉的不是賣麻油雞，而是忘記怎麼彎腰。」</blockquote>
+                                <p class="body-text">
+                                    <strong>服務的DNA延續：</strong>記住口味、雙手遞碗、確認溫度。即使在路邊攤，他依然在做「款待」。
+                                </p>
+                                <hr class="my-3">
+                                <p class="body-text text-muted small">
+                                    <strong>數百位前職員的回報：</strong><br>
+                                    最感人的是，數百位前職員輪流回來幫他洗碗。「郭總，您當年照顧我們，現在換我們照顧您。」
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mb-5 fade-in-text">
+                            <div class="timeline-year" style="color: #333;">2016.11.10</div>
+                            <h4 class="mt-2 mb-3">享年59歲</h4>
+                            <div class="timeline-card bg-dark text-white">
+                                <p class="body-text text-white-50">
+                                    郭正利因病辭世。他沒有留下40億身價，但他留下了：<br>
+                                    一句話：「蹲下，是為了跳得更高。」<br>
+                                    以及一個關於「款待」的信仰。
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 肆｜傳承與重生 -->
+    <section class="section-padding" style="background: var(--skylark-bg);">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="era-title" style="color: var(--skylark-green);">【肆】傳承與重生 (2016-2025)<br><small class="text-muted fs-5 fw-normal">當精神延續</small></h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline-section" style="border-left-color: var(--skylark-green);">
+                        
+                        <div class="mb-5 fade-in-text">
+                            <div class="timeline-year" style="color: var(--skylark-green);">2016-2023</div>
+                            <h4 class="mt-2 mb-3">沉澱與保存</h4>
+                            <div class="timeline-card">
+                                <p class="body-text">
+                                    天喜商標被保留。疫情期間，前職員自發整理語錄與案例，將「天喜式服務」的DNA保存下來。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mb-5 fade-in-text">
+                            <div class="timeline-year" style="color: var(--skylark-green);">2025</div>
+                            <h4 class="mt-2 mb-3">品牌重生</h4>
+                            <div class="timeline-card" style="border-top: 4px solid var(--skylark-green);">
+                                <p class="body-text">
+                                    天喜以全新姿態重生。我們不再只是一間旅行社，而是<strong>「生活體驗的策展者」</strong>。
+                                </p>
+                                <ul class="body-text text-muted small">
+                                    <li>從「日本團」到「文化深度旅行」</li>
+                                    <li>從「觀光景點」到「人與人的連結」</li>
+                                    <li>從「價格競爭」到「價值堅持」</li>
+                                </ul>
+                                <div class="text-center mt-3 fw-bold text-primary">
+                                    但有一件事，從未改變：「讓每個客人，都被記得。」
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 伍｜數據總覽 -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h3 class="text-center mb-4">【伍】時間軸總覽｜35年的軌跡</h3>
+                    <div class="data-table-container p-4">
+                        <h5 class="text-primary mb-3">黃金年代 (1990-2007)</h5>
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>年份</th>
+                                    <th>里程碑</th>
+                                    <th>年營收</th>
+                                    <th>職員數</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1990</td><td>台北創立，開封街8坪</td><td>40萬資本</td><td>3人</td></tr>
+                                <tr><td>1992</td><td>突破1億</td><td>1億+</td><td>120人</td></tr>
+                                <tr><td>1999</td><td>日本團領導品牌</td><td>2.8億</td><td>280人</td></tr>
+                                <tr><td>2004</td><td>巔峰時期</td><td>52億</td><td>2,800人</td></tr>
+                                <tr><td>2007</td><td>連續兩年成長4成</td><td>53億</td><td>-</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="text-muted small text-end">（數據來源：理財周刊2008年報導、天喜內部文件）</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 陸｜關鍵轉折 -->
+    <section class="section-padding" style="background: var(--skylark-bg);">
+        <div class="container">
+            <h3 class="text-center mb-5">【陸】三個關鍵轉折｜我們學到的事</h3>
+            <div class="row g-4">
+                <div class="col-md-4 fade-in-text delay-1">
+                    <div class="lesson-card shadow-sm">
+                        <h5 class="mb-3">轉折一｜從52億到債務</h5>
+                        <p class="body-text small">擴張的速度，不能超過文化的深度。資產可以失去，但信仰不能妥協。</p>
+                        <div class="text-muted small mt-3">「便宜的價格會被遺忘，但極致的感動會被記住。」</div>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in-text delay-2">
+                    <div class="lesson-card shadow-sm">
+                        <h5 class="mb-3">轉折二｜從總裁到攤販</h5>
+                        <p class="body-text small">尊嚴不在職位，而在態度。彎腰的姿態，比站著的高度更重要。</p>
+                        <div class="text-muted small mt-3">「丟臉的不是賣麻油雞，而是忘記怎麼彎腰。」</div>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in-text delay-3">
+                    <div class="lesson-card shadow-sm">
+                        <h5 class="mb-3">轉折三｜職員的回報</h5>
+                        <p class="body-text small">情義，才是品牌最深的護城河。家人，不是用錢買來的，而是用心換來的。</p>
+                        <div class="text-muted small mt-3">「我記得每個人的名字...」</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 結語 -->
+    <section class="section-padding bg-dark text-white text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-4" style="color: var(--skylark-gold);">這段旅程，尚未結束。</h2>
+                    <p class="lead mb-5 opacity-75">
+                        這35年，我們走過巔峰，也走過泥濘。<br>
+                        但無論在哪裡，我們始終記得：<br>
+                        款待的本質，從來不在紅地毯上，<br>
+                        而在那些被看見、被記住、被照顧的瞬間裡。
+                    </p>
+                    <blockquote class="blockquote border-start border-warning border-4 ps-3 text-start d-inline-block mx-auto">
+                        <p class="mb-2">「蹲下，不是認輸，是為了跳得更高。」</p>
+                        <footer class="blockquote-footer text-white-50">郭正利 (1957-2016)</footer>
+                    </blockquote>
+                    <div class="mt-5">
+                        <a href="origin.html" class="btn btn-outline-light me-3">← 返回：源 Origin</a>
+                        <a href="memory.html" class="btn btn-primary">繼續閱讀：憶 Memory →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-skylark">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-md-6 text-md-start text-center">
+          <div class="footer-brand d-flex align-items-center justify-content-md-start justify-content-center">
+            <img src="assets/images/logo/logo.png" alt="天喜旅行 Skylark" class="footer-logo">
+            <div class="footer-tagline">
+              <p class="mb-1">天喜の記憶</p>
+              <small class="text-muted">精彩回憶，依然天喜</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-md-end text-center">
+            <div class="footer-links">
+                <a href="origin.html">源</a>
+                <a href="history.html">跡</a>
+                <a href="memory.html">憶</a>
+                <a href="vision.html">願</a>
+            </div>
+            <div class="footer-contact text-muted mt-2">
+                <small>重啟計畫進行中｜聯絡：<br class="d-md-none"><a href="mailto:1990skylark@gmail.com">1990skylark@gmail.com - 天喜重建籌備團隊</a></small>
+            </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="row">
+        <div class="col text-center">
+          <small class="text-muted">&copy; 2025 Skylark Memory. All Rights Reserved.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

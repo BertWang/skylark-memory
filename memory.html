@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>憶 Memory｜天喜の記憶 - 拼湊那些被記得的瞬間</title>
+  <!-- Meta SEO -->
+  <meta name="description" content="憶 Memory：這是一個正在整理中的品牌記憶庫。如果您也曾被天喜照顧過，歡迎回家，把那段記憶帶回來。">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#F9F7F2">
+  <link rel="icon" href="assets/images/logo/favicon.png" type="image/png">
+  
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* Memory 頁面專屬樣式 */
+    .memory-hero-text {
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    /* 問卷區塊 */
+    .memory-form-card {
+      background: #fff;
+      border: 1px solid rgba(197, 160, 101, 0.2);
+      border-radius: 8px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    .form-label {
+      font-weight: 600;
+      color: var(--skylark-dark-blue);
+      margin-bottom: 0.8rem;
+    }
+    .form-control, .form-select {
+      border: 1px solid #e0e0e0;
+      padding: 0.8rem;
+      border-radius: 4px;
+      background-color: #fafafa;
+    }
+    .form-control:focus {
+      border-color: var(--skylark-blue);
+      box-shadow: 0 0 0 0.2rem rgba(38, 114, 184, 0.1);
+      background-color: #fff;
+    }
+    
+    /* 證言卡片 */
+    .testimonial-card {
+      background: #fff;
+      padding: 2rem;
+      height: 100%;
+      border-left: 4px solid var(--skylark-gold);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+    .testimonial-quote {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--skylark-blue);
+      margin-bottom: 1rem;
+    }
+    .testimonial-source {
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 1rem;
+      border-top: 1px solid #eee;
+      padding-top: 0.5rem;
+    }
+
+    /* 故事區塊 */
+    .story-item {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .story-item:last-child {
+      border-bottom: none;
+    }
+    .story-title {
+      font-size: 1.3rem;
+      color: var(--skylark-dark-blue);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    .story-title::before {
+      content: '📖';
+      margin-right: 10px;
+      font-size: 1rem;
+    }
+
+    /* 地點地圖 */
+    .location-item {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .location-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: var(--skylark-gold);
+      border-radius: 50%;
+    }
+    .location-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 20px;
+      bottom: -30px;
+      width: 2px;
+      background: rgba(197, 160, 101, 0.3);
+    }
+    .location-item:last-child::after {
+      display: none;
+    }
+
+    /* 金句牆 */
+    .quote-wall-item {
+      background: var(--skylark-dark-blue);
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-wall-item::before {
+      content: '“';
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      font-size: 5rem;
+      opacity: 0.1;
+      font-family: serif;
+    }
+    .quote-wall-text {
+      font-size: 1.1rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 導覽列 -->
+  <nav class="navbar navbar-expand-lg navbar-skylark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo/logo.png" alt="天喜旅行 Skylark" class="navbar-logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">序 <small class="d-block text-muted" style="font-size: 0.6em;">Home</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="origin.html">源 <small class="d-block text-muted" style="font-size: 0.6em;">Origin</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="history.html">跡 <small class="d-block text-muted" style="font-size: 0.6em;">History</small></a></li>
+          <li class="nav-item"><a class="nav-link active" href="memory.html">憶 <small class="d-block text-muted" style="font-size: 0.6em;">Memory</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="vision.html">願 <small class="d-block text-muted" style="font-size: 0.6em;">Vision</small></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <header class="hero-section d-flex align-items-center position-relative" style="height: 60vh; background: #1a1a1a;">
+      <div class="position-absolute w-100 h-100" style="
+        background-image: url('assets/images/memory/memory-hero.jpg'); 
+        background-size: cover; 
+        background-position: center; 
+        opacity: 0.5;"></div>
+      <div class="container position-relative text-center text-white" style="z-index: 2;">
+        <p class="chapter-tag text-white-50 fade-in-text">【憶 Memory】</p>
+        <h1 class="manifesto-title text-white fade-in-text mb-4">我們想聽聽那段故事</h1>
+        <div class="fade-in-text delay-1">
+          <p class="lead memory-hero-text" style="font-weight: 300; letter-spacing: 0.1em;">
+            如果您也曾被天喜照顧過，<br>
+            如果您還記得那趟旅行的感動……
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- 壹｜邀請 -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center fade-in-text">
+            <span class="chapter-tag">【壹】邀請</span>
+            <h2 class="manifesto-title mt-2 mb-5">把記憶帶回來</h2>
+            
+            <p class="body-text">我們正在尋找的，是這些瞬間：</p>
+            
+            <div class="my-4 py-4 border-top border-bottom">
+              <p class="body-text mb-2">那位記得您慣用手的導遊</p>
+              <p class="body-text mb-2">那趟在日本溫泉旅館看見中華民國國旗的感動</p>
+              <p class="body-text mb-2">那碗在迪化街麻油雞攤上，用雙手遞給您的湯</p>
+              <p class="body-text mb-2">那位穿著西裝，彎腰跪著敬酒的總裁</p>
+              <p class="body-text mb-0">那些在行程結束後，依然常常想起的溫暖</p>
+            </div>
+
+            <p class="body-text mt-5">
+              這些記憶，不只是回憶，它們是天喜品牌 DNA 的一部分。<br>
+              它們證明了：<span class="emphasis">便宜的價格會被遺忘，但極致的感動會被記住。</span>
+            </p>
+            
+            <p class="body-text mt-4">
+              我們想把這些記憶收集起來，不是為了炫耀，而是為了提醒自己——<br>
+              <strong>「讓每個客人，都被記得。」</strong><br>
+              這不只是一句口號，而是 35 年來，我們做過的每一件小事。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 貳｜記憶徵集 (表單) -->
+    <section class="section-padding bg-light" id="memory-form">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="text-center mb-5 fade-in-text">
+              <span class="chapter-tag">【貳】記憶徵集</span>
+              <h2 class="manifesto-title mt-2">請告訴我們您的故事</h2>
+            </div>
+
+            <div class="memory-form-card fade-in-text delay-1">
+              <form>
+                <!-- 1. 連結 -->
+                <div class="mb-4">
+                  <label class="form-label">1. 您與天喜的連結是？</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="connection" id="conn1">
+                    <label class="form-check-label" for="conn1">我是天喜的旅客</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="connection" id="conn2">
+                    <label class="form-check-label" for="conn2">我是天喜的前職員</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="connection" id="conn3">
+                    <label class="form-check-label" for="conn3">我是天喜的合作夥伴</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="connection" id="conn4">
+                    <label class="form-check-label" for="conn4">我是郭正利先生的朋友/家人</label>
+                  </div>
+                  <div class="form-check d-flex align-items-center mt-2">
+                    <input class="form-check-input me-2" type="radio" name="connection" id="conn5">
+                    <label class="form-check-label me-2" for="conn5">其他：</label>
+                    <input type="text" class="form-control form-control-sm w-50" placeholder="">
+                  </div>
+                </div>
+
+                <!-- 2. 時間 -->
+                <div class="mb-4">
+                  <label class="form-label">2. 您參加過天喜的行程，或與天喜互動的時間是？</label>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" placeholder="大約年份（例如：2000年代初期）">
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" placeholder="行程或場景（例如：北海道賞雪）">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. 記憶 -->
+                <div class="mb-4">
+                  <label class="form-label">3. 您記得哪一個細節讓您感動？</label>
+                  <div class="form-text mb-2 text-muted">
+                    例如：「導遊記得我媽媽不吃生魚片，主動換成烤魚。」、「郭總在迪化街用雙手把碗遞給我。」
+                  </div>
+                  <textarea class="form-control" rows="4" placeholder="請用您自己的話，簡短描述那個瞬間..."></textarea>
+                </div>
+
+                <!-- 4. 一句話 -->
+                <div class="mb-4">
+                  <label class="form-label">4. 如果用一句話形容天喜，您會說？</label>
+                  <input type="text" class="form-control" placeholder="不超過20個字">
+                </div>
+
+                <!-- 5. 聯絡 -->
+                <div class="mb-4">
+                  <label class="form-label">5. 您願意留下聯絡方式嗎？（選填）</label>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" placeholder="姓名（或暱稱）">
+                    </div>
+                    <div class="col-md-6">
+                      <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" id="agreeShare">
+                    <label class="form-check-label text-muted small" for="agreeShare">
+                      是否願意公開分享您的故事（我們會先徵得您的同意）
+                    </label>
+                  </div>
+                </div>
+
+                <div class="text-center mt-5">
+                  <button type="button" class="btn-skylark w-100 py-3">提交記憶</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 參｜真實證言 -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="text-center mb-5 fade-in-text">
+          <span class="chapter-tag">真實證言</span>
+          <h2 class="manifesto-title mt-2">來自天喜家族的聲音</h2>
+          <p class="text-muted mt-2 small">以下證言來自理財周刊2008年專訪及公開報導</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- 證言 1 -->
+          <div class="col-md-6 col-lg-4 fade-in-text delay-1">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">「大哥就為了這麼一敬，一個禮拜穿梭在台灣、日本是常有的事情。」</div>
+              <p class="body-text small">
+                有一次晚宴在榻榻米包廂，郭總向一名客人跪著敬完酒，再移向下一個...這一個晚上跪下來，就是200名客人。他不是去露臉，而是去表達「珍惜客人」的心意。
+              </p>
+              <div class="testimonial-source">
+                <strong>劉婉琪</strong><br>前天喜教育訓練部副總經理
+              </div>
+            </div>
+          </div>
+
+          <!-- 證言 2 -->
+          <div class="col-md-6 col-lg-4 fade-in-text delay-2">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">「郭總還會另外安排讓這群小朋友上台領獎。」</div>
+              <p class="body-text small">
+                表揚晚宴的焦點都在頂尖員工身上，但郭總注意到跟著來的小朋友們很難融入。他會另外安排讓這群小朋友上台領獎，領取特製的小獎狀。這就是郭總體貼的一面。
+              </p>
+              <div class="testimonial-source">
+                <strong>駱錦修</strong><br>前天喜導遊長
+              </div>
+            </div>
+          </div>
+
+          <!-- 證言 3 -->
+          <div class="col-md-6 col-lg-4 fade-in-text delay-3">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">「他會提前想了好幾步，而且用很簡單有效的方式去處理。」</div>
+              <p class="body-text small">
+                為了識別婚宴貴賓，他在機場接機時遞上一朵紅玫瑰。貴賓一到喜來登，我們看到玫瑰馬上帶往專案櫃檯。到了客戶這一端，就會感受到既貼心、又優雅。
+              </p>
+              <div class="testimonial-source">
+                <strong>吳芳梅</strong><br>台北喜來登日本業務部協理
+              </div>
+            </div>
+          </div>
+
+          <!-- 證言 4 -->
+          <div class="col-md-6 col-lg-4 fade-in-text delay-1">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">「他居然還幫我倒茶水！」</div>
+              <p class="body-text small">
+                郭總是這麼大的客戶，但他跟我們開會時都很親切。有一次開會，他居然還幫我倒茶水！像我們服務別人慣了，突然讓客戶這樣服務，簡直都傻住了。
+              </p>
+              <div class="testimonial-source">
+                <strong>陳珍萍</strong><br>台北喜來登日本業務部專員
+              </div>
+            </div>
+          </div>
+
+          <!-- 證言 5 -->
+          <div class="col-md-6 col-lg-8 fade-in-text delay-2">
+            <div class="testimonial-card" style="border-left-color: var(--skylark-blue);">
+              <div class="testimonial-quote">「郭總，您當年照顧我們，現在換我們照顧您。」</div>
+              <p class="body-text small">
+                2015年，郭總在迪化街賣麻油雞。我們數百位前職員輪流回來幫他洗碗。不是來可憐他，而是來告訴他：「您當年照顧我們，現在換我們照顧您。」那段時間，我們才真正明白——情義，才是品牌最深的護城河。
+              </p>
+              <div class="testimonial-source">
+                <strong>匿名前職員</strong><br>媒體報導 (2015-2016)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 肆｜那些年做過的事 -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <div class="text-center mb-5 fade-in-text">
+          <span class="chapter-tag">故事</span>
+          <h2 class="manifesto-title mt-2">那些年，天喜做過的事</h2>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            
+            <div class="story-item fade-in-text">
+              <h4 class="story-title">那位坐輪椅的媽媽</h4>
+              <p class="body-text">
+                有位客人行前不安地說：「我媽媽坐輪椅，不知道能不能泡湯……」<br>
+                我們的職員當晚就打越洋電話確認升降設備。抵達當天，旅館房間放了一張手寫卡片：「歡迎您來泡湯，我們準備好了。」<br>
+                她後來寫道：<span class="emphasis">「謝謝你們讓我媽媽覺得，她不是負擔。」</span>
+              </p>
+            </div>
+
+            <div class="story-item fade-in-text">
+              <h4 class="story-title">獨行的女性旅客</h4>
+              <p class="body-text">
+                一位第一次自己出國的女性旅客擔心晚上不安全。<br>
+                導遊記住了。到了日本，他主動在她房門外的走廊放了一張椅子，整晚陪伴。隔天早上，她看到那張椅子當場哭了。<br>
+                她說：<span class="emphasis">「我終於知道什麼叫被照顧的感覺。」</span>
+              </p>
+            </div>
+
+            <div class="story-item fade-in-text">
+              <h4 class="story-title">生日的驚喜</h4>
+              <p class="body-text">
+                我們提前聯繫日本溫泉旅館，在晚宴時升起中華民國國旗，全體旅客一起唱生日快樂歌。<br>
+                那位客人後來告訴郭正利：<span class="emphasis">「郭總，那是我這輩子最有尊嚴的生日。」</span>
+              </p>
+            </div>
+
+            <div class="story-item fade-in-text">
+              <h4 class="story-title">美秀博物館的彌補</h4>
+              <p class="body-text">
+                因導遊疏失錯過美秀博物館（Miho Museum），客人非常失望。<br>
+                郭正利知悉後，馬上賠償書籍費用，並提議半價招待下次行程完整參觀。<br>
+                郭正利說：<span class="emphasis">「對於處理客戶投訴，第一要先體諒客戶的感受，只要是他很在乎的，就是優先要處理的。」</span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 伍｜記憶地圖 -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="text-center mb-5 fade-in-text">
+          <span class="chapter-tag">記憶地圖</span>
+          <h2 class="manifesto-title mt-2">那些被記住的地方</h2>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="location-list fade-in-text delay-1">
+              
+              <div class="location-item">
+                <h5 class="text-primary">📍 台北市開封街｜1990-2002</h5>
+                <p class="body-text small">
+                  <strong>8坪辦公室，天喜的起點</strong><br>
+                  1990年6月18日，郭正利在開封街這裡掛上招牌。8坪空間，3人團隊，40萬資本。但那時候，他已經知道自己要做什麼：「讓每個客人，都被記得。」
+                </p>
+              </div>
+
+              <div class="location-item">
+                <h5 class="text-primary">📍 台北市中心辦公大樓｜2002-2014</h5>
+                <p class="body-text small">
+                  <strong>自購的家</strong><br>
+                  郭正利買下整棟辦公室，只為了：「我不想讓職員在『隨時可能搬走的辦公室』裡工作。天喜的每一樣東西，都要有家的感覺。」
+                </p>
+              </div>
+
+              <div class="location-item">
+                <h5 class="text-primary">📍 日本各地溫泉旅館｜1990-2014</h5>
+                <p class="body-text small">
+                  <strong>升起中華民國國旗的地方</strong><br>
+                  天喜的客人，在日本溫泉旅館看見中華民國國旗升起。那一刻，郭正利知道：尊嚴，是用細節掙回來的。
+                </p>
+              </div>
+
+              <div class="location-item">
+                <h5 class="text-primary">📍 日本專屬遊覽車｜2001-2014</h5>
+                <p class="body-text small">
+                  <strong>我們家的車</strong><br>
+                  車窗擦得比誰都亮，座椅間距多10公分。因為那是我們家的車，要讓客人有回家的感覺。
+                </p>
+              </div>
+
+              <div class="location-item">
+                <h5 class="text-primary">📍 台北喜來登飯店｜2007年9月9日</h5>
+                <p class="body-text small">
+                  <strong>200間客房的婚禮</strong><br>
+                  每位貴賓手上都拿著一朵紅玫瑰。這場婚禮，是天喜黃金年代的高潮。
+                </p>
+              </div>
+
+              <div class="location-item">
+                <h5 class="text-primary">📍 迪化街麻油雞攤｜2015-2016</h5>
+                <p class="body-text small">
+                  <strong>款待的本質</strong><br>
+                  他依然穿著西裝，彎著腰端湯。數百位前職員回來幫他洗碗。那段時間，他才真正明白：情義，才是品牌最深的護城河。
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 陸｜金句牆 -->
+    <section class="section-padding bg-dark text-white">
+      <div class="container">
+        <div class="text-center mb-5 fade-in-text">
+          <span class="chapter-tag text-white-50">金句牆</span>
+          <h2 class="manifesto-title mt-2 text-white">他們用一句話記得天喜</h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 fade-in-text">
+            <div class="quote-wall-item">
+              <p class="quote-wall-text">「天喜不只是旅行社，而是一群記得你名字的人。」</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in-text delay-1">
+            <div class="quote-wall-item">
+              <p class="quote-wall-text">「便宜的價格會被遺忘，但極致的感動會被記住。」</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in-text delay-2">
+            <div class="quote-wall-item">
+              <p class="quote-wall-text">「客人的噴嚏，就是我們的地震。」</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in-text">
+            <div class="quote-wall-item">
+              <p class="quote-wall-text">「蹲下，不是認輸，是為了跳得更高。」</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in-text delay-1">
+            <div class="quote-wall-item">
+              <p class="quote-wall-text">「情義，才是品牌最深的護城河。」</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in-text delay-2">
+            <div class="quote-wall-item">
+              <p class="quote-wall-text">「丟臉的不是賣麻油雞，而是忘記怎麼彎腰。」</p>
+            </div>
+          </div>
+          <div class="col-md-12 fade-in-text delay-3">
+            <div class="quote-wall-item" style="background: var(--skylark-blue);">
+              <p class="quote-wall-text">「我花很多時間教導員工，就是要把我在服務方面的DNA給傳下去，這就是企業文化。」</p>
+              <small class="d-block mt-2 text-white-50">—— 郭正利（理財周刊2008年專訪）</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 柒｜結語 -->
+    <section class="section-padding text-center">
+      <div class="container">
+        <div class="col-lg-8 mx-auto fade-in-text">
+          <p class="chapter-tag">結語</p>
+          <h2 class="manifesto-title mb-4">這段旅程，因您而完整</h2>
+          <p class="body-text">
+            天喜的記憶，不只是郭正利的故事，<br>
+            而是每一位被照顧過的旅客、每一位付出過的職員、每一位合作過的夥伴，<br>
+            共同創作的故事。
+          </p>
+          <p class="body-text mt-4">
+            如果您也曾被天喜照顧過，<br>
+            如果您還記得那趟旅行的感動……
+          </p>
+          <p class="body-text emphasis my-4" style="font-size: 1.2rem; color: var(--skylark-blue);">
+            請把那段記憶帶回來。<br>
+            讓我們一起，把天喜的故事重新翻譯給這個時代。
+          </p>
+          
+          <blockquote class="quote-block mx-auto mt-5" style="max-width: 600px;">
+            「記憶不是用來懷舊的，<br>
+            而是用來提醒自己——<br>
+            我們為什麼要這樣做。」<br>
+            <span class="text-muted" style="font-size: 0.9rem;">—— 天喜旅行社，2025</span>
+          </blockquote>
+          
+          <div class="mt-5 pt-4 border-top">
+            <a href="history.html" class="btn-link-skylark me-3">← 返回：跡 History</a>
+            <a href="vision.html" class="btn-skylark">繼續閱讀：願 Vision →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-skylark">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-md-6 text-md-start text-center">
+          <div class="footer-brand d-flex align-items-center justify-content-md-start justify-content-center">
+            <img src="assets/images/logo/logo.png" alt="天喜旅行 Skylark" class="footer-logo">
+            <div class="footer-tagline">
+              <p class="mb-1">天喜の記憶</p>
+              <small class="text-muted">精彩回憶，依然天喜</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-md-end text-center">
+          <div class="footer-links">
+            <a href="origin.html">源</a>
+            <a href="history.html">跡</a>
+            <a href="memory.html">憶</a>
+            <a href="vision.html">願</a>
+          </div>
+            <div class="footer-contact text-muted mt-2">
+                <small>重啟計畫進行中｜聯絡：<br class="d-md-none"><a href="mailto:1990skylark@gmail.com">1990skylark@gmail.com - 天喜重建籌備團隊</a></small>
+            </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="row">
+        <div class="col text-center">
+          <small class="text-muted">&copy; 2025 Skylark Memory. All Rights Reserved.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

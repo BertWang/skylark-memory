@@ -906,3 +906,8 @@ a:hover {
         margin-right: 5%;
     }
 }
+
+@keyframes gentlyFloat {
+  from { transform: translateY(0); }
+  to { transform: translateY(-8px); }
+}

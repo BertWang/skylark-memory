@@ -119,9 +119,23 @@ a:hover {
 
 /* --- 5. 元件樣式 (Components) --- */
 
+/* 按鈕容器 (桌面版) */
+.button-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button-container .btn-skylark,
+.button-container .btn-link-skylark {
+    margin: 0;
+}
+
 /* 圓角按鈕 */
 .btn-skylark {
-    background-color: var(--primary);
+    background-color: var(--skylark-blue);
     color: #fff;
     border-radius: 50px;
     padding: 12px 35px;
@@ -132,7 +146,7 @@ a:hover {
 }
 
 .btn-skylark:hover {
-    background-color: var(--accent);
+    background-color: var(--skylark-green);
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(120, 190, 32, 0.3);
@@ -244,20 +258,25 @@ a:hover {
     position: relative;
     opacity: 0;
     animation: growLine 1.5s ease-out 0.5s forwards;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* SINCE 1990 標籤 */
 .year-tag {
     position: absolute;
-    top: -30px;
+    top: -55px; /* 讓文字更往上，遠離交叉點 */
     left: 50%;
     transform: translateX(-50%) rotate(90deg);
     font-size: 0.7rem;
     letter-spacing: 2px;
     color: var(--skylark-blue);
+    
     white-space: nowrap;
     font-family: sans-serif;
 }
+
+
 
 /* 向下捲動提示 */
 .scroll-indicator {
@@ -327,11 +346,13 @@ a:hover {
         justify-content: center; /* 手機版置中 */
         padding-top: 20px;
     }
-    
+
     .vertical-divider {
         height: 200px;
         margin-left: 1rem !important;
         margin-right: 1rem !important;
+        opacity: 0.5;
+        margin: 10px 0 !important;
     }
 
     /* === Content === */
@@ -488,6 +509,117 @@ a:hover {
 
     .quote-wall-text {
         font-size: 1rem;
+    }
+
+    /* === 手機端按鈕最佳化 === */
+    .btn-skylark {
+        display: block;
+        width: 100%;
+        padding: 12px 20px !important;
+        margin-bottom: 0.75rem;
+        text-align: center;
+        font-size: 0.95rem;
+        word-break: break-word;
+    }
+
+    .btn-link-skylark {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        padding: 12px 0 !important;
+        text-align: center;
+    }
+
+    /* 按鈕容器手機版堆疊 */
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: stretch;
+    }
+
+    .button-container .btn-skylark,
+    .button-container .btn-link-skylark {
+        margin: 0;
+    }
+
+    /* === Vision 頁面表單按鈕優化 === */
+    .text-center > .btn-skylark {
+        display: block;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+    }
+
+    /* === 文本斷行最佳化 === */
+    .body-text {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        line-height: 1.8;
+    }
+
+    .manifesto-title {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.6;
+        font-size: 1.8rem;
+    }
+
+    h2, h3, h4, h5, h6 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.4;
+    }
+
+    /* 防止長字串或 URL 破壞版面 */
+    p, li, span {
+        word-break: break-word;
+        white-space: pre-wrap;
+    }
+
+    /* === 手機端表格與區塊 === */
+    .blockquote {
+        padding: 1rem;
+        margin: 1.5rem 0;
+        font-size: 0.95rem;
+    }
+
+    /* Vision 頁面比較表格優化 */
+    .row.py-4 {
+        flex-direction: column;
+    }
+
+    .row.py-4 .col-md-3,
+    .row.py-4 .col-md-4,
+    .row.py-4 .col-md-5 {
+        width: 100% !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .row.py-4 .col-md-4,
+    .row.py-4 .col-md-5 {
+        text-align: left !important;
+    }
+
+    .row.pb-3 .col-3,
+    .row.pb-3 .col-4,
+    .row.pb-3 .col-5 {
+        display: none;
+    }
+
+    /* 單列直書：依然保持日式閱讀感，但自動縮放對齊 */
+    .fade-in-text .vertical-text {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        font-size: 1rem !important;
+        line-height: 2.2 !important;
+        margin: 0 auto 2.5rem auto !important;
+        max-height: 60vh;      /* 保持屏內可見 */
+        overflow-wrap: break-word;
+        white-space: normal;
     }
 }
 
@@ -802,6 +934,7 @@ a:hover {
     /* 金色文字的光澤感 */
     background: linear-gradient(45deg, #C9A961, #E6C885, #C9A961);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 2px 10px rgba(0,0,0,0.3); 
 }

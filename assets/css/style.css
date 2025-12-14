@@ -408,6 +408,87 @@ a:hover {
     .founder-sign {
         margin-right: 5%;
     }
+
+    /* === History Page (Mobile) === */
+    .timeline-section {
+        padding-left: 1.5rem;
+        margin-left: 0;
+    }
+
+    .timeline-year {
+        font-size: 1.2rem;
+    }
+
+    .timeline-year::before {
+        left: -2rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-width: 2px;
+    }
+
+    .timeline-card {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .era-title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .data-table-container {
+        padding: 1rem;
+        overflow-x: auto;
+    }
+
+    .data-table-container table {
+        font-size: 0.9rem;
+    }
+
+    .lesson-card {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* === Memory Page (Mobile) === */
+    .memory-form-card {
+        padding: 1.5rem;
+    }
+
+    .form-label {
+        font-size: 0.95rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .testimonial-quote {
+        font-size: 1rem;
+    }
+
+    .story-item {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .story-title {
+        font-size: 1.1rem;
+    }
+
+    .location-item {
+        margin-bottom: 1.5rem;
+    }
+
+    .quote-wall-item {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .quote-wall-text {
+        font-size: 1rem;
+    }
 }
 
 /* --- Footer --- */
@@ -910,4 +991,232 @@ a:hover {
 @keyframes gentlyFloat {
   from { transform: translateY(0); }
   to { transform: translateY(-8px); }
+}
+
+/* ========================================================================== 
+   Page-Specific Styles (History / Memory / Vision)
+   ========================================================================== */
+
+/* --- History Page Styles --- */
+.timeline-section {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid rgba(197, 160, 101, 0.3); /* Skylark Gold 淡化 */
+    margin-left: 1rem;
+}
+
+.timeline-year {
+    font-family: var(--font-heading);
+    color: var(--skylark-blue);
+    font-weight: 700;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.timeline-year::before {
+    content: '';
+    position: absolute;
+    left: -2.6rem; /* 對齊線條 */
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: #fff;
+    border: 3px solid var(--skylark-gold);
+    border-radius: 50%;
+}
+
+.timeline-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.era-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--skylark-dark-blue);
+    position: relative;
+    display: inline-block;
+}
+
+.era-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--skylark-gold);
+    margin: 1rem auto 0;
+}
+
+.data-table-container {
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.lesson-card {
+    background: rgba(255,255,255,0.8);
+    border-left: 4px solid var(--skylark-blue);
+    padding: 1.5rem;
+    height: 100%;
+}
+
+/* --- Memory Page Styles --- */
+.memory-hero-text {
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* 問卷區塊 */
+.memory-form-card {
+    background: #fff;
+    border: 1px solid rgba(197, 160, 101, 0.2);
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--skylark-dark-blue);
+    margin-bottom: 0.8rem;
+}
+
+.form-control, .form-select {
+    border: 1px solid #e0e0e0;
+    padding: 0.8rem;
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--skylark-blue);
+    box-shadow: 0 0 0 0.2rem rgba(38, 114, 184, 0.1);
+    background-color: #fff;
+}
+
+/* 證言卡片 */
+.testimonial-card {
+    background: #fff;
+    padding: 2rem;
+    height: 100%;
+    border-left: 4px solid var(--skylark-gold);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-quote {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--skylark-blue);
+    margin-bottom: 1rem;
+}
+
+.testimonial-source {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 0.5rem;
+}
+
+/* 故事區塊 */
+.story-item {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.story-item:last-child {
+    border-bottom: none;
+}
+
+.story-title {
+    font-size: 1.3rem;
+    color: var(--skylark-dark-blue);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.story-title::before {
+    content: '📖';
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+/* 地點地圖 */
+.location-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.location-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: var(--skylark-gold);
+    border-radius: 50%;
+}
+
+.location-item::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 20px;
+    bottom: -30px;
+    width: 2px;
+    background: rgba(197, 160, 101, 0.3);
+}
+
+.location-item:last-child::after {
+    display: none;
+}
+
+/* 金句牆 */
+.quote-wall-item {
+    background: var(--skylark-dark-blue);
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-wall-item::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 5rem;
+    opacity: 0.1;
+    font-family: serif;
+}
+
+.quote-wall-text {
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
 }

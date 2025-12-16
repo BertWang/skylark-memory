@@ -28,6 +28,34 @@
     /* [字體設定] */
     --font-heading: 'Noto Serif TC', serif; /* 明體：優雅、歷史感 */
     --font-body: 'Noto Sans TC', sans-serif; /* 黑體：易讀、現代 */
+
+    /* --- 天喜吊牌 24 色 --- */
+    --tag-01: #D4B5D4; /* 淡紫粉 */
+    --tag-02: #A8C8E1; /* 天空藍 */
+    --tag-03: #A8D8D0; /* 湖水綠 */
+    --tag-04: #F4C8D8; /* 櫻花粉 */
+    --tag-05: #9BCB3C; /* 鮮綠 */
+    --tag-06: #E8E4D8; /* 米白 */
+    --tag-07: #D42424; /* 正紅 */
+    --tag-08: #F4E4A8; /* 淡黃 */
+
+    --tag-09: #9C7CA8; /* 深紫 */
+    --tag-10: #FFFFFF; /* 純白 */
+    --tag-11: #C8D8E4; /* 淡灰藍 */
+    --tag-12: #2C8C54; /* 深綠 */
+    --tag-13: #F4BC3C; /* 金黃 */
+    --tag-14: #F4B4C8; /* 粉紅 */
+    --tag-15: #54B4E4; /* 天藍 */
+    --tag-16: #A8A8A8; /* 深灰 */
+
+    --tag-17: #D8C8E4; /* 薰衣草紫 */
+    --tag-18: #C8E4B4; /* 淡綠 */
+    --tag-19: #F4F43C; /* 檸檬黃 */
+    --tag-20: #B4D8E4; /* 嬰兒藍 */
+    --tag-21: #F48C9C; /* 珊瑚粉 */
+    --tag-22: #D8D8D8; /* 淺灰 */
+    --tag-23: #E8D8E8; /* 淡粉紫 */
+    --tag-24: #C8E4B4; /* 抹茶綠 */
 }
 
 /* --- 3. 基礎重置與全域設定 (Base Styles) --- */
@@ -902,16 +930,15 @@ a:hover {
 
 /* --- Monument Quote Section (碑) --- */
 .quote-monument-section {
-    background-color: #0F1419; /* 極深的午夜藍黑，比純黑更有質感 */
-    padding: 90px 0 50px;      /* 上方留白多一點，營造莊嚴感 */
-    color: #C9A961;            /* 指定金色 */
+    background-color: var(--skylark-dark-blue); /* 深色背景以突顯語錄 */
+    padding: 90px 0 50px;
+    color: #fff; /* 白色文字以提高對比 */
     font-family: var(--font-heading);
     position: relative;
     overflow: hidden;
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.8); /* 內陰影，增加深邃感 */
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.25);
 }
-
-/* 增加一點雜訊質感，像石頭或鑄鐵表面 */
+/* 增加輕微質感疊加，適應深色背景 */
 .quote-monument-section::before {
     content: '';
     position: absolute;
@@ -919,9 +946,10 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.07'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
+    mix-blend-mode: overlay;
 }
 
 .founder-quote {

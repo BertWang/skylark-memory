@@ -87,12 +87,6 @@ h2, h3, h4, h5, h6 {
     font-size: 1.8rem;
 }
 
-/* 防止超長字串破壞版面 */
-p, li, span {
-    word-break: break-word;
-    white-space: pre-wrap;
-}
-
 /* 區塊引用 */
 .blockquote {
     padding: 1rem;

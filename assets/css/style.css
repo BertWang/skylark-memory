@@ -602,12 +602,6 @@ a:hover {
         line-height: 1.4;
     }
 
-    /* 防止長字串或 URL 破壞版面 */
-    p, li, span {
-        word-break: break-word;
-        white-space: pre-wrap;
-    }
-
     /* === 手機端表格與區塊 === */
     .blockquote {
         padding: 1rem;

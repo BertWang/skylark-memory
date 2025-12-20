@@ -50,6 +50,108 @@
     "description": "天喜旅行品牌重啟計畫：以記憶為起點，重新翻譯旅遊的精神與故事。"
   }
   </script>
+  <style>
+    .founder-voice-section { padding-top: 2rem; padding-bottom: 2.5rem; }
+
+    .founder-voice-card{
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow: 0 18px 45px rgba(10, 35, 70, 0.12);
+    border: 1px solid rgba(201, 169, 97, 0.25);
+    }
+
+    .video-cover{
+    position: relative;
+    width: 100%;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    }
+
+    .video-cover img{
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    }
+
+    /* 播放鍵：白色半透明 + 金邊（像相框上的徽章） */
+    .play-badge{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 78px;
+    height: 78px;
+    transform: translate(-50%, -50%);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.72);
+    border: 2px solid rgba(201, 169, 97, 0.75);
+    box-shadow: 0 10px 30px rgba(10, 35, 70, 0.25);
+    }
+
+    .play-badge::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-35%, -50%);
+    width: 0; height: 0;
+    border-left: 20px solid #2C4F6F;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    }
+
+    /* 一句話：方案A的核心 */
+    .cover-caption{
+    position: absolute;
+    left: 14px;
+    bottom: 42px;
+    background: rgba(255,255,255,0.78);
+    color: #2C4F6F;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    }
+
+    .cover-footnote{
+    position: absolute;
+    left: 14px;
+    bottom: 12px;
+    color: rgba(255,255,255,0.92);
+    background: rgba(26,35,50,0.45);
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    }
+
+    /* 影片顯示區 */
+    .video-shell video{
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    }
+
+    /* 字幕：碑文式 */
+    .founder-voice-quote{
+    margin: 14px 6px 6px 6px;
+    color: #2B2B2B;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    text-align: center;
+    }
+
+    .founder-voice-sign{
+    text-align: right;
+    color: #5A6673;
+    font-size: 0.9rem;
+    margin-right: 6px;
+    }
+
+  </style>
 </head>
 <body>
     <!-- 導覽列 Navigation -->
@@ -181,7 +283,6 @@
         <div class="container position-relative">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10 manifesto-container">
-
                     <!-- 品牌現況 -->
                     <div class="fade-in-text delay-intro mb-5 text-center">
                         <p class="body-text mt-3">
@@ -189,6 +290,54 @@
                             <span style="color: var(--skylark-blue);">這是一個正在整理中的品牌記憶庫。</span>
                         </p>
                     </div>
+                    
+                    <!-- ★ 2.x Founder Voice Film：首頁影片區（方案A） ====================== -->
+                    <section class="section-padding founder-voice-section">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-md-10">
+                                    <div class="founder-voice-card fade-in-text delay-intro">
+                                        <!-- 封面（方案A：LOGO + 一句話 + 播放鍵） -->
+                                        <button class="video-cover" type="button" aria-label="播放：創辦人受訪錄音"
+                                                onclick="SkylarkVideo.start()">
+                                            <img src="assets/video/welcome.png" alt="天喜創辦人受訪錄音封面">
+                                            <span class="play-badge" aria-hidden="true"></span>
+                                            <span class="cover-caption" aria-hidden="true">「天喜結束？不會。」</span>
+                                            <span class="cover-footnote" aria-hidden="true">創辦人受訪錄音｜按下播放</span>
+                                        </button>
+                                        <!-- 影片本體（預設隱藏，按播放後出現） -->
+                                        <div class="video-shell" id="founderVideoShell" hidden>
+                                            <video id="founderVideo" controls playsinline preload="metadata" poster="assets/video/welcome.png">
+                                            <source src="assets/video/welcome.mp4" type="video/mp4">
+                                            您的瀏覽器不支援影片播放。
+                                            </video>
+                                        </div>
+                                        <!-- 字幕（碑文式落款，呼應你的 quote monument） -->
+                                        <p class="founder-voice-quote">
+                                            「天喜結束？不會。誰講會結束？<br class="d-md-none">
+                                            這是台灣品牌，這兩個字是不能消失的。」
+                                        </p>
+                                        <div class="founder-voice-sign">
+                                            ─ 郭正利，約2014年採訪錄音
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <script>
+                        window.SkylarkVideo = {
+                            start() {
+                                const cover = document.querySelector('.video-cover');
+                                const shell = document.getElementById('founderVideoShell');
+                                const video = document.getElementById('founderVideo');
+                                cover.setAttribute('hidden', 'true');
+                                shell.removeAttribute('hidden');
+                                video.play();
+                            }
+                        }
+                    </script>
 
                     <!-- 【序】 開場 -->
                     <div class="fade-in-text delay-intro text-center">

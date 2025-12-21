@@ -32,6 +32,7 @@
   <style>
     /* Memory 頁面專屬樣式 */
     .memory-hero-text {
+      font-weight: 300; letter-spacing: 0.1em;
       text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
     
@@ -137,123 +138,179 @@
       display: none;
     }
 
-    /* 金句牆 */
-    .quote-wall-item {
-      background: var(--skylark-dark-blue);
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
+    /* --- Memory Note Styles (和紙便條風格) --- */
+    .memory-note {
+      background: #fff;
+      padding: 2.5rem 2rem;
       position: relative;
-      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06); /* 柔和的浮起陰影 */
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 2px; /* 微微的圓角，像紙張 */
+      display: flex;
+      flex-direction: column;
+      background-image: url('assets/images/texture/paper.webp');
     }
-    .quote-wall-item::before {
+
+    .memory-note:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    /* 紙膠帶效果 (Washi Tape) */
+    .note-tape {
+      position: absolute;
+      top: -12px; /* 貼在頂部邊緣 */
+      left: 50%;
+      transform: translateX(-50%) rotate(-1.5deg); /* 微微歪斜，增加手作感 */
+      width: 100px;
+      height: 30px;
+      opacity: 0.85; /* 半透明感 */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 1;
+      /* 膠帶紋理 */
+      background-image: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+      background-size: 10px 10px;
+    }
+
+    /* 膠帶顏色 (對應天喜 24 色) */
+    .note-pink .note-tape { background-color: var(--tag-14); } /* 櫻花粉/粉紅 */
+    .note-blue .note-tape { background-color: var(--tag-15); } /* 天藍 */
+    .note-red .note-tape { background-color: var(--tag-07); }  /* 正紅 */
+    .note-green .note-tape { background-color: var(--tag-05); } /* 鮮綠 */
+
+    .note-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .note-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--skylark-dark-blue);
+      margin-bottom: 1.2rem;
+      text-align: center;
+      border-bottom: 1px dashed #eee; /* 虛線分隔 */
+      padding-bottom: 1rem;
+      padding-top: 0.5rem;
+    }
+
+    .note-desc {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      text-align: justify; /* 左右對齊，讓文字塊更整齊 */
+    }
+
+    .note-quote {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+      position: relative;
+      padding: 1.5rem 0 0.5rem;
+      margin-top: auto; /* 推到底部 */
+      line-height: 1.6;
+    }
+
+    /* 金句顏色 (比膠帶深一點，增加閱讀性) */
+    .note-pink .note-quote { color: #D45D79; } 
+    .note-blue .note-quote { color: var(--skylark-blue); }
+    .note-red .note-quote { color: #B22222; }
+    .note-green .note-quote { color: #558B2F; }
+
+    /* 引號裝飾 */
+    .note-quote::before {
       content: '“';
+      font-family: serif;
+      font-size: 4rem;
       position: absolute;
       top: -10px;
-      left: 10px;
-      font-size: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
       opacity: 0.1;
-      font-family: serif;
+      color: inherit;
+      line-height: 1;
     }
+  /* --- Quote Wall Styles (清透藝廊風格) --- */
+.quote-card {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  height: 100%;
+  position: relative;
+  border: 1px solid #f0f0f0; /* 極淡的邊框 */
+  border-top: 4px solid var(--skylark-blue); /* 頂部品牌色條 */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03); /* 非常輕柔的陰影 */
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
 
-  /* --- Memory Note Styles (和紙便條風格) --- */
-  .memory-note {
-    background: #fff;
-    padding: 2.5rem 2rem;
-    position: relative;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06); /* 柔和的浮起陰影 */
-    height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 2px; /* 微微的圓角，像紙張 */
-    display: flex;
-    flex-direction: column;
-    background-image: url('assets/images/texture/paper.webp');
-  }
+.quote-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,160,233,0.1); /* 懸停時帶一點點藍色光暈 */
+  border-color: var(--skylark-blue);
+}
 
-  .memory-note:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  }
+/* 裝飾用的巨大引號 */
+.quote-icon {
+  font-family: serif;
+  font-size: 6rem;
+  line-height: 1;
+  color: #f4f4f4; /* 幾乎隱形的灰色 */
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 0;
+  pointer-events: none;
+}
 
-  /* 紙膠帶效果 (Washi Tape) */
-  .note-tape {
-    position: absolute;
-    top: -12px; /* 貼在頂部邊緣 */
-    left: 50%;
-    transform: translateX(-50%) rotate(-1.5deg); /* 微微歪斜，增加手作感 */
-    width: 100px;
-    height: 30px;
-    opacity: 0.85; /* 半透明感 */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    z-index: 1;
-    /* 膠帶紋理 */
-    background-image: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
-    background-size: 10px 10px;
-  }
+.quote-text {
+  font-family: var(--font-heading); /* 使用明體/襯線體 */
+  font-size: 1.35rem;
+  color: #333;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
 
-  /* 膠帶顏色 (對應天喜 24 色) */
-  .note-pink .note-tape { background-color: var(--tag-14); } /* 櫻花粉/粉紅 */
-  .note-blue .note-tape { background-color: var(--tag-15); } /* 天藍 */
-  .note-red .note-tape { background-color: var(--tag-07); }  /* 正紅 */
-  .note-green .note-tape { background-color: var(--tag-05); } /* 鮮綠 */
+/* --- Special Card (郭總語錄) --- */
+/* 保持一個亮點，但使用漸層讓它不那麼沉重 */
+.quote-card.special-card {
+  background: linear-gradient(135deg, var(--skylark-blue) 0%, #0088cc 100%);
+  border: none;
+  border-top: none;
+  text-align: center;
+  padding: 3.5rem 2rem;
+}
 
-  .note-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
+.quote-card.special-card .quote-text {
+  font-size: 1.6rem; /* 放大字體 */
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-  .note-title {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    color: var(--skylark-dark-blue);
-    margin-bottom: 1.2rem;
-    text-align: center;
-    border-bottom: 1px dashed #eee; /* 虛線分隔 */
-    padding-bottom: 1rem;
-    padding-top: 0.5rem;
-  }
+.quote-card.special-card .quote-icon {
+  color: rgba(255,255,255,0.1); /* 白色半透明引號 */
+  right: auto;
+  left: 50%;
+  top: -20px;
+  transform: translateX(-50%);
+}
 
-  .note-desc {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    text-align: justify; /* 左右對齊，讓文字塊更整齊 */
-  }
-
-  .note-quote {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 600;
-    text-align: center;
-    position: relative;
-    padding: 1.5rem 0 0.5rem;
-    margin-top: auto; /* 推到底部 */
-    line-height: 1.6;
-  }
-
-  /* 金句顏色 (比膠帶深一點，增加閱讀性) */
-  .note-pink .note-quote { color: #D45D79; } 
-  .note-blue .note-quote { color: var(--skylark-blue); }
-  .note-red .note-quote { color: #B22222; }
-  .note-green .note-quote { color: #558B2F; }
-
-  /* 引號裝飾 */
-  .note-quote::before {
-    content: '“';
-    font-family: serif;
-    font-size: 4rem;
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.1;
-    color: inherit;
-    line-height: 1;
-  }
+.quote-author {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+  font-weight: 300;
+}
   </style>
 </head>
 
@@ -281,7 +338,7 @@
 
   <main>
     <!-- Hero Section -->
-    <header class="hero-section d-flex align-items-center position-relative" style="height: 60vh; background: #1a1a1a;">
+    <header class="hero-section d-flex align-items-center position-relative" style="height: 60vh; background: #494949;">
       <div class="position-absolute w-100 h-100" style="
         background-image: url('assets/images/memory/memory-hero.webp'); 
         background-size: cover; 
@@ -291,14 +348,13 @@
         <p class="chapter-tag text-white-50 fade-in-text">【憶 Memory】</p>
         <h1 class="manifesto-title text-white fade-in-text mb-4">我們想聽聽那段故事</h1>
         <div class="fade-in-text delay-1">
-          <p class="lead memory-hero-text" style="font-weight: 300; letter-spacing: 0.1em;">
+          <p class="lead memory-hero-text">
             如果您也曾被天喜照顧過，<br>
             如果您還記得那趟旅行的感動……
           </p>
         </div>
       </div>
     </header>
-
     <!-- 壹｜邀請 -->
     <section class="section-padding">
       <div class="container">
@@ -349,7 +405,7 @@
                   <label class="form-label">1. 您與天喜的連結是？</label>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="connection" id="conn1">
-                    <label class="form-check-label" for="conn1">我是天喜的旅客</label>
+                    <label class="form-check-label" for="conn1">我是天喜的舊貴賓</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="connection" id="conn2">
@@ -357,11 +413,11 @@
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="connection" id="conn3">
-                    <label class="form-check-label" for="conn3">我是天喜的合作夥伴</label>
+                    <label class="form-check-label" for="conn3">我是天喜的前合作夥伴</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="connection" id="conn4">
-                    <label class="form-check-label" for="conn4">我是郭正利先生的朋友/家人</label>
+                    <label class="form-check-label" for="conn4">我是郭正利先生的家人/友人</label>
                   </div>
                   <div class="form-check d-flex align-items-center mt-2">
                     <input class="form-check-input me-2" type="radio" name="connection" id="conn5">
@@ -657,53 +713,74 @@
     </section>
 
     <!-- 陸｜金句牆 -->
-    <section class="section-padding bg-dark text-white">
+    <section class="section-padding" style="background-color: #fcfcfc;">
       <div class="container">
         <div class="text-center mb-5 fade-in-text">
-          <span class="chapter-tag text-white-50">金句牆</span>
-          <h2 class="manifesto-title mt-2 text-white">他們用一句話記得天喜</h2>
+          <span class="chapter-tag">金句牆</span>
+          <h2 class="manifesto-title mt-2" style="color: #2c3e50;">他們用一句話記得天喜</h2>
         </div>
 
         <div class="row g-4">
+          <!-- Quote 1 -->
           <div class="col-md-6 col-lg-4 fade-in-text">
-            <div class="quote-wall-item">
-              <p class="quote-wall-text">「天喜不只是旅行社，而是一群記得你名字的人。」</p>
+            <div class="quote-card">
+              <div class="quote-icon">”</div>
+              <p class="quote-text">「天喜不只是旅行社，而是一群記得你名字的人。」</p>
             </div>
           </div>
+          
+          <!-- Quote 2 -->
           <div class="col-md-6 col-lg-4 fade-in-text delay-1">
-            <div class="quote-wall-item">
-              <p class="quote-wall-text">「便宜的價格會被遺忘，但極致的感動會被記住。」</p>
+            <div class="quote-card">
+              <div class="quote-icon">”</div>
+              <p class="quote-text">「便宜的價格會被遺忘，但極致的感動會被記住。」</p>
             </div>
           </div>
+
+          <!-- Quote 3 -->
           <div class="col-md-6 col-lg-4 fade-in-text delay-2">
-            <div class="quote-wall-item">
-              <p class="quote-wall-text">「客人的噴嚏，就是我們的地震。」</p>
+            <div class="quote-card">
+              <div class="quote-icon">”</div>
+              <p class="quote-text">「客人的噴嚏，就是我們的地震。」</p>
             </div>
           </div>
+
+          <!-- Quote 4 -->
           <div class="col-md-6 col-lg-4 fade-in-text">
-            <div class="quote-wall-item">
-              <p class="quote-wall-text">「蹲下，不是認輸，是為了跳得更高。」</p>
+            <div class="quote-card">
+              <div class="quote-icon">”</div>
+              <p class="quote-text">「蹲下，不是認輸，是為了跳得更高。」</p>
             </div>
           </div>
+
+          <!-- Quote 5 -->
           <div class="col-md-6 col-lg-4 fade-in-text delay-1">
-            <div class="quote-wall-item">
-              <p class="quote-wall-text">「情義，才是品牌最深的護城河。」</p>
+            <div class="quote-card">
+              <div class="quote-icon">”</div>
+              <p class="quote-text">「情義，才是品牌最深的護城河。」</p>
             </div>
           </div>
+
+          <!-- Quote 6 -->
           <div class="col-md-6 col-lg-4 fade-in-text delay-2">
-            <div class="quote-wall-item">
-              <p class="quote-wall-text">「丟臉的不是賣麻油雞，而是忘記怎麼彎腰。」</p>
+            <div class="quote-card">
+              <div class="quote-icon">”</div>
+              <p class="quote-text">「丟臉的不是賣麻油雞，而是忘記怎麼彎腰。」</p>
             </div>
           </div>
+
+          <!-- Special Quote: Guo Zhengli -->
           <div class="col-md-12 fade-in-text delay-3">
-            <div class="quote-wall-item" style="background: var(--skylark-blue);">
-              <p class="quote-wall-text">「我花很多時間教導員工，就是要把我在服務方面的DNA給傳下去，這就是企業文化。」</p>
-              <small class="d-block mt-2 text-white-50">—— 郭正利（理財周刊2008年專訪）</small>
+            <div class="quote-card special-card">
+              <div class="quote-icon text-white-50">”</div>
+              <p class="quote-text text-white">「我花很多時間教導員工，就是要把我在服務方面的DNA給傳下去，這就是企業文化。」</p>
+              <div class="quote-author text-white-50">—— 郭正利（理財周刊2008年專訪）</div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
 
     <!-- 柒｜結語 -->
     <section class="section-padding text-center">

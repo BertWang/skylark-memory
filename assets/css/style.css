@@ -1195,6 +1195,111 @@ a:hover {
     box-shadow: 0 8px 20px rgba(0,0,0,0.06);
 }
 
+/* Hero Timeline Preview */
+.timeline-preview {
+    margin: 2rem 0;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.timeline-dot.golden {
+    background: linear-gradient(45deg, var(--skylark-gold), #ffd700);
+}
+
+.timeline-dot.fall {
+    background: linear-gradient(45deg, #8B0000, #DC143C);
+}
+
+.timeline-dot.mud {
+    background: linear-gradient(45deg, #555, #888);
+}
+
+.timeline-dot.rebirth {
+    background: linear-gradient(45deg, var(--skylark-green), #32CD32);
+}
+
+.timeline-dot.active {
+    animation: pulse 2s infinite;
+}
+
+.timeline-line {
+    width: 40px;
+    height: 2px;
+    background: rgba(255,255,255,0.6);
+    margin: 0 5px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Conclusion Section */
+.conclusion-section {
+    background: linear-gradient(135deg, var(--skylark-bg) 0%, rgba(249, 247, 242, 0.95) 100%);
+    position: relative;
+    overflow: hidden;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.conclusion-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(197, 160, 101, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 75, 135, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.conclusion-content {
+    position: relative;
+    z-index: 2;
+}
+
+.conclusion-header {
+    animation: fadeInUp 1s ease-out;
+}
+
+.conclusion-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--skylark-gold), var(--skylark-blue));
+    border-radius: 2px;
+}
+
+.conclusion-quote {
+    max-width: 600px;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.journey-continues {
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .era-title {
     font-size: 2rem;
     font-weight: 700;

@@ -54,22 +54,42 @@
 
   <main>
     <!-- Hero Section -->
-    <header class="hero-section d-flex align-items-center position-relative" style="height: 60vh; background: #494949;">
-      <div class="position-absolute w-100 h-100" style="
-        background-image: url('assets/images/history/history-hero.webp'); 
-        background-size: cover; 
-        background-position: center; 
-        opacity: 0.4;">
-      </div>
-      <div class="container position-relative text-center text-white z-2">
-        <p class="chapter-tag text-white-50 mb-2 fade-in-text">【跡 History】</p>
-        <h1 class="display-4 fw-bold mb-4 fade-in-text">35年的軌跡</h1>
-        <div class="mx-auto fade-in-text" style="max-width: 600px;">
+  <header class="hero-section d-flex align-items-center position-relative" style="height: 70vh; background: #494949;">
+    <div class="position-absolute w-100 h-100" style="
+      background-image: url('assets/images/history/history-hero.webp'); 
+      background-size: cover; 
+      background-position: center; 
+      opacity: 0.4;">
+    </div>
+    <div class="texture-overlay"></div>
+    
+    <!-- 右側：主要內容 -->
+    <div class="container position-relative text-center text-white" style="z-index: 2;">
+      <div class="row justify-content-end">
+        <div class="col-lg-8 col-xl-7">
+          <p class="chapter-tag text-white-50 mb-3 fade-in-text">【跡 History】</p>
+          <h1 class="text-white fw-bold mb-4 fade-in-text" style="font-family: var(--font-heading); letter-spacing: 0.2rem;">35年的軌跡</h1>
+          
+          <!-- 時間軸預覽 -->
+          <div class="timeline-preview mb-4 fade-in-text delay-1">
+            <div class="d-flex justify-content-center align-items-center">
+              <div class="timeline-dot golden" title="黃金年代 (1990-2007)"></div>
+              <div class="timeline-line"></div>
+              <div class="timeline-dot fall" title="墜落與烈火 (2008-2014)"></div>
+              <div class="timeline-line"></div>
+              <div class="timeline-dot mud" title="泥濘中的優雅 (2015-2016)"></div>
+              <div class="timeline-line"></div>
+              <div class="timeline-dot rebirth active" title="傳承與重生 (2016-2025)"></div>
+            </div>
+          </div>
+          
+          <div class="mx-auto fade-in-text delay-2" style="max-width: 600px;">
             <p class="lead mb-4" style="font-weight: 300; letter-spacing: 0.1em;">
-                這35年，我們走過巔峰，也走過泥濘。<br>
-                但無論在哪裡，我們始終記得<br>
-                <span style="color: var(--skylark-gold);">款待的本質，從來不在紅地毯上。</span>
+              這35年，我們走過巔峰，也走過泥濘。<br>
+              但無論在哪裡，我們始終記得<br>
+              <span style="color: var(--skylark-gold);">款待的本質，從來不在紅地毯上。</span>
             </p>
+          </div>
         </div>
       </div>
     </header>
@@ -375,24 +395,48 @@
     </section>
 
     <!-- 結語 -->
-    <section class="section-padding bg-dark text-white text-center">
-        <div class="container">
+    <section class="section-padding conclusion-section position-relative">
+        <!-- 背景紋理 -->
+        <div class="conclusion-bg"></div>
+        
+        <div class="container position-relative">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h2 class="mb-4" style="color: var(--skylark-gold);">這段旅程，尚未結束。</h2>
-                    <p class="lead mb-5 opacity-75">
-                        這35年，我們走過巔峰，也走過泥濘。<br>
-                        但無論在哪裡，我們始終記得：<br>
-                        款待的本質，從來不在紅地毯上，<br>
-                        而在那些被看見、被記住、被照顧的瞬間裡。
-                    </p>
-                    <blockquote class="blockquote border-start border-warning border-4 ps-3 text-start d-inline-block mx-auto">
-                        <p class="mb-2">「蹲下，不是認輸，是為了跳得更高。」</p>
-                        <footer class="blockquote-footer text-white-50">郭正利 (1957-2016)</footer>
-                    </blockquote>
-                    <div class="mt-5 button-container">
-                        <a href="origin.html" class="btn-link-skylark">← 返回：源 Origin</a>
-                        <a href="memory.html" class="btn-skylark">繼續閱讀：憶 Memory →</a>
+                <div class="col-lg-10">
+                    <div class="text-center conclusion-content">
+                        <div class="conclusion-header mb-5">
+                            <h2 class="mb-4" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">
+                                這段旅程，尚未結束。
+                            </h2>
+                            <div class="conclusion-divider mx-auto mb-4"></div>
+                        </div>
+                        
+                        <p class="lead mb-5" style="color: var(--skylark-dark-blue); line-height: 1.8; font-weight: 300;">
+                            這35年，我們走過巔峰，也走過泥濘。<br>
+                            但無論在哪裡，我們始終記得：<br>
+                            <span style="color: var(--skylark-blue); font-weight: 500;">款待的本質，從來不在紅地毯上，</span><br>
+                            而在那些被看見、被記住、被照顧的瞬間裡。
+                        </p>
+                        
+                        <div class="conclusion-quote mx-auto mb-5">
+                            <blockquote class="blockquote text-center" style="border-left: 4px solid var(--skylark-gold); padding-left: 2rem;">
+                                <p class="mb-3 fs-4" style="color: var(--skylark-dark-blue); font-style: italic;">
+                                    「蹲下，不是認輸，是為了跳得更高。」
+                                </p>
+                                <footer class="blockquote-footer text-muted">
+                                    郭正利 <cite title="Source Title">(1957-2016)</cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                        
+                        <div class="journey-continues mt-5">
+                            <p class="text-muted mb-4" style="font-family: var(--font-heading); letter-spacing: 0.1em;">
+                                這段故事，還在繼續書寫...
+                            </p>
+                            <div class="mt-5 button-container">
+                                <a href="origin.html" class="btn-link-skylark">← 返回：源 Origin</a>
+                                <a href="memory.html" class="btn-skylark">繼續閱讀：憶 Memory →</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

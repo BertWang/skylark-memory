@@ -52,56 +52,56 @@
   </nav>
 
   <main>
-    <!-- 開場宣言 (Hero) - 運用現有 .vertical-text 創造日式閱讀流 -->
-    <header class="section-padding min-vh-100 d-flex align-items-center position-relative">
-      <!-- 背景紋理 (沿用 style.css 的 texture-overlay) -->
-      <div class="texture-overlay"></div>
+    <!-- 開場宣言 (Hero) -->
+    <header class="section-padding min-vh-100 d-flex align-items-center position-relative" 
+        style="background-image: url('assets/images/vision/vision-hero.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
+      
+      <!-- 背景遮罩：使用深藍色半透明遮罩，讓文字更突顯且統一色調 -->
+      <div class="texture-overlay" style="background: rgba(57, 71, 9, 0.425); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
       
       <div class="container position-relative" style="z-index: 2;">
         <div class="row justify-content-center">
           <div class="col-lg-10">
             
-            <!-- 直書區塊：利用 flex-row-reverse 讓直書從右讀到左 -->
+            <!-- 直書區塊 -->
             <div class="d-flex flex-row-reverse justify-content-center align-items-start fade-in-text" style="padding-top: 120px; padding-bottom: 80px;">
                 
-                <!-- 標題 -->
-                <div class="vertical-text ms-1" style="font-size: 2rem; color: var(--skylark-dark-blue); letter-spacing: 0.3em;">
+                <!-- 標題：改為白色，並加上細微陰影增加層次 -->
+                <div class="vertical-text ms-1" style="font-size: 2rem; color: #FFFFFF; letter-spacing: 0.3em; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
                     那間旅行社，叫做天喜。
                 </div>
 
-                <!-- 金色分隔線 (沿用 style.css .vertical-divider) -->
-                <div class="vertical-divider mx-4" style="height: 400px; opacity: 0.6;"></div>
+                <!-- 金色分隔線：保持金色，稍微調整透明度 -->
+                <div class="vertical-divider mx-4" style="height: 400px; background-color: var(--skylark-gold); opacity: 0.8; width: 1px;"></div>
 
-                <!-- 內文第一段 -->
-                <div class="vertical-text ms-4 text-muted" style="font-size: 1.1rem; line-height: 2.5;">
+                <!-- 內文：改為高透明度的白色 (rgba 255,255,255,0.9) 取代原本的 text-muted -->
+                <div class="vertical-text ms-4" style="font-size: 1.1rem; line-height: 2.5; color: rgba(255, 255, 255, 0.9);">
                     它的團費是別人的兩倍，<br>
                     但客人願意排隊等一年。
                 </div>
 
-                <!-- 內文第二段 -->
-                <div class="vertical-text ms-4 text-muted" style="font-size: 1.1rem; line-height: 2.5;">
+                <div class="vertical-text ms-4" style="font-size: 1.1rem; line-height: 2.5; color: rgba(255, 255, 255, 0.9);">
                     老闆會在兩百人的晚宴上，<br>
                     跪著向每位客人敬酒。
                 </div>
 
-                <!-- 內文第三段 -->
-                <div class="vertical-text ms-4 text-muted" style="font-size: 1.1rem; line-height: 2.5;">
+                <div class="vertical-text ms-4" style="font-size: 1.1rem; line-height: 2.5; color: rgba(255, 255, 255, 0.9);">
                     讓日本溫泉旅館升起國旗，<br>
                     那是台灣旅行團未有的榮耀。
                 </div>
 
-                <!-- 開頭 -->
-                <div class="vertical-text ms-5 text-muted small" style="font-size: 1rem;letter-spacing: 0.8em; opacity: 0.6;">
+                <!-- 開頭：使用金色點綴 -->
+                <div class="vertical-text ms-5 small" style="font-size: 1rem; letter-spacing: 0.8em; opacity: 0.8; color: var(--skylark-gold);">
                     —— 那些年，有一間旅行社 ——
                 </div>
             </div>
 
             <!-- 轉場：橫書結語 -->
             <div class="text-center mt-5 fade-in-text delay-1">
-                <p class="text-muted mb-4" style="font-family: var(--font-heading);">
+                <p class="mb-4" style="font-family: var(--font-heading); color: rgba(255, 255, 255, 0.7);">
                     <span class="d-inline-block mt-2" style="border-bottom: 1px solid var(--skylark-gold);">十年過去了</span>
                 </p>
-                <h2 class="mt-5" style="color: var(--skylark-blue); font-size: 2rem; letter-spacing: 0.1em;">
+                <h2 class="mt-5" style="color: #FFFFFF; font-size: 2rem; letter-spacing: 0.1em; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
                     如果天喜回來了，<br>還會有人記得嗎？
                 </h2>
             </div>

@@ -140,21 +140,28 @@
 
     /* --- Memory Note Styles (和紙便條風格) --- */
     .memory-note {
-      background: #fff;
+      /* 改為泛黃的米色，模擬舊紙張的溫潤感 */
+      background-color: #fdfbf2; 
+            /* 確保紋理圖片與背景色混合，不會蓋掉黃色 */
+      background-image: url('assets/images/texture/paper.webp');
+      background-blend-mode: multiply; 
       padding: 2.5rem 2rem;
       position: relative;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06); /* 柔和的浮起陰影 */
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
       height: 100%;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 2px; /* 微微的圓角，像紙張 */
+      border-radius: 2px;
       display: flex;
       flex-direction: column;
-      background-image: url('assets/images/texture/paper.webp');
+      /* 增加一點微弱的邊框，讓紙張邊緣更清晰 */
+      border: 1px solid rgba(0,0,0,0.03);
     }
 
+    /* 滑鼠懸停時，讓紙張稍微變亮一點，像被拿起來閱讀 */
     .memory-note:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      box-shadow: 0 15px 35px rgba(139, 119, 101, 0.15); /* 陰影改為暖色調灰色 */
+      background-color: #fffdf5; /* 懸停時稍微亮一點 */
     }
 
     /* 紙膠帶效果 (Washi Tape) */

@@ -1,0 +1,458 @@
+/* ==========================================================================
+   Theme: B_Archive_Album (典藏畫冊風)
+   Target: Japan B2B Partners
+   ========================================================================== */
+
+:root {
+    --jp-bg-base: #FAF7F0;
+    --jp-bg-paper: #FFFFFF;
+    --jp-text-primary: #3A3A3A;
+    --jp-text-secondary: #6B6B6B;
+    --jp-text-hint: #8A8A8A;
+    --jp-accent-main: #C9A86A;
+    --jp-accent-hover: #B89452;
+    --jp-accent-soft: #F2E6CF;
+    --jp-border-hairline: #E8E0D3;
+    
+    --jp-font-mincho: "Shippori Mincho", "Noto Serif JP", serif;
+    --jp-font-gothic: "Noto Sans JP", sans-serif;
+}
+
+body.jp-theme-archive {
+    background-color: var(--jp-bg-base);
+    color: var(--jp-text-primary);
+    font-family: var(--jp-font-gothic);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* --- Paper Texture Overlay --- */
+.jp-paper-texture {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.6;
+}
+
+/* --- Typography --- */
+h1, h2, h3, .jp-hero-title, .jp-section-title {
+    font-family: var(--jp-font-mincho);
+    font-weight: 500;
+    color: var(--jp-text-primary);
+}
+
+.tategaki {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    display: inline-block;
+    letter-spacing: 0.2em;
+}
+
+/* --- Navigation --- */
+.jp-nav {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--jp-border-hairline);
+    background: rgba(250, 247, 240, 0.9);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.jp-brand {
+    font-family: var(--jp-font-mincho);
+    font-size: 0.9rem;
+    color: var(--jp-text-primary);
+}
+
+.jp-brand .since {
+    color: var(--jp-accent-main);
+    font-style: italic;
+    margin-left: 10px;
+}
+
+.jp-back-link {
+    font-size: 0.85rem;
+    color: var(--jp-text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.jp-back-link:hover {
+    color: var(--jp-accent-main);
+}
+
+/* --- Hero Section --- */
+.jp-hero {
+    height: 100vh; /* Full height */
+    min-height: 700px;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.jp-hero-content {
+    padding: 40px 0;
+}
+
+.jp-chapter-label {
+    display: inline-block;
+    border: 1px solid var(--jp-text-hint);
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 30px;
+    color: var(--jp-text-secondary);
+}
+
+.jp-hero-title {
+    font-size: 3.5rem;
+    height: 300px; /* Height for vertical text */
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.jp-hero-title .indent {
+    margin-top: 80px; /* Staggered effect */
+}
+
+.jp-hero-sub {
+    font-size: 1.1rem;
+    color: var(--jp-text-secondary);
+    margin-bottom: 40px;
+}
+
+/* Trust Box */
+.jp-trust-box {
+    border-left: 3px solid var(--jp-accent-main);
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+
+.trust-badges {
+    margin-bottom: 10px;
+}
+
+.badge-item {
+    font-family: var(--jp-font-mincho);
+    font-weight: 600;
+    margin-right: 15px;
+    color: var(--jp-text-primary);
+}
+
+.assurance-text {
+    font-size: 0.9rem;
+    color: var(--jp-text-secondary);
+    line-height: 1.4;
+}
+
+/* Buttons */
+.btn-jp-primary {
+    background-color: var(--jp-accent-main);
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-family: var(--jp-font-mincho);
+    letter-spacing: 0.1em;
+    transition: all 0.3s;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(201, 168, 106, 0.3);
+}
+
+.btn-jp-primary:hover {
+    background-color: var(--jp-accent-hover);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.btn-jp-text {
+    color: var(--jp-text-secondary);
+    text-decoration: underline;
+    margin-left: 20px;
+    font-size: 0.9rem;
+}
+
+/* Hero Image */
+.jp-hero-image-wrapper {
+    position: absolute;
+    top: 0; right: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+}
+
+.jp-hero-img {
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(40%) sepia(20%); /* Archive feel */
+    opacity: 0.8;
+    /* Mask to fade out left side */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 60%);
+    mask-image: linear-gradient(to right, transparent 0%, black 60%);
+}
+
+/* --- Sections --- */
+.jp-section {
+    padding: 100px 0;
+}
+
+.jp-bg-paper {
+    background-color: #fff;
+    border-top: 1px solid var(--jp-border-hairline);
+    border-bottom: 1px solid var(--jp-border-hairline);
+}
+
+.jp-section-tag {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--jp-accent-main);
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+    font-family: var(--jp-font-mincho);
+}
+
+.jp-section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.jp-body-text {
+    font-size: 1.05rem;
+    color: var(--jp-text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Form Styles --- */
+.jp-form-container {
+    background: #fff;
+    padding: 60px;
+    border-radius: var(--jp-radius-card);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    border: 1px solid var(--jp-border-hairline);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.jp-form-group {
+    margin-bottom: 40px;
+}
+
+.jp-label {
+    display: block;
+    font-family: var(--jp-font-mincho);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--jp-text-primary);
+}
+
+.jp-label .required {
+    color: var(--jp-accent-main);
+    margin-left: 5px;
+}
+
+.jp-hint {
+    font-size: 0.9rem;
+    color: var(--jp-text-hint);
+    margin-bottom: 15px;
+}
+
+/* Inputs: Underline Style */
+.jp-input, .jp-textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: #FAFAFA;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s;
+}
+
+.jp-input:focus, .jp-textarea:focus {
+    outline: none;
+    border-bottom-color: var(--jp-accent-main);
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+/* Radio Cards */
+.jp-radio-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.jp-radio-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.jp-radio-card input {
+    position: absolute;
+    opacity: 0;
+}
+
+.jp-radio-card .radio-content {
+    display: block;
+    padding: 20px;
+    border: 1px solid var(--jp-border-hairline);
+    border-radius: 8px;
+    transition: all 0.3s;
+    background: #fff;
+}
+
+.jp-radio-card input:checked + .radio-content {
+    border-color: var(--jp-accent-main);
+    background-color: var(--jp-accent-soft);
+}
+
+.jp-radio-card .title {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.jp-radio-card .desc {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--jp-text-secondary);
+}
+
+/* Privacy Options */
+.highlight-bg {
+    background-color: #FDFBF7;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px dashed var(--jp-border-hairline);
+}
+
+.jp-radio-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.jp-radio-row input {
+    margin-top: 5px;
+    margin-right: 10px;
+    accent-color: var(--jp-accent-main);
+}
+
+.jp-radio-row .radio-text strong {
+    display: block;
+    color: var(--jp-text-primary);
+}
+
+.jp-radio-row .radio-text small {
+    color: var(--jp-text-secondary);
+}
+
+/* Submit Button */
+.btn-jp-submit {
+    background-color: var(--jp-text-primary); /* Darker for final action */
+    color: #fff;
+    border: none;
+    padding: 15px 60px;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    transition: all 0.3s;
+}
+
+.btn-jp-submit:hover {
+    background-color: var(--jp-accent-main);
+    transform: translateY(-2px);
+}
+
+/* --- Footer --- */
+.jp-footer {
+    padding: 60px 0;
+    border-top: 1px solid var(--jp-border-hairline);
+    background: #fff;
+}
+
+.footer-brand {
+    font-family: var(--jp-font-mincho);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer-copy {
+    font-size: 0.85rem;
+    color: var(--jp-text-hint);
+}
+
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.footer-nav a {
+    color: var(--jp-text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+    .jp-hero {
+        height: auto;
+        min-height: auto;
+        padding-bottom: 60px;
+    }
+
+    .jp-hero-image-wrapper {
+        position: relative;
+        height: 300px;
+        margin-bottom: 30px;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+        mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+    }
+    
+    .jp-hero-title {
+        height: auto;
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .tategaki {
+        writing-mode: horizontal-tb; /* Switch to horizontal on mobile */
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .jp-hero-title .indent {
+        margin-top: 0;
+    }
+
+    .jp-form-container {
+        padding: 30px 20px;
+    }
+    
+    .jp-radio-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-nav li {
+        display: block;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    
+    .col-md-6.text-md-end {
+        text-align: left !important;
+        margin-top: 20px;
+    }
+}

@@ -362,19 +362,23 @@ h1, h2, h3, .jp-hero-title, .jp-section-title {
 
 /* Submit Button */
 .btn-jp-submit {
-    background-color: var(--jp-text-primary); /* Darker for final action */
-    color: #fff;
-    border: none;
+    background-color: var(--jp-accent-main); /* 使用品牌金色作為主色 */
+    color: var(--jp-text-primary); /* 深色文字 */
+    border: 2px solid var(--jp-accent-main);
     padding: 15px 60px;
     border-radius: 999px;
     font-size: 1.1rem;
     letter-spacing: 0.1em;
     transition: all 0.3s;
+    font-weight: 500;
 }
 
 .btn-jp-submit:hover {
-    background-color: var(--jp-accent-main);
+    background-color: var(--jp-accent-hover); /* 深一點的金色 */
+    border-color: var(--jp-accent-hover);
+    color: var(--jp-text-primary);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(201, 168, 106, 0.3);
 }
 
 /* --- Footer: Archive Project Style --- */

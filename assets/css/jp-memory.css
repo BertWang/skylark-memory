@@ -87,11 +87,22 @@ h1, h2, h3, .jp-hero-title, .jp-section-title {
 
 /* --- Hero Section --- */
 .jp-hero {
-    height: 100vh; /* Full height */
+    height: 100vh;
     min-height: 700px;
     padding-top: 80px;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* 防止圖片溢出導致橫向卷軸 */
+}
+
+/* 圖片容器：絕對定位，貼齊右側 */
+.jp-hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65vw; /* 佔據螢幕右側 65% 的寬度 */
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; /* 讓滑鼠可以穿透圖片點擊到底下的東西(如果有) */
 }
 
 .jp-hero-content {
@@ -176,23 +187,19 @@ h1, h2, h3, .jp-hero-title, .jp-section-title {
     font-size: 0.9rem;
 }
 
-/* Hero Image */
-.jp-hero-image-wrapper {
-    position: absolute;
-    top: 0; right: 0;
-    width: 100%; height: 100%;
-    z-index: 1;
-}
-
 .jp-hero-img {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     background-size: cover;
-    background-position: center;
-    filter: grayscale(40%) sepia(20%); /* Archive feel */
-    opacity: 0.8;
-    /* Mask to fade out left side */
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 60%);
-    mask-image: linear-gradient(to right, transparent 0%, black 60%);
+    background-position: center left; /* 重點：以圖片左側(筆記本主體)為中心 */
+    
+    /* 遮罩優化：左側透明(融合背景) -> 右側完全不透明(填滿邊緣) */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%);
+    
+    /* 濾鏡：保持懷舊感 */
+    filter: grayscale(20%) sepia(10%) contrast(95%);
+    opacity: 0.9;
 }
 
 /* --- Sections --- */
@@ -370,39 +377,75 @@ h1, h2, h3, .jp-hero-title, .jp-section-title {
     transform: translateY(-2px);
 }
 
-/* --- Footer --- */
+/* --- Footer: Archive Project Style --- */
 .jp-footer {
-    padding: 60px 0;
+    padding: 60px 0 30px;
+    background-color: #fff; /* 純白底色，乾淨結尾 */
     border-top: 1px solid var(--jp-border-hairline);
-    background: #fff;
+    color: var(--jp-text-secondary);
+    font-family: var(--jp-font-gothic);
+}
+
+/* Logo Image & Brand */
+.footer-logo-img {
+    object-fit: contain;
+    opacity: 0.9; /* 稍微降低不透明度，融入紙張感 */
 }
 
 .footer-brand {
     font-family: var(--jp-font-mincho);
-    font-size: 1rem;
-    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--jp-text-primary);
+    letter-spacing: 0.1em;
 }
 
-.footer-copy {
+/* Contact Info */
+.footer-contact small {
     font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--jp-text-secondary);
+}
+
+.footer-email {
+    color: var(--jp-text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+    font-family: "Helvetica Neue", Arial, sans-serif; /* 英數用無襯線體較易讀 */
+}
+
+.footer-email:hover {
+    color: var(--jp-accent-main);
+    border-bottom-color: var(--jp-accent-main);
+}
+
+.team-name {
     color: var(--jp-text-hint);
 }
 
-.footer-nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Divider */
+.footer-divider {
+    height: 1px;
+    background-color: var(--jp-border-hairline);
+    width: 100%;
 }
 
-.footer-nav li {
-    display: inline-block;
-    margin-left: 20px;
+/* Copyright */
+.copyright-text {
+    font-size: 0.75rem;
+    color: var(--jp-text-hint);
+    letter-spacing: 0.05em;
 }
 
-.footer-nav a {
-    color: var(--jp-text-secondary);
-    text-decoration: none;
-    font-size: 0.85rem;
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .jp-footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-brand {
+        font-size: 1.1rem;
+    }
 }
 
 /* --- Mobile Responsive --- */
@@ -412,15 +455,19 @@ h1, h2, h3, .jp-hero-title, .jp-section-title {
         min-height: auto;
         padding-bottom: 60px;
     }
-
-    .jp-hero-image-wrapper {
-        position: relative;
-        height: 300px;
-        margin-bottom: 30px;
-        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-        mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+    .jp-hero-bg-wrapper {
+        width: 100%; /* 平板/手機版改為全寬 */
+        height: 50vh; /* 高度減半 */
+        top: auto;
+        bottom: 0;
+        opacity: 0.4; /* 淡化以免干擾文字 */
     }
-    
+    .jp-hero-img {
+        -webkit-mask-image: linear-gradient(to top, black 0%, transparent 100%);
+        mask-image: linear-gradient(to top, black 0%, transparent 100%);
+        background-position: center;
+    }
+   
     .jp-hero-title {
         height: auto;
         font-size: 2.2rem;

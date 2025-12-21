@@ -25,7 +25,7 @@
     <nav class="jp-nav">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="jp-brand">
-                <span class="en">Skylark Travel Service Co., Ltd.</span>
+                <span class="en">天喜の記憶</span>
                 <span class="divider">|</span>
                 <span class="since">since 1990</span>
             </div>
@@ -34,78 +34,81 @@
             </a>
         </div>
     </nav>
-
-    <!-- Section 1: Hero (Archive Cover) -->
+    <!-- Section 1: Hero (Full Bleed Right Image) -->
     <header class="jp-hero" id="top">
         <div class="jp-paper-texture"></div>
-        <div class="container h-100">
+
+        <!-- 修正點：圖片層移出 container，獨立在背景層 -->
+        <div class="jp-hero-bg-wrapper">
+            <div class="jp-hero-img" style="background-image: url('assets/images/memory/memory-hero.webp');"></div>
+        </div>
+
+        <!-- 內容層：維持在 container 內 -->
+        <div class="container h-100 position-relative z-2">
             <div class="row h-100 align-items-center">
-                <!-- Left: Text (Vertical Writing for Art) -->
-                <div class="col-lg-5 order-lg-1 order-2 position-relative z-2">
+                <!-- 文字區塊：佔據左側 -->
+                <div class="col-lg-6 col-md-8">
                     <div class="jp-hero-content">
-                        <div class="jp-chapter-label">公式アーカイブ｜ストーリーウォール</div>
+                        <div class="jp-status-label">
+                            <span class="status-dot"></span> 天喜旅行｜再始動準備室
+                        </div>
+                        
                         <h1 class="jp-hero-title">
-                            <span class="tategaki">思い出は、</span>
-                            <span class="tategaki indent">今も天喜。</span>
+                            <span class="tategaki">記憶は、</span>
+                            <span class="tategaki indent">眠らない。</span>
                         </h1>
+                        
                         <p class="jp-hero-sub">
-                            日本パートナーの皆さまと、<br>
-                            現場の記憶を“物語”として残します。
+                            2026年の復活に向けて。<br>
+                            かつて共に歩んだ日本の皆様へ、<br>
+                            「天喜の記憶」の寄贈をお願い申し上げます。
                         </p>
                         
-                        <!-- Trust Anchor & Assurance -->
-                        <div class="jp-trust-box">
-                            <div class="trust-badges">
-                                <span class="badge-item">品質 × 信頼</span>
-                                <span class="badge-item">since 1990</span>
-                            </div>
-                            <p class="assurance-text">
-                                <i class="fas fa-shield-alt"></i> 公開範囲は必ず選択できます。<br>
-                                <span class="small">確認が必要な場合のみご連絡します。</span>
+                        <div class="jp-notice-box">
+                            <p class="notice-text">
+                                <strong>※ 現在、旅行業務は行っておりません。</strong><br>
+                                本サイトは、ブランド再構築のための<br>
+                                「デジタルアーカイブ（記憶の保管庫）」です。
                             </p>
                         </div>
 
-                        <div class="jp-cta-group">
+                        <div class="jp-cta-group mt-4">
                             <a href="#form" class="btn-jp-primary">思い出を投稿する</a>
                             <a href="#privacy" class="btn-jp-text">個人情報の取扱い</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Right: Image (Faded, Texture blended) -->
-                <div class="col-lg-7 order-lg-2 order-1 h-100 position-relative">
-                    <div class="jp-hero-image-wrapper">
-                        <!-- Using a placeholder that fits the "Archive" mood (Sepia/Desaturated) -->
-                        <div class="jp-hero-img" style="background-image: url('assets/images/memory/memory-hero.webp');"></div>
-                        <div class="jp-img-overlay"></div>
-                    </div>
-                </div>
             </div>
         </div>
     </header>
-
-    <!-- Section 2: Purpose (Why we do this) -->
     <section class="jp-section jp-bg-paper">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
                     <span class="jp-section-tag">趣旨</span>
                     <h2 class="jp-section-title">記憶の修復プロジェクト</h2>
+                    <h2 class="jp-section-title">空白の時間を、物語で埋める。</h2>
                     <p class="jp-body-text mt-4">
-                        天喜旅行社は、2026年の再始動に向けて準備を進めています。<br>
-                        その第一歩として、過去の資料や写真だけでなく、<br>
-                        <strong>「人の心に残っている記憶」</strong>を集めています。
+                        天喜（Skylark）は今、長い休息を経て、<br>
+                        再び翼を広げる準備をしています。<br>
+                        <br>
+                        創業者の郭正利が遺した「おもてなし」の精神。<br>
+                        それは、私たちの中だけでなく、<br>
+                        日本のパートナー様——ホテル、バス、旅館、料亭の皆様の<br>
+                        記憶の中にこそ、鮮明に残っていると信じています。
                     </p>
-                    <p class="jp-body-text mt-3">
-                        あの時のバスの中での会話、旅館での心遣い、<br>
-                        郭社長とのエピソード……。<br>
-                        些細なことでも構いません。あなたの記憶を貸してください。
+                    <p class="jp-body-text mt-4">
+                        <strong>業務再開はまだ少し先です。</strong><br>
+                        まずは散らばった記憶を集め、「天喜とは何だったのか」を<br>
+                        正しく定義することから始めます。<br>
+                        <br>
+                        昔話をするような気持ちで、<br>
+                        エピソードをお寄せいただければ幸いです。
                     </p>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Section 3: Form (The Core) -->
     <section class="jp-section" id="form">
         <div class="container">
@@ -213,24 +216,43 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer: Archive Project Style -->
     <footer class="jp-footer" id="privacy">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h5 class="footer-brand">Skylark Travel Service Co., Ltd.</h5>
-                    <p class="footer-copy">&copy; 2025 Skylark Memory Project. All Rights Reserved.</p>
+                <!-- Left: Brand -->
+                <div class="col-md-6 d-flex align-items-center justify-content-center justify-content-md-start">
+                    <!-- 請確保圖片路徑正確，若無圖片會顯示文字 -->
+                    <img src="assets/images/logo/logo.webp" alt="天喜の記憶" class="footer-logo-img" width="40" height="40">
+                    <h5 class="footer-brand ms-3 mb-0">天喜の記憶</h5>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <ul class="footer-nav">
-                        <li><a href="#">プライバシーポリシー</a></li>
-                        <li><a href="#">運営会社について</a></li>
-                    </ul>
+
+                <!-- Right: Contact & Status -->
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <div class="footer-contact">
+                        <small class="status-text">
+                            <!-- 中文：重啟計畫進行中｜聯絡： -->
+                            再始動プロジェクト進行中｜お問い合わせ：
+                            <br class="d-md-none">
+                            <a href="mailto:1990skylark@gmail.com" class="footer-email">1990skylark@gmail.com</a>
+                            <!-- 中文：天喜重建籌備團隊 -->
+                            <span class="team-name"> - 天喜再建準備室</span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="footer-divider my-4"></div>
+
+            <!-- Copyright -->
+            <div class="row">
+                <div class="col text-center">
+                    <small class="copyright-text">&copy; 2025 Skylark Memory. All Rights Reserved.</small>
                 </div>
             </div>
         </div>
     </footer>
-
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>

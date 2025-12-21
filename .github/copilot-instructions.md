@@ -85,8 +85,8 @@ assets/
 ├── css/style.css       → All styling, color system, layout (793 lines)
 ├── js/main.js          → Scroll effects, carousel, fade-in observer
 ├── images/
-│   ├── hero/           → Hero carousel images (hero-luggage.png, hero-noren.png, hero-notebook.png)
-│   ├── logo/           → logo.png (navbar, 55px height desktop)
+│   ├── hero/           → Hero carousel images (hero-luggage.webp, hero-noren.webp, hero-notebook.webp)
+│   ├── logo/           → logo.webp (navbar, 55px height desktop)
 │   └── index/          → Page-specific imagery
 
 index.html             → Home page (序 - Prologue)

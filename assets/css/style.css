@@ -1003,7 +1003,7 @@ a:hover {
 /* Revival Section */
 .revival-section {
   background-color: #F9F7F2; /* 保持紙張底色 */
-  background-image: url('assets/images/texture/paper.jpg'); /* 若有紙張紋理則延用 */
+  background-image: url('assets/images/texture/paper.webp'); /* 若有紙張紋理則延用 */
   padding: 6rem 1rem;
   position: relative;
   overflow: hidden;

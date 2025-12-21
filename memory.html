@@ -10,14 +10,14 @@
   <meta name="author" content="天喜旅行 Skylark Memory">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#F9F7F2">
-  <link rel="icon" href="assets/images/logo/favicon.png" type="image/png">
+  <link rel="icon" href="assets/images/logo/favicon.webp" type="image/png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:title" content="憶 Memory | 天喜の記憶 - 拼湊被記得的瞬間">
   <meta property="og:description" content="與我們分享您的天喜記憶，讓那些被記得的瞬間活著。">
-  <meta property="og:image" content="assets/images/og/og-memory.png">
+  <meta property="og:image" content="assets/images/og/og-memory.webp">
   <meta property="og:url" content="https://bertwang.github.io/skylark-memory/memory.html">
   <meta property="og:site_name" content="天喜の記憶 Skylark Memory">
 
@@ -157,6 +157,103 @@
       opacity: 0.1;
       font-family: serif;
     }
+
+  /* --- Memory Note Styles (和紙便條風格) --- */
+  .memory-note {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06); /* 柔和的浮起陰影 */
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 2px; /* 微微的圓角，像紙張 */
+    display: flex;
+    flex-direction: column;
+    background-image: url('assets/images/texture/paper.webp');
+  }
+
+  .memory-note:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  }
+
+  /* 紙膠帶效果 (Washi Tape) */
+  .note-tape {
+    position: absolute;
+    top: -12px; /* 貼在頂部邊緣 */
+    left: 50%;
+    transform: translateX(-50%) rotate(-1.5deg); /* 微微歪斜，增加手作感 */
+    width: 100px;
+    height: 30px;
+    opacity: 0.85; /* 半透明感 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1;
+    /* 膠帶紋理 */
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+  }
+
+  /* 膠帶顏色 (對應天喜 24 色) */
+  .note-pink .note-tape { background-color: var(--tag-14); } /* 櫻花粉/粉紅 */
+  .note-blue .note-tape { background-color: var(--tag-15); } /* 天藍 */
+  .note-red .note-tape { background-color: var(--tag-07); }  /* 正紅 */
+  .note-green .note-tape { background-color: var(--tag-05); } /* 鮮綠 */
+
+  .note-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .note-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--skylark-dark-blue);
+    margin-bottom: 1.2rem;
+    text-align: center;
+    border-bottom: 1px dashed #eee; /* 虛線分隔 */
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .note-desc {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify; /* 左右對齊，讓文字塊更整齊 */
+  }
+
+  .note-quote {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    padding: 1.5rem 0 0.5rem;
+    margin-top: auto; /* 推到底部 */
+    line-height: 1.6;
+  }
+
+  /* 金句顏色 (比膠帶深一點，增加閱讀性) */
+  .note-pink .note-quote { color: #D45D79; } 
+  .note-blue .note-quote { color: var(--skylark-blue); }
+  .note-red .note-quote { color: #B22222; }
+  .note-green .note-quote { color: #558B2F; }
+
+  /* 引號裝飾 */
+  .note-quote::before {
+    content: '“';
+    font-family: serif;
+    font-size: 4rem;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.1;
+    color: inherit;
+    line-height: 1;
+  }
   </style>
 </head>
 
@@ -165,7 +262,7 @@
   <nav class="navbar navbar-expand-lg navbar-skylark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="assets/images/logo/logo.png" alt="天喜旅行 Skylark" class="navbar-logo">
+        <img src="assets/images/logo/logo.webp" alt="天喜旅行 Skylark" class="navbar-logo">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -186,7 +283,7 @@
     <!-- Hero Section -->
     <header class="hero-section d-flex align-items-center position-relative" style="height: 60vh; background: #1a1a1a;">
       <div class="position-absolute w-100 h-100" style="
-        background-image: url('assets/images/memory/memory-hero.jpg'); 
+        background-image: url('assets/images/memory/memory-hero.webp'); 
         background-size: cover; 
         background-position: center; 
         opacity: 0.5;"></div>
@@ -414,47 +511,81 @@
         <div class="text-center mb-5 fade-in-text">
           <span class="chapter-tag">故事</span>
           <h2 class="manifesto-title mt-2">那些年，天喜做過的事</h2>
+          <p class="text-muted mt-3" style="font-family: var(--font-heading); letter-spacing: 0.1em; font-size: 0.95rem;">
+            有些事，當下只是一個舉動；<br>過了十年，卻成了一輩子的記憶。
+          </p>
         </div>
 
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            
-            <div class="story-item fade-in-text">
-              <h4 class="story-title">那位坐輪椅的媽媽</h4>
-              <p class="body-text">
-                有位客人行前不安地說：「我媽媽坐輪椅，不知道能不能泡湯……」<br>
-                我們的職員當晚就打越洋電話確認升降設備。抵達當天，旅館房間放了一張手寫卡片：「歡迎您來泡湯，我們準備好了。」<br>
-                她後來寫道：<span class="emphasis">「謝謝你們讓我媽媽覺得，她不是負擔。」</span>
-              </p>
+        <div class="row g-4 justify-content-center">
+          
+          <!-- Story 1: 輪椅媽媽 (溫暖/粉紅) -->
+          <div class="col-md-6 col-lg-5 fade-in-text">
+            <div class="memory-note note-pink">
+              <div class="note-tape"></div>
+              <div class="note-body">
+                <h4 class="note-title">那位坐輪椅的媽媽</h4>
+                <p class="note-desc">
+                  有位客人行前不安地說：「我媽媽坐輪椅，不知道能不能泡湯……」<br><br>
+                  職員當晚越洋確認升降設備。抵達當天，房間放了一張卡片：「歡迎您來泡湯，我們準備好了。」
+                </p>
+                <div class="note-quote">
+                  「謝謝你們讓我媽媽覺得，<br>她不是負擔。」
+                </div>
+              </div>
             </div>
-
-            <div class="story-item fade-in-text">
-              <h4 class="story-title">獨行的女性旅客</h4>
-              <p class="body-text">
-                一位第一次自己出國的女性旅客擔心晚上不安全。<br>
-                導遊記住了。到了日本，他主動在她房門外的走廊放了一張椅子，整晚陪伴。隔天早上，她看到那張椅子當場哭了。<br>
-                她說：<span class="emphasis">「我終於知道什麼叫被照顧的感覺。」</span>
-              </p>
-            </div>
-
-            <div class="story-item fade-in-text">
-              <h4 class="story-title">生日的驚喜</h4>
-              <p class="body-text">
-                我們提前聯繫日本溫泉旅館，在晚宴時升起中華民國國旗，全體旅客一起唱生日快樂歌。<br>
-                那位客人後來告訴郭正利：<span class="emphasis">「郭總，那是我這輩子最有尊嚴的生日。」</span>
-              </p>
-            </div>
-
-            <div class="story-item fade-in-text">
-              <h4 class="story-title">美秀博物館的彌補</h4>
-              <p class="body-text">
-                因導遊疏失錯過美秀博物館（Miho Museum），客人非常失望。<br>
-                郭正利知悉後，馬上賠償書籍費用，並提議半價招待下次行程完整參觀。<br>
-                郭正利說：<span class="emphasis">「對於處理客戶投訴，第一要先體諒客戶的感受，只要是他很在乎的，就是優先要處理的。」</span>
-              </p>
-            </div>
-
           </div>
+
+          <!-- Story 2: 獨行女性 (信任/天藍) -->
+          <div class="col-md-6 col-lg-5 fade-in-text delay-1">
+            <div class="memory-note note-blue">
+              <div class="note-tape"></div>
+              <div class="note-body">
+                <h4 class="note-title">獨行的女性旅客</h4>
+                <p class="note-desc">
+                  第一次自己出國的她擔心晚上不安全。<br><br>
+                  導遊主動在她房門外走廊放了一張椅子，整晚陪伴。隔天早上，她看到那張椅子當場哭了。
+                </p>
+                <div class="note-quote">
+                  「我終於知道什麼叫<br>被照顧的感覺。」
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story 3: 生日驚喜 (熱情/正紅) -->
+          <div class="col-md-6 col-lg-5 fade-in-text delay-2">
+            <div class="memory-note note-red">
+              <div class="note-tape"></div>
+              <div class="note-body">
+                <h4 class="note-title">生日的驚喜</h4>
+                <p class="note-desc">
+                  我們提前聯繫溫泉旅館，在晚宴時升起中華民國國旗，全體旅客一起唱生日快樂歌。<br><br>
+                  那位客人後來告訴郭正利：
+                </p>
+                <div class="note-quote">
+                  「郭總，那是我這輩子<br>最有尊嚴的生日。」
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story 4: 博物館彌補 (誠信/鮮綠) -->
+          <div class="col-md-6 col-lg-5 fade-in-text delay-3">
+            <div class="memory-note note-green">
+              <div class="note-tape"></div>
+              <div class="note-body">
+                <h4 class="note-title">美秀博物館的彌補</h4>
+                <p class="note-desc">
+                  因疏失錯過博物館，郭正利馬上賠償書籍費用，並提議半價招待下次行程完整參觀。<br><br>
+                  他說：
+                </p>
+                <div class="note-quote">
+                  「只要是客戶很在乎的，<br>就是優先要處理的。」
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -617,7 +748,7 @@
       <div class="row align-items-center gy-4">
         <div class="col-md-6 text-md-start text-center">
           <div class="footer-brand d-flex align-items-center justify-content-md-start justify-content-center">
-            <img src="assets/images/logo/logo.png" alt="天喜旅行 Skylark" class="footer-logo">
+            <img src="assets/images/logo/logo.webp" alt="天喜旅行 Skylark" class="footer-logo">
             <div class="footer-tagline">
               <p class="mb-1">天喜の記憶</p>
               <small class="text-muted">精彩回憶，依然天喜</small>

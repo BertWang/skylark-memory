@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 圖片陣列
     const images = [
-        "assets/images/hero/hero-luggage.png",
-        "assets/images/hero/hero-noren.png",
-        "assets/images/hero/hero-notebook.png"
+        "assets/images/hero/hero-luggage.webp",
+        "assets/images/hero/hero-noren.webp",
+        "assets/images/hero/hero-notebook.webp"
     ];
 
     // 預載圖片函式

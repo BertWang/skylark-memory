@@ -9,4 +9,4 @@ Disallow: /assets/js/
 Disallow: /assets/css/
 
 # Specify your sitemap
-Sitemap: https://bertwang.github.io/skylark-memory/sitemap.xml
+Sitemap: https://skylark.tw/sitemap.xml

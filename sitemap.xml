@@ -5,45 +5,45 @@
   
   <!-- 首頁 -->
   <url>
-    <loc>https://bertwang.github.io/skylark-memory/</loc>
-    <lastmod>2025-12-12</lastmod>
+    <loc>https://skylark.tw/</loc>
+    <lastmod>2025-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- 子頁面：五個主頁 -->
   <url>
-    <loc>https://bertwang.github.io/skylark-memory/origin.html</loc>
-    <lastmod>2025-12-12</lastmod>
+    <loc>https://skylark.tw/origin.html</loc>
+    <lastmod>2025-12-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://bertwang.github.io/skylark-memory/history.html</loc>
-    <lastmod>2025-12-12</lastmod>
+    <loc>https://skylark.tw/history.html</loc>
+    <lastmod>2025-12-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://bertwang.github.io/skylark-memory/memory.html</loc>
-    <lastmod>2025-12-12</lastmod>
+    <loc>https://skylark.tw/memory.html</loc>
+    <lastmod>2025-12-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bertwang.github.io/skylark-memory/vision.html</loc>
-    <lastmod>2025-12-12</lastmod>
+    <loc>https://skylark.tw/vision.html</loc>
+    <lastmod>2025-12-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- 通用資源 -->
   <url>
-    <loc>https://bertwang.github.io/skylark-memory/assets/images/logo/favicon.webp</loc>
-    <lastmod>2025-12-12</lastmod>
+    <loc>https://skylark.tw/assets/images/logo/favicon.webp</loc>
+    <lastmod>2025-12-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

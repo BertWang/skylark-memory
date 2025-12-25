@@ -1,0 +1,106 @@
+{
+  "vision": {
+    "pageType": "vision",
+    "formSelector": "form",
+    "submitButtonSelector": "#survey form button.btn-skylark, #survey form button[type='button'], #survey form button",
+    "fields": [
+      {
+        "name": "freeText",
+        "label": "想對天喜說的話",
+        "type": "textarea",
+        "required": false,
+        "selector": "#survey form textarea.form-control, #survey form textarea"
+      },
+      {
+        "name": "choice",
+        "label": "您的答案",
+        "type": "radio",
+        "required": false,
+        "selector": "#survey form input[type='radio'][name='choice']",
+        "valueFrom": "checked"
+      },
+      {
+        "name": "name",
+        "label": "您的名字",
+        "type": "text",
+        "required": true,
+        "selector": "#survey form input[type='text'].form-control, #survey form input[type='text']"
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true,
+        "selector": "#survey form input[type='email'].form-control, #survey form input[type='email']"
+      }
+    ]
+  },
+
+  "memory": {
+    "pageType": "memory",
+    "formSelector": "form",
+    "submitButtonSelector": "form button.btn-skylark, form button[type='button'], form button, form input[type='submit']",
+    "fields": [
+      {
+        "name": "name",
+        "label": "您的名字",
+        "type": "text",
+        "required": true,
+        "selector": "form input[type='text'].form-control, form input[type='text']"
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true,
+        "selector": "form input[type='email'].form-control, form input[type='email']"
+      },
+      {
+        "name": "story",
+        "label": "您的故事",
+        "type": "textarea",
+        "required": true,
+        "minLength": 20,
+        "maxLength": 2000,
+        "selector": "form textarea.form-control, form textarea"
+      }
+    ]
+  },
+
+  "jp-memory": {
+    "pageType": "jp-memory",
+    "formSelector": "form",
+    "submitButtonSelector": "form button, form input[type='submit']",
+    "fields": [
+      {
+        "name": "name",
+        "label": "お名前",
+        "type": "text",
+        "required": true,
+        "selector": "form input[type='text'], form input[type='text'].form-control"
+      },
+      {
+        "name": "email",
+        "label": "メールアドレス",
+        "type": "email",
+        "required": true,
+        "selector": "form input[type='email'], form input[type='email'].form-control"
+      },
+      {
+        "name": "episode",
+        "label": "エピソード",
+        "type": "textarea",
+        "required": true,
+        "minLength": 20,
+        "maxLength": 2000,
+        "selector": "form textarea, form textarea.form-control"
+      }
+    ]
+  },
+
+  "meta": {
+    "collection": "submissions",
+    "version": "2025-12-25",
+    "note": "目前使用通用 selector，若欄位抓錯請提供三頁 <form> 原碼以精準化。"
+  }
+}

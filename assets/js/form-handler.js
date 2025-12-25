@@ -9,7 +9,7 @@
   })();
 
   async function loadConfig() {
-    const res = await fetch("./fields-config.json", { cache: "no-store" });
+    const res = await fetch("/assets/js/fields-config.json", { cache: "no-store" });
     if (!res.ok) throw new Error("fields-config.json 載入失敗: " + res.status);
     return await res.json();
   }

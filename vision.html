@@ -241,30 +241,38 @@
 
             <!-- 信箋設計：利用 border-top (金色) 模擬信紙 -->
             <div class="bg-white p-5 shadow-sm fade-in-text delay-1" style="border-top: 5px solid var(--skylark-gold); border-bottom: 1px solid #eee;">
-              <form>
+              <form id="visionForm" novalidate>
                 <!-- Q1 -->
                 <div class="mb-5">
                   <h5 class="mb-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">第一件事｜您還記得天喜嗎？</h5>
                   <p class="text-muted small mb-3">如果您曾經參加過、服務過，或聽說過郭正利的故事，請告訴我們您記得什麼？</p>
-                  <!-- 使用 border-bottom 模擬橫線筆記本 -->
-                  <textarea class="form-control" rows="3" placeholder="那位記得您慣用手的導遊？那碗麻油雞？..." style="border: none; border-bottom: 1px solid #ddd; border-radius: 0; background: transparent;"></textarea>
+                  <textarea
+                    id="rememberText"
+                    name="rememberText"
+                    class="form-control"
+                    rows="3"
+                    placeholder="那位記得您慣用手的導遊？那碗麻油雞？..."
+                    style="border: none; border-bottom: 1px solid #ddd; border-radius: 0; background: transparent;"
+                    maxlength="2000"
+                  ></textarea>
                 </div>
 
                 <!-- Q2 -->
                 <div class="mb-5">
                   <h5 class="mb-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">第二件事｜如果天喜回來了，您會再次選擇嗎？</h5>
                   <p class="text-muted small mb-3">假設：小團制、文化深度、極致服務，價格比市場貴30-50%。</p>
+
                   <div class="d-flex flex-column gap-2 ps-2">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="choice" id="c1">
+                      <input class="form-check-input" type="radio" name="choice" id="c1" value="yes" required>
                       <label class="form-check-label" for="c1">非常願意，我一直在等這一天</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="choice" id="c2">
+                      <input class="form-check-input" type="radio" name="choice" id="c2" value="maybe" required>
                       <label class="form-check-label" for="c2">可能會考慮，想先了解更多</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="choice" id="c3">
+                      <input class="form-check-input" type="radio" name="choice" id="c3" value="depends" required>
                       <label class="form-check-label" for="c3">需要看行程內容與價格</label>
                     </div>
                   </div>
@@ -276,16 +284,18 @@
                   <p class="text-muted small mb-3">如果天喜正式重啟，您希望我們第一時間通知您嗎？</p>
                   <div class="row g-4">
                     <div class="col-md-6">
-                      <input type="text" class="form-control" placeholder="姓名" style="border: none; border-bottom: 1px solid #ddd; border-radius: 0;">
+                      <input id="contactName" name="contactName" type="text" class="form-control" placeholder="姓名"
+                            style="border: none; border-bottom: 1px solid #ddd; border-radius: 0;">
                     </div>
                     <div class="col-md-6">
-                      <input type="email" class="form-control" placeholder="Email" style="border: none; border-bottom: 1px solid #ddd; border-radius: 0;">
+                      <input id="contactEmail" name="contactEmail" type="email" class="form-control" placeholder="Email" autocomplete="email"
+                            style="border: none; border-bottom: 1px solid #ddd; border-radius: 0;">
                     </div>
                   </div>
                 </div>
 
                 <div class="text-center mt-5">
-                  <button type="button" class="btn-skylark px-5 py-2" onclick="alert('謝謝您的回饋。您的聲音，是天喜重生的動力。')">提交回饋</button>
+                  <button id="visionSubmitBtn" type="button" class="btn-skylark px-5 py-2" onclick="alert('謝謝您的回饋。您的聲音，是天喜重生的動力。')">提交回饋</button>
                 </div>
               </form>
             </div>

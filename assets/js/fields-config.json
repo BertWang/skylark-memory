@@ -1,106 +1,178 @@
 {
-  "vision": {
-    "pageType": "vision",
-    "formSelector": "form",
-    "submitButtonSelector": "#survey form button.btn-skylark, #survey form button[type='button'], #survey form button",
-    "fields": [
-      {
-        "name": "freeText",
-        "label": "想對天喜說的話",
-        "type": "textarea",
-        "required": false,
-        "selector": "#survey form textarea.form-control, #survey form textarea"
-      },
-      {
-        "name": "choice",
-        "label": "您的答案",
-        "type": "radio",
-        "required": false,
-        "selector": "#survey form input[type='radio'][name='choice']",
-        "valueFrom": "checked"
-      },
-      {
-        "name": "name",
-        "label": "您的名字",
-        "type": "text",
-        "required": true,
-        "selector": "#survey form input[type='text'].form-control, #survey form input[type='text']"
-      },
-      {
-        "name": "email",
-        "label": "Email",
-        "type": "email",
-        "required": true,
-        "selector": "#survey form input[type='email'].form-control, #survey form input[type='email']"
-      }
-    ]
+  "meta": {
+    "version": "2025-12-25",
+    "collection": "submissions",
+    "strategy": "Use stable selectors (form id + input name/id). Avoid placeholder selectors.",
+    "pages": ["vision", "memory", "jp-memory"]
   },
 
   "memory": {
     "pageType": "memory",
-    "formSelector": "form",
-    "submitButtonSelector": "form button.btn-skylark, form button[type='button'], form button, form input[type='submit']",
+    "formSelector": "#memoryForm",
+    "submitButtonSelector": "#memorySubmitBtn",
     "fields": [
       {
-        "name": "name",
-        "label": "您的名字",
+        "name": "connection",
+        "label": "您與天喜的連結",
+        "type": "radio",
+        "required": true,
+        "selector": "input[name='connection']",
+        "valueFrom": "checked_value"
+      },
+      {
+        "name": "connectionOtherText",
+        "label": "其他（補充）",
         "type": "text",
-        "required": true,
-        "selector": "form input[type='text'].form-control, form input[type='text']"
+        "required": false,
+        "selector": "#connectionOtherText"
       },
       {
-        "name": "email",
-        "label": "Email",
-        "type": "email",
-        "required": true,
-        "selector": "form input[type='email'].form-control, form input[type='email']"
+        "name": "interactionYear",
+        "label": "互動時間（大約年份）",
+        "type": "text",
+        "required": false,
+        "selector": "#interactionYear"
       },
       {
-        "name": "story",
-        "label": "您的故事",
+        "name": "interactionScene",
+        "label": "行程或場景",
+        "type": "text",
+        "required": false,
+        "selector": "#interactionScene"
+      },
+      {
+        "name": "touchingDetail",
+        "label": "讓您感動的細節",
         "type": "textarea",
         "required": true,
-        "minLength": 20,
+        "minLength": 10,
         "maxLength": 2000,
-        "selector": "form textarea.form-control, form textarea"
+        "selector": "#touchingDetail"
+      },
+      {
+        "name": "oneSentence",
+        "label": "一句話形容天喜",
+        "type": "text",
+        "required": false,
+        "maxLength": 40,
+        "selector": "#oneSentence"
+      },
+      {
+        "name": "contactName",
+        "label": "聯絡姓名（或暱稱）",
+        "type": "text",
+        "required": false,
+        "selector": "#contactName"
+      },
+      {
+        "name": "contactEmail",
+        "label": "聯絡Email",
+        "type": "email",
+        "required": false,
+        "selector": "#contactEmail"
+      },
+      {
+        "name": "agreeShare",
+        "label": "是否願意公開分享",
+        "type": "checkbox",
+        "required": false,
+        "selector": "#agreeShare",
+        "valueFrom": "checked_boolean"
+      }
+    ],
+    "computed": [
+      {
+        "name": "connectionOtherEnabled",
+        "label": "是否選擇其他",
+        "type": "computed",
+        "compute": "radio_is_checked",
+        "args": { "selector": "#conn5" }
+      }
+    ]
+  },
+
+  "vision": {
+    "pageType": "vision",
+    "formSelector": "#visionForm",
+    "submitButtonSelector": "#visionSubmitBtn",
+    "fields": [
+      {
+        "name": "rememberText",
+        "label": "您還記得天喜嗎？",
+        "type": "textarea",
+        "required": false,
+        "maxLength": 2000,
+        "selector": "#rememberText"
+      },
+      {
+        "name": "choice",
+        "label": "如果天喜回來了，您會再次選擇嗎？",
+        "type": "radio",
+        "required": true,
+        "selector": "input[name='choice']",
+        "valueFrom": "checked_value"
+      },
+      {
+        "name": "contactName",
+        "label": "聯絡姓名（選填）",
+        "type": "text",
+        "required": false,
+        "selector": "#contactName"
+      },
+      {
+        "name": "contactEmail",
+        "label": "聯絡Email（選填）",
+        "type": "email",
+        "required": false,
+        "selector": "#contactEmail"
       }
     ]
   },
 
   "jp-memory": {
     "pageType": "jp-memory",
-    "formSelector": "form",
-    "submitButtonSelector": "form button, form input[type='submit']",
+    "formSelector": "#jpMemoryForm",
+    "submitButtonSelector": "#jpMemorySubmitBtn",
     "fields": [
       {
-        "name": "name",
-        "label": "お名前",
-        "type": "text",
+        "name": "connection",
+        "label": "天喜とのご関係",
+        "type": "radio",
         "required": true,
-        "selector": "form input[type='text'], form input[type='text'].form-control"
+        "selector": "input[name='connection']",
+        "valueFrom": "checked_value"
       },
       {
-        "name": "email",
-        "label": "メールアドレス",
-        "type": "email",
-        "required": true,
-        "selector": "form input[type='email'], form input[type='email'].form-control"
-      },
-      {
-        "name": "episode",
-        "label": "エピソード",
+        "name": "memory",
+        "label": "あなたの思い出",
         "type": "textarea",
         "required": true,
         "minLength": 20,
-        "maxLength": 2000,
-        "selector": "form textarea, form textarea.form-control"
+        "maxLength": 1000,
+        "selector": "#jpMemoryText"
+      },
+      {
+        "name": "profileName",
+        "label": "お名前（任意）",
+        "type": "text",
+        "required": false,
+        "selector": "#jpName"
+      },
+      {
+        "name": "profileCompany",
+        "label": "当時の会社名・役職など（任意）",
+        "type": "text",
+        "required": false,
+        "selector": "#jpCompany"
+      },
+      {
+        "name": "privacy",
+        "label": "公開範囲の設定",
+        "type": "radio",
+        "required": true,
+        "selector": "input[name='privacy']",
+        "valueFrom": "checked_value"
       }
     ]
-  },
-
-  "meta": {
-    "collection": "submissions",
-    "version": "2025-12-25",
-    "note": "目前使用通用 selector，若欄位抓錯請提供三頁 <form> 原碼以精準化。"
   }
 }

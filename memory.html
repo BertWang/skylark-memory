@@ -468,30 +468,42 @@
             </div>
 
             <div class="memory-form-card fade-in-text delay-1">
-              <form>
+              <form id="memoryForm" novalidate>
                 <!-- 1. 連結 -->
                 <div class="mb-4">
                   <label class="form-label">1. 您與天喜的連結是？</label>
+
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="connection" id="conn1">
+                    <input class="form-check-input" type="radio" name="connection" id="conn1" value="vip" required>
                     <label class="form-check-label" for="conn1">我是天喜的舊貴賓</label>
                   </div>
+
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="connection" id="conn2">
+                    <input class="form-check-input" type="radio" name="connection" id="conn2" value="staff" required>
                     <label class="form-check-label" for="conn2">我是天喜的前職員</label>
                   </div>
+
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="connection" id="conn3">
+                    <input class="form-check-input" type="radio" name="connection" id="conn3" value="partner" required>
                     <label class="form-check-label" for="conn3">我是天喜的前合作夥伴</label>
                   </div>
+
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="connection" id="conn4">
+                    <input class="form-check-input" type="radio" name="connection" id="conn4" value="family_friend" required>
                     <label class="form-check-label" for="conn4">我是郭正利先生的家人/友人</label>
                   </div>
+
                   <div class="form-check d-flex align-items-center mt-2">
-                    <input class="form-check-input me-2" type="radio" name="connection" id="conn5">
+                    <input class="form-check-input me-2" type="radio" name="connection" id="conn5" value="other" required>
                     <label class="form-check-label me-2" for="conn5">其他：</label>
-                    <input type="text" class="form-control form-control-sm w-50" placeholder="">
+                    <input
+                      id="connectionOtherText"
+                      name="connectionOtherText"
+                      type="text"
+                      class="form-control form-control-sm w-50"
+                      placeholder="請簡短說明"
+                      disabled
+                    >
                   </div>
                 </div>
 
@@ -500,10 +512,22 @@
                   <label class="form-label">2. 您參加過天喜的行程，或與天喜互動的時間是？</label>
                   <div class="row g-3">
                     <div class="col-md-6">
-                      <input type="text" class="form-control" placeholder="大約年份（例如：2000年代初期）">
+                      <input
+                        id="interactionYear"
+                        name="interactionYear"
+                        type="text"
+                        class="form-control"
+                        placeholder="大約年份（例如：2000年代初期）"
+                      >
                     </div>
                     <div class="col-md-6">
-                      <input type="text" class="form-control" placeholder="行程或場景（例如：北海道賞雪）">
+                      <input
+                        id="interactionScene"
+                        name="interactionScene"
+                        type="text"
+                        class="form-control"
+                        placeholder="行程或場景（例如：北海道賞雪）"
+                      >
                     </div>
                   </div>
                 </div>
@@ -514,13 +538,29 @@
                   <div class="form-text mb-2 text-muted">
                     例如：「導遊記得我媽媽不吃生魚片，主動換成烤魚。」、「郭總在迪化街用雙手把碗遞給我。」
                   </div>
-                  <textarea class="form-control" rows="4" placeholder="請用您自己的話，簡短描述那個瞬間..."></textarea>
+                  <textarea
+                    id="touchingDetail"
+                    name="touchingDetail"
+                    class="form-control"
+                    rows="4"
+                    placeholder="請用您自己的話，簡短描述那個瞬間..."
+                    minlength="10"
+                    maxlength="2000"
+                    required
+                  ></textarea>
                 </div>
 
                 <!-- 4. 一句話 -->
                 <div class="mb-4">
                   <label class="form-label">4. 如果用一句話形容天喜，您會說？</label>
-                  <input type="text" class="form-control" placeholder="不超過20個字">
+                  <input
+                    id="oneSentence"
+                    name="oneSentence"
+                    type="text"
+                    class="form-control"
+                    placeholder="不超過20個字"
+                    maxlength="40"
+                  >
                 </div>
 
                 <!-- 5. 聯絡 -->
@@ -528,14 +568,28 @@
                   <label class="form-label">5. 您願意留下聯絡方式嗎？（選填）</label>
                   <div class="row g-3">
                     <div class="col-md-6">
-                      <input type="text" class="form-control" placeholder="姓名（或暱稱）">
+                      <input
+                        id="contactName"
+                        name="contactName"
+                        type="text"
+                        class="form-control"
+                        placeholder="姓名（或暱稱）"
+                      >
                     </div>
                     <div class="col-md-6">
-                      <input type="email" class="form-control" placeholder="Email">
+                      <input
+                        id="contactEmail"
+                        name="contactEmail"
+                        type="email"
+                        class="form-control"
+                        placeholder="Email"
+                        autocomplete="email"
+                      >
                     </div>
                   </div>
+
                   <div class="form-check mt-3">
-                    <input class="form-check-input" type="checkbox" id="agreeShare">
+                    <input class="form-check-input" type="checkbox" id="agreeShare" name="agreeShare">
                     <label class="form-check-label text-muted small" for="agreeShare">
                       是否願意公開分享您的故事（我們會先徵得您的同意）
                     </label>
@@ -543,9 +597,28 @@
                 </div>
 
                 <div class="text-center mt-5">
-                  <button type="button" class="btn-skylark w-100 py-3">提交記憶</button>
+                  <button id="memorySubmitBtn" type="button" class="btn-skylark w-100 py-3">提交記憶</button>
                 </div>
               </form>
+
+              <script>
+                // 只改行為，不改外觀：選「其他」才開啟文字框
+                (function () {
+                  const otherRadio = document.getElementById('conn5');
+                  const otherText = document.getElementById('connectionOtherText');
+                  const radios = document.querySelectorAll("input[name='connection']");
+
+                  function syncOtherField() {
+                    const isOther = otherRadio && otherRadio.checked;
+                    if (!otherText) return;
+                    otherText.disabled = !isOther;
+                    if (!isOther) otherText.value = '';
+                  }
+
+                  radios.forEach(r => r.addEventListener('change', syncOtherField));
+                  syncOtherField();
+                })();
+              </script>
             </div>
           </div>
         </div>

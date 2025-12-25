@@ -51,7 +51,7 @@ h1, h2, h3, .jp-hero-title, .jp-section-title {
 }
 
 /* --- Navigation --- */
-.jp-nav {
+.navbar-skylark {
     padding: 20px 0;
     border-bottom: 1px solid var(--jp-border-hairline);
     background: rgba(250, 247, 240, 0.9);

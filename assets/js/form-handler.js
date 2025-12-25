@@ -24,7 +24,7 @@
       invalidEmail: "格式不正確",
       minLength: (n) => `至少 ${n} 字`,
       maxLength: (n, cur) => `最多 ${n} 字（目前 ${cur} 字）`,
-      success: "感謝您的分享！已收到。",
+      success: "感謝您的分享！已收到。謝謝您的回饋。您的聲音，是天喜重生的動力。",
       initDbMissing: "❌ Firestore(db) 未初始化，請確認 firebase-config.js 有先載入",
       configLoadFail: (status) => `fields-config.json 載入失敗: ${status}`
     },

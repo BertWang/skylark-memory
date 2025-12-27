@@ -4,9 +4,8 @@ User-agent: *
 # Allow all main pages
 Allow: /$
 
-# Disallow system and miscellaneous assets
-Disallow: /assets/js/
-Disallow: /assets/css/
+# Previously disallowed asset directories removed so search engines can render pages
+# (Allowing CSS/JS improves page rendering and indexing)
 
 # Specify your sitemap
 Sitemap: https://skylark.tw/sitemap.xml

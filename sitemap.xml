@@ -40,11 +40,26 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://skylark.tw/jp-memory.html</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- 通用資源 -->
   <url>
     <loc>https://skylark.tw/assets/images/logo/favicon.webp</loc>
     <lastmod>2025-12-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <!-- 404 頁面（方便搜尋引擎與錯誤回報） -->
+  <url>
+    <loc>https://skylark.tw/404.html</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
   </url>
 </urlset>

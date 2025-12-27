@@ -957,8 +957,8 @@ a:hover {
     background: linear-gradient(45deg, #C9A961, #E6C885, #C9A961);
     -webkit-background-clip: text;
     background-clip: text;
-    /*-webkit-text-fill-color: transparent; */
-    /*text-shadow: 0 2px 10px rgba(0,0,0,0.3); */
+    -webkit-text-fill-color: transparent; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3); 
 }
 
 .quote-mark-bg {

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 找不到頁面｜天喜の記憶</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="assets/images/logo/favicon.webp" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .page-404 { min-height: 80vh; display:flex; align-items:center; justify-content:center; }
+    .page-404 .card { max-width:720px; border-radius:14px; padding:28px; text-align:center; }
+    .page-404 h1{ font-size:3.2rem; letter-spacing:0.02em; }
+    .page-404 p{ color:var(--skylark-dark-blue, #1a2b48); font-size:1.05rem; }
+    .btn-home{ background:var(--skylark-blue,#004B87); color:#fff; border-radius:50px; padding:10px 26px; }
+  </style>
+</head>
+<body>
+  <!-- navbar (reuse site header) -->
+  <nav class="navbar navbar-expand-lg navbar-skylark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo/logo.png" alt="天喜の記憶" class="navbar-logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">序 <small class="d-block text-muted" style="font-size:0.6em;">Home</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="origin.html">源 <small class="d-block text-muted" style="font-size:0.6em;">Origin</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="history.html">跡 <small class="d-block text-muted" style="font-size:0.6em;">History</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="memory.html">憶 <small class="d-block text-muted" style="font-size:0.6em;">Memory</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="vision.html">願 <small class="d-block text-muted" style="font-size:0.6em;">Vision</small></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-404">
+    <div class="container">
+      <div class="card mx-auto shadow-sm">
+        <h1>這段記憶暫時找不到 · 404</h1>
+        <p>抱歉，您所尋找的頁面目前無法顯示。可能是連結已更新，或內容仍在整理中。歡迎回到「序」，繼續探索其他記憶片段。</p>
+        <div class="my-3">
+          <a href="index.html" class="btn btn-home">回到「序」</a>
+        </div>
+        <p class="text-muted small mt-3">若您有具體連結或發現錯誤，請寄信至 <a href="mailto:1990skylark@gmail.com">1990skylark@gmail.com</a> 或於網站底部留言，我們會協助找回那段記憶。</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

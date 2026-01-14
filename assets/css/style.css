@@ -1334,3 +1334,48 @@ a:hover {
 }
 
 /* --- Memory Page Styles --- */
+/* --- Footer Social Icons (社群連結樣式) --- */
+.footer-social {
+    display: flex;
+    gap: 12px;
+    /* 電腦版靠右對齊 (配合 col-md-6 text-md-end) */
+    justify-content: flex-end; 
+    align-items: center;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid var(--skylark-blue); /* 預設細框線 */
+    color: var(--skylark-blue);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-decoration: none; /* 移除底線 */
+}
+
+/* 移除原本 footer a 的綠色底線效果，避免干擾圓形按鈕 */
+.footer-social .social-btn::after {
+    display: none; 
+}
+
+/* 滑鼠懸停效果 */
+.social-btn:hover {
+    background-color: var(--skylark-blue);
+    color: #fff; /* 圖示變白 */
+    transform: translateY(-3px); /* 微微上浮 */
+    box-shadow: 0 4px 10px rgba(38, 114, 184, 0.3);
+    border-color: var(--skylark-blue);
+}
+
+/* 手機版響應式調整 */
+@media (max-width: 768px) {
+    .footer-social {
+        justify-content: center; /* 手機版置中 */
+        margin-top: 1.5rem !important;
+    }
+}

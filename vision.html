@@ -145,12 +145,39 @@
       </div>
     </header>
 
-    <!-- 壹｜時代的提問 -->
-    <section class="section-padding bg-white">
+    <!-- 壹｜天喜の願 (定位區塊) -->
+    <section class="section-padding vision-intro-section">
+      <div class="container">
+        <!-- 浮水印裝飾 -->
+        <img src="assets/images/logo/logo2.png" alt="" class="vision-intro-bg-watermark">
+
+        <div class="text-center mb-5 fade-in-text">
+          <span class="chapter-tag">初心</span>
+          <h2 class="manifesto-title mt-3">天喜の願</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center fade-in-text delay-1">
+            <p class="body-text vision-intro-lead mb-4">
+              天喜，是一個完成夢想的名稱。
+            </p>
+            <p class="body-text text-muted mb-0">
+              雖然它不再以旅行社的形式存在，<br>
+              但我們希望這裡還是那個地方 ——<br>
+              一個讓您說出心願的地方。<br>
+              一個讓記憶被好好保存的地方。<br>
+              一個讓夢想還有機會被實現的地方。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 貳｜時代的提問 -->
+    <section class="section-padding bg-white border-top">
       <div class="container">
         <div class="text-center mb-5 fade-in-text">
           <span class="chapter-tag">時代的提問</span>
-          <h1 class="manifesto-title mt-3">在這個時代，還需要天喜嗎？</h1>
+          <h2 class="manifesto-title mt-3">在這個時代，還需要天喜嗎？</h2>
         </div>
 
         <div class="row justify-content-center">
@@ -160,21 +187,22 @@
               這些都很方便，也很便宜。
             </p>
 
-            <!-- 利用 quote-block 做成置中的強調區塊 -->
-            <div class="quote-block mx-auto text-start" style="max-width: 600px; background: var(--skylark-bg);">
-              <p class="mb-3">但我們想問您：</p>
-              <p class="mb-3" style="color: var(--skylark-dark-blue);">在這個什麼都能一鍵下單的時代，<br>您還在乎「被記住名字」嗎？</p>
-              <p class="mb-0" style="color: var(--skylark-dark-blue);">在這個最低價保證的時代，<br>您還願意為「尊嚴」付費嗎？</p>
+            <!-- 深色提問卡片 -->
+            <div class="question-dark-card mx-auto text-start" style="max-width: 650px;">
+              <p class="question-title-gold mb-3">但我們想問您：</p>
+              <p class="question-text-white mb-4">在這個什麼都能一鍵下單的時代，<br>您還在乎「被記住名字」嗎？</p>
+              <p class="question-text-white mb-0">在這個最低價保證的時代，<br>您還願意為「尊嚴」付費嗎？</p>
             </div>
 
-            <p class="body-text mt-5">
-              如果您的答案是「不需要」，那麼天喜就該留在記憶裡。<br>
-              但如果您的答案是「需要」，那麼天喜的重生，就不只是懷舊。
+            <p class="body-text mt-5 mb-0">
+              這不是懷舊，是一個真實的問題。<br>
+              您的答案，是天喜の願最想聽到的聲音。
             </p>
           </div>
         </div>
       </div>
     </section>
+
     <!-- 參｜問卷調查 (信箋式) -->
     <section class="section-padding bg-white border-top" id="survey">
       <div class="container">
@@ -185,62 +213,47 @@
               <h2 class="manifesto-title mt-3">在重啟之前，我們想先問問您</h2>
             </div>
 
-            <!-- 信箋設計：利用 border-top (金色) 模擬信紙 -->
-            <div class="bg-white p-5 shadow-sm fade-in-text delay-1"
-              style="border-top: 5px solid var(--skylark-gold); border-bottom: 1px solid #eee;">
+            <!-- 信箋設計：套用 letter-paper-card 樣式，移除內聯樣式 -->
+            <div class="letter-paper-card fade-in-text delay-1">
               <form id="visionForm" novalidate>
                 <!-- Q1 -->
                 <div class="mb-5">
                   <h5 class="mb-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">
-                    第一件事｜您還記得天喜嗎？</h5>
-                  <p class="text-muted small mb-3">如果您曾經參加過、服務過，或聽說過郭正利的故事，請告訴我們您記得什麼？</p>
+                    第一件事｜您的記憶</h5>
+                  <p class="text-muted small mb-3">如果您曾經被天喜好好對待過 —— 那位記得您習慣靠窗座位的導遊、那一次行李貼上名牌的細節、那碗在旅館吃到難忘的晚餐 ——
+                    請寫下來，讓這份記憶不消失。</p>
                   <textarea id="rememberText" name="rememberText" class="form-control" rows="3"
-                    placeholder="那位記得您慣用手的導遊？那碗麻油雞？..."
-                    style="border: none; border-bottom: 1px solid #ddd; border-radius: 0; background: transparent;"
-                    maxlength="2000"></textarea>
+                    placeholder="那位記得您習慣靠窗座位的導遊？行李貼上名牌的細節？難忘的晚餐？..." maxlength="2000"></textarea>
                 </div>
 
                 <!-- Q2 -->
                 <div class="mb-5">
                   <h5 class="mb-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">
-                    第二件事｜如果天喜回來了，您會再次選擇嗎？</h5>
-                  <p class="text-muted small mb-3">假設：小團制、文化深度、極致服務，價格比市場貴30-50%。</p>
-
-                  <div class="d-flex flex-column gap-2 ps-2">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="choice" id="c1" value="yes" required>
-                      <label class="form-check-label" for="c1">非常願意，我一直在等這一天</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="choice" id="c2" value="maybe" required>
-                      <label class="form-check-label" for="c2">可能會考慮，想先了解更多</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="choice" id="c3" value="depends" required>
-                      <label class="form-check-label" for="c3">需要看行程內容與價格</label>
-                    </div>
-                  </div>
+                    第二件事｜您的心願</h5>
+                  <p class="text-muted small mb-3">如果天喜的故事有一天繼續，您最想帶誰，去哪裡？不是問價格，不是問行程。只是想知道 —— 那個還在等的人，是誰？</p>
+                  <textarea id="wishText" name="wishText" class="form-control" rows="3" placeholder="您最想帶誰，去哪裡？..."
+                    maxlength="2000"></textarea>
                 </div>
 
                 <!-- Contact -->
                 <div class="mb-4 pt-4 border-top">
                   <h5 class="mb-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">聯絡方式（選填）
                   </h5>
-                  <p class="text-muted small mb-3">如果天喜正式重啟，您希望我們第一時間通知您嗎？</p>
+                  <p class="text-muted small mb-3">如果有一天，天喜的故事繼續，您希望我們第一個告訴您嗎？</p>
                   <div class="row g-4">
                     <div class="col-md-6">
-                      <input id="contactName" name="contactName" type="text" class="form-control" placeholder="姓名"
-                        style="border: none; border-bottom: 1px solid #ddd; border-radius: 0;">
+                      <input id="contactName" name="contactName" type="text" class="form-control" placeholder="姓名">
                     </div>
                     <div class="col-md-6">
                       <input id="contactEmail" name="contactEmail" type="email" class="form-control" placeholder="Email"
-                        autocomplete="email" style="border: none; border-bottom: 1px solid #ddd; border-radius: 0;">
+                        autocomplete="email">
                     </div>
                   </div>
                 </div>
 
                 <div class="text-center mt-5">
                   <button id="visionSubmitBtn" type="button" class="btn-skylark px-5 py-2">提交回饋</button>
+                  <p class="text-muted small mt-4 mb-0">「這份心願，我們會好好保存。🙏」</p>
                 </div>
               </form>
             </div>
@@ -251,7 +264,6 @@
     </section>
 
     <!-- 肆｜致敬 (運用現有 .quote-monument-section) -->
-    <!-- 這裡直接使用 style.css 裡已經寫好的深色碑文樣式，這是最莊重的結尾 -->
     <section class="quote-monument-section text-center">
       <div class="container">
         <div class="fade-in-text">
@@ -265,19 +277,19 @@
               那一幕，讓我們明白：「情義，才是品牌最深的護城河。」
             </p>
 
-            <!-- 引用現有的 founder-quote 樣式 -->
             <h2 class="founder-quote mb-5">「蹲下，是為了跳得更高。」</h2>
 
-            <p class="text-white-50 small mt-5">
-              如果天喜能夠重生，就證明了：<br>
-              在這個什麼都能用演算法推薦的時代，還是有人願意記住您的名字。
+            <p class="text-white-50 small mt-5 mb-0">
+              在這個什麼都能用演算法推薦的時代，<br>
+              還是有人願意記住您的名字。<br>
+              <span class="monument-highlight-phrase mt-3">這件事，值得被等待。</span>
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 陸｜最後的邀請 -->
+    <!-- 伍｜最後的邀請 -->
     <section class="section-padding text-center">
       <div class="container">
         <div class="col-lg-8 mx-auto fade-in-text">

@@ -1379,3 +1379,146 @@ a:hover {
         margin-top: 1.5rem !important;
     }
 }
+
+/* ==========================================================================
+   Vision Page Custom Styles (願 Vision 頁面專屬美學樣式)
+   ========================================================================== */
+
+/* 1. 天喜の願定位區塊裝飾 */
+.vision-intro-section {
+    background-color: var(--skylark-bg) !important; /* 使用暖米白背景 */
+    position: relative;
+    overflow: hidden;
+}
+
+.vision-intro-bg-watermark {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 250px;
+    height: auto;
+    opacity: 0.04;
+    pointer-events: none;
+    transform: rotate(-15deg);
+}
+
+.vision-intro-lead {
+    font-size: 1.35rem !important;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--skylark-dark-blue);
+    line-height: 2;
+}
+
+/* 2. 時代的提問 - 深色提問卡片 */
+.question-dark-card {
+    background: linear-gradient(135deg, var(--skylark-dark-blue), #16436d);
+    color: #fff;
+    padding: 3.5rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(31, 84, 134, 0.12);
+    border-left: 5px solid var(--skylark-gold);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.question-dark-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(31, 84, 134, 0.22);
+}
+
+.question-title-gold {
+    color: var(--skylark-gold);
+    font-size: 1.1rem;
+    font-family: var(--font-heading);
+    letter-spacing: 0.1em;
+    opacity: 0.9;
+}
+
+.question-text-white {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.15rem;
+    line-height: 2;
+    letter-spacing: 0.05em;
+}
+
+/* 3. 信箋式表單設計 (Lined Paper Effect) */
+.letter-paper-card {
+    background-color: #ffffff;
+    border-top: 5px solid var(--skylark-gold);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+    padding: 4.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 模擬信紙的微弱品牌浮水印 */
+.letter-paper-card::after {
+    content: '';
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 140px;
+    height: 140px;
+    background-image: url('../images/logo/logo2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.02;
+    pointer-events: none;
+}
+
+/* 信箋式的輸入線 */
+.letter-paper-card textarea,
+.letter-paper-card input {
+    border: none !important;
+    border-bottom: 1px dashed rgba(197, 160, 101, 0.35) !important; /* 金色虛線底線 */
+    border-radius: 0 !important;
+    background: transparent !important;
+    padding: 0.9rem 0.6rem !important;
+    color: var(--skylark-dark-blue) !important;
+    transition: all 0.35s ease !important;
+}
+
+.letter-paper-card textarea:focus,
+.letter-paper-card input:focus {
+    box-shadow: none !important;
+    border-bottom: 1px solid var(--skylark-gold) !important; /* 聚焦時變為實線金色 */
+    background: rgba(249, 247, 242, 0.45) !important; /* 微微發出米黃色暖光 */
+}
+
+.letter-paper-card textarea::placeholder,
+.letter-paper-card input::placeholder {
+    color: rgba(93, 86, 80, 0.35) !important;
+    font-size: 0.92rem;
+}
+
+
+.monument-highlight-phrase {
+    color: var(--skylark-gold);
+    font-family: var(--font-heading);
+    letter-spacing: 0.15em;
+    font-size: 1.2rem;
+    text-shadow: 0 0 12px rgba(197, 160, 101, 0.25);
+    display: inline-block;
+    border-bottom: 1px solid rgba(197, 160, 101, 0.25);
+    padding-bottom: 6px;
+}
+
+/* 手機版適配微調 */
+@media (max-width: 768px) {
+    .question-dark-card {
+        padding: 2.2rem 1.8rem;
+    }
+    
+    .question-text-white {
+        font-size: 1.05rem;
+    }
+    
+    .letter-paper-card {
+        padding: 2.5rem 1.8rem;
+    }
+    
+    .monument-highlight-phrase {
+        font-size: 1.05rem;
+    }
+}

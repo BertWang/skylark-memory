@@ -98,19 +98,19 @@
     "fields": [
       {
         "name": "rememberText",
-        "label": "您還記得天喜嗎？",
+        "label": "您的記憶",
         "type": "textarea",
         "required": false,
         "maxLength": 2000,
         "selector": "#rememberText"
       },
       {
-        "name": "choice",
-        "label": "如果天喜回來了，您會再次選擇嗎？",
-        "type": "radio",
-        "required": true,
-        "selector": "input[name='choice']",
-        "valueFrom": "checked_value"
+        "name": "wishText",
+        "label": "您的心願",
+        "type": "textarea",
+        "required": false,
+        "maxLength": 2000,
+        "selector": "#wishText"
       },
       {
         "name": "contactName",

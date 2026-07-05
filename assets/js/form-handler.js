@@ -181,7 +181,16 @@
         form.reset();
       } catch (err) {
         console.error(err);
-        alert(T.submitFail + (err.message || err));
+        // 將 Firebase 英文錯誤訊息轉為中文
+        let errMsg = err.message || String(err);
+        if (errMsg.includes("Missing or insufficient permissions")) {
+          errMsg = "服務暫時維護中，請稍後再試。如急需聯繫，請來信 1990skylark@gmail.com";
+        } else if (errMsg.includes("network") || errMsg.includes("offline") || errMsg.includes("unavailable")) {
+          errMsg = "網路連線異常，請確認網路後再試一次。";
+        } else if (errMsg.includes("quota")) {
+          errMsg = "今日提交次數已達上限，請明日再試。";
+        }
+        alert(T.submitFail + errMsg);
       } finally {
         setSubmitting(submitBtn, false);
       }

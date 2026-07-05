@@ -113,12 +113,14 @@
   will-change: opacity, filter;
 }
 
-/* 靜謐顯影與對焦動態 (由 --p 驅動) */
+/* 靜謐顯影與對焦動態 (由 --p 驅動) - 摒棄模糊以防失真聯想，改用微幅尺度舒張與色彩漸亮 */
 @media (min-width: 860px) {
   .gallery-photo-card img {
-    /* 滾動比例控制的漸變與失焦到對焦 */
+    /* 滾動比例控制的色彩顯色與微幅呼吸舒張 */
     opacity: calc(var(--p, 0) * 2.8 - 0.2);
-    filter: blur(calc(8px - var(--p, 0) * 8px)) saturate(calc(0.6 + var(--p, 0) * 0.4)) contrast(calc(0.92 + var(--p, 0) * 0.08));
+    transform: scale(calc(0.975 + var(--p, 0) * 0.025));
+    filter: brightness(calc(0.82 + var(--p, 0) * 0.18)) saturate(calc(0.72 + var(--p, 0) * 0.28));
+    transition: transform 0.2s ease-out, filter 0.2s ease-out;
   }
   
   .gallery-card-story {
@@ -136,6 +138,94 @@
   z-index: 10;
   will-change: clip-path;
   pointer-events: none;
+}
+
+/* 日系空間對照指南高級化 */
+.jp-guide-box {
+  background: var(--gallery-tatami);
+  border: 1px solid rgba(197, 160, 101, 0.35);
+  outline: 4px double rgba(197, 160, 101, 0.2);
+  outline-offset: -6px;
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  margin-top: 4rem;
+  text-align: left;
+  box-shadow: 0 15px 45px rgba(15, 28, 54, 0.04);
+  position: relative;
+}
+
+.jp-guide-box::before {
+  content: "✤";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gallery-bg);
+  padding: 0 15px;
+  color: var(--skylark-gold);
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+.jp-guide-item {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(197, 160, 101, 0.15);
+  padding: 2.2rem 0;
+  transition: transform 0.3s ease;
+}
+
+.jp-guide-item:last-child {
+  border-bottom: none;
+}
+
+.jp-guide-item:hover {
+  transform: translateX(4px);
+}
+
+.jp-guide-floor {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: #fff;
+  background: var(--skylark-gold);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-right: 25px;
+  box-shadow: 0 4px 10px rgba(197, 160, 101, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+/* 支店專用淡金戳印 */
+.jp-guide-floor.branch-stamp {
+  background: var(--skylark-dark-blue);
+  border-color: var(--skylark-gold);
+}
+
+.jp-guide-body {
+  flex-grow: 1;
+}
+
+.jp-guide-title {
+  font-family: var(--font-heading);
+  color: var(--skylark-dark-blue);
+  font-size: 1.15rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.jp-guide-desc {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--muted);
+  font-weight: 300;
 }
 
 /* 工筆感註記標籤 */
@@ -211,5 +301,18 @@
   
   .guiding-angle-line, .guiding-label {
     display: none !important;
+  }
+
+  .jp-guide-box {
+    padding: 2rem 1.2rem;
+  }
+  
+  .jp-guide-item {
+    display: block;
+    padding: 1.5rem 0;
+  }
+  
+  .jp-guide-floor {
+    margin-bottom: 12px;
   }
 }

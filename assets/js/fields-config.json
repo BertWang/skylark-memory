@@ -3,9 +3,12 @@
     "version": "2025-12-25",
     "collection": "submissions",
     "strategy": "Use stable selectors (form id + input name/id). Avoid placeholder selectors.",
-    "pages": ["vision", "memory", "jp-memory"]
+    "pages": [
+      "vision",
+      "memory",
+      "jp-memory"
+    ]
   },
-
   "memory": {
     "pageType": "memory",
     "formSelector": "#memoryForm",
@@ -86,11 +89,12 @@
         "label": "是否選擇其他",
         "type": "computed",
         "compute": "radio_is_checked",
-        "args": { "selector": "#conn5" }
+        "args": {
+          "selector": "#conn5"
+        }
       }
     ]
   },
-
   "vision": {
     "pageType": "vision",
     "formSelector": "#visionForm",
@@ -113,22 +117,22 @@
         "selector": "#wishText"
       },
       {
-        "name": "contactName",
-        "label": "聯絡姓名（選填）",
-        "type": "text",
-        "required": false,
-        "selector": "#contactName"
-      },
-      {
         "name": "contactEmail",
         "label": "聯絡Email（選填）",
         "type": "email",
         "required": false,
         "selector": "#contactEmail"
+      },
+      {
+        "name": "agreeDisclaimer",
+        "label": "我已閱讀並自願提供以上資訊",
+        "type": "checkbox",
+        "required": true,
+        "selector": "#agreeDisclaimer",
+        "valueFrom": "checked_boolean"
       }
     ]
   },
-
   "jp-memory": {
     "pageType": "jp-memory",
     "formSelector": "#jpMemoryForm",

@@ -191,7 +191,7 @@
             <div class="question-dark-card mx-auto text-start" style="max-width: 650px;">
               <p class="question-title-gold mb-3">但我們想問您：</p>
               <p class="question-text-white mb-4">在這個什麼都能一鍵下單的時代，<br>您還在乎「被記住名字」嗎？</p>
-              <p class="question-text-white mb-0">在這個最低價保證的時代，<br>您還願意為「尊嚴」付費嗎？</p>
+              <p class="question-text-white mb-0">在這個最低價保證的時代，<br>您還願意為「那種被好好照顧的感覺」付費嗎？</p>
             </div>
 
             <p class="body-text mt-5 mb-0">
@@ -203,6 +203,20 @@
       </div>
     </section>
 
+    <!-- 時代的提問延伸致敬 (藍底 Section) -->
+    <section class="quote-monument-section text-center">
+      <div class="container">
+        <div class="fade-in-text">
+          <h2 class="founder-quote mb-4">「蹲下，是為了跳得更高。」</h2>
+          <p class="lead mb-0 text-white-50" style="font-weight: 300; line-height: 2; font-size: 1.15rem;">
+            在這個什麼都能用演算法推薦的時代，<br>
+            還是有人願意記住您的名字。<br>
+            <span class="monument-highlight-phrase mt-3">這件事，值得被等待。</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- 參｜問卷調查 (信箋式) -->
     <section class="section-padding bg-white border-top" id="survey">
       <div class="container">
@@ -210,7 +224,8 @@
           <div class="col-lg-8">
             <div class="text-center mb-5 fade-in-text">
               <span class="chapter-tag">您的聲音</span>
-              <h2 class="manifesto-title mt-3">在重啟之前，我們想先問問您</h2>
+              <h2 class="manifesto-title mt-3" style="font-size: 1.8rem; line-height: 1.6;">如果有一天，天喜的故事繼續⋯⋯<br><small
+                  class="text-muted" style="font-size: 0.7em;">我們想先聽聽您說</small></h2>
             </div>
 
             <!-- 信箋設計：套用 letter-paper-card 樣式，移除內聯樣式 -->
@@ -220,8 +235,8 @@
                 <div class="mb-5">
                   <h5 class="mb-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">
                     第一件事｜您的記憶</h5>
-                  <p class="text-muted small mb-3">如果您曾經被天喜好好對待過 —— 那位記得您習慣靠窗座位的導遊、那一次行李貼上名牌的細節、那碗在旅館吃到難忘的晚餐 ——
-                    請寫下來，讓這份記憶不消失。</p>
+                  <p class="text-muted small mb-3">如果您曾經被天喜好好對待過 —— 那位記得您習慣靠窗座位的導遊、那一次行李貼上名牌的細節、那次圍坐在旅館榻榻米上，吃到捨不得結束的夜晚
+                    —— 請寫下來，讓這份記憶不消失。</p>
                   <textarea id="rememberText" name="rememberText" class="form-control" rows="3"
                     placeholder="那位記得您習慣靠窗座位的導遊？行李貼上名牌的細節？難忘的晚餐？..." maxlength="2000"></textarea>
                 </div>
@@ -237,23 +252,39 @@
 
                 <!-- Contact -->
                 <div class="mb-4 pt-4 border-top">
-                  <h5 class="mb-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">聯絡方式（選填）
-                  </h5>
-                  <p class="text-muted small mb-3">如果有一天，天喜的故事繼續，您希望我們第一個告訴您嗎？</p>
+                  <h5 class="mb-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">聯絡方式（選填）</h5>
+                  <p class="text-muted small mb-3">想持續收到天喜の記憶的消息嗎？</p>
                   <div class="row g-4">
-                    <div class="col-md-6">
-                      <input id="contactName" name="contactName" type="text" class="form-control" placeholder="姓名">
-                    </div>
-                    <div class="col-md-6">
-                      <input id="contactEmail" name="contactEmail" type="email" class="form-control" placeholder="Email"
-                        autocomplete="email">
+                    <div class="col-md-12">
+                      <input id="contactEmail" name="contactEmail" type="email" class="form-control" placeholder="Email" autocomplete="email">
                     </div>
                   </div>
                 </div>
 
                 <div class="text-center mt-5">
                   <button id="visionSubmitBtn" type="button" class="btn-skylark px-5 py-2">提交回饋</button>
-                  <p class="text-muted small mt-4 mb-0">「這份心願，我們會好好保存。🙏」</p>
+                </div>
+
+                <!-- 我們的承諾與免責聲明 -->
+                <div class="mt-5 pt-4 border-top text-start text-muted small">
+                  <p class="mb-2"><strong>我們的承諾</strong></p>
+                  <p class="mb-2">本計畫依天喜商標（第39類）已依法登記，合法運作，不涉及任何旅行業務經營、商業旅遊招募或銷售行為。</p>
+                  <p class="mb-2">您所填寫的內容與聯絡資料，僅用於天喜の記憶的文史研究與保存，不對外公開、不轉售、不用於商業用途，並依個人資料保護法妥善保管。</p>
+                  <p class="mb-3">若您願意讓我們將您的記憶故事公開分享於天喜の記憶平台，我們會事先與您聯繫並取得同意，未經您的許可，絕不公開任何個人內容。</p>
+                  
+                  <p class="mb-3 text-dark"><strong>提交前請確認您已閱讀並同意以上說明。</strong></p>
+                  
+                  <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" id="agreeDisclaimer" required>
+                    <label class="form-check-label text-dark" for="agreeDisclaimer">
+                      我已閱讀並自願提供以上資訊。
+                    </label>
+                  </div>
+
+                  <p class="mb-2">如您希望查詢、修改或刪除您的資料，歡迎透過以下方式聯繫我們：</p>
+                  <p class="mb-2">📩 Email：<a href="mailto:1990skylark@gmail.com">1990skylark@gmail.com</a></p>
+                  <p class="mb-2">💬 私訊天喜の記憶粉絲專頁：<a href="https://www.facebook.com/1990skylark" target="_blank">https://www.facebook.com/1990skylark</a></p>
+                  <p class="mb-0 mt-3 text-center">我們會盡速處理。🙏</p>
                 </div>
               </form>
             </div>
@@ -276,14 +307,6 @@
               十年前，他在迪化街的麻油雞攤上，依然帶著對細節的堅持。<br>
               那一幕，讓我們明白：「情義，才是品牌最深的護城河。」
             </p>
-
-            <h2 class="founder-quote mb-5">「蹲下，是為了跳得更高。」</h2>
-
-            <p class="text-white-50 small mt-5 mb-0">
-              在這個什麼都能用演算法推薦的時代，<br>
-              還是有人願意記住您的名字。<br>
-              <span class="monument-highlight-phrase mt-3">這件事，值得被等待。</span>
-            </p>
           </div>
         </div>
       </div>
@@ -297,8 +320,10 @@
           <h2 class="manifesto-title mt-3 mb-5">請告訴我們，您的答案</h2>
 
           <p class="body-text mb-5">
-            不是為了我們，而是為了證明<br>
-            在這個時代，還是有人願意記住您的名字。
+            時光帶走了很多，<br>
+            但有些溫度，從未真正冷卻。<br><br>
+            只是想知道 ——<br>
+            您，還記得嗎？
           </p>
 
           <a href="#survey" class="btn-skylark px-5 py-3 mb-5 shadow-sm">請告訴我們，您的記憶</a>

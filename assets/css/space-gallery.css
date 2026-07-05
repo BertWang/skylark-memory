@@ -1,0 +1,215 @@
+/* ==========================================
+   天喜の跡 ‧ 記憶空間獨立樣式表 (space-gallery.css)
+   ========================================== */
+
+/* 核心變數延伸 */
+:root {
+  --gallery-bg: #F9F7F2;      /* 極淡和風米白紙質色 */
+  --gallery-line: rgba(197, 160, 101, 0.22); /* 天喜金細線 */
+  --gallery-tatami: #FAF6ED;  /* 11F 暖和風塌塌米色 */
+}
+
+/* 記憶長廊容器架構 */
+.gallery-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* 左右分欄佈局 (僅在桌面端生效) */
+@media (min-width: 860px) {
+  .gallery-split-section {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    min-height: 120vh; /* 留出滾動空間 */
+    position: relative;
+    border-bottom: 1px solid var(--gallery-line);
+    background: var(--gallery-bg);
+    transition: background-color 0.8s ease;
+  }
+
+  /* 左側固定欄 */
+  .gallery-sticky-sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    border-right: 1px solid var(--gallery-line);
+    z-index: 5;
+  }
+
+  /* 右側滾動欄 */
+  .gallery-scroll-content {
+    padding: 100px 8% 120px;
+    z-index: 2;
+  }
+
+  /* 時光連鎖金線 - 位於分欄交界處 */
+  .time-thread-rail {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: rgba(197, 160, 101, 0.1);
+  }
+
+  .time-thread-line {
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--skylark-gold), transparent);
+    /* 隨滾動進度生長 */
+    height: calc(var(--p, 0) * 100%);
+    will-change: height;
+    box-shadow: 0 0 10px rgba(197, 160, 101, 0.4);
+  }
+}
+
+/* 樓層標誌視覺 */
+.sticky-floor-badge {
+  text-align: center;
+}
+
+.sticky-floor-num {
+  font-family: var(--font-heading);
+  font-size: clamp(80px, 12vw, 150px);
+  font-weight: 900;
+  color: rgba(197, 160, 101, 0.15);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  margin-bottom: 20px;
+}
+
+.sticky-floor-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--skylark-dark-blue);
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+
+/* 滾動相片卡片樣式 */
+.gallery-photo-card {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(15, 28, 54, 0.08);
+  margin-bottom: 2.5rem;
+  background: #fff;
+}
+
+.gallery-photo-card img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 52vh;
+  /* 記憶顯影動畫的初始屬性 */
+  will-change: opacity, filter;
+}
+
+/* 靜謐顯影與對焦動態 (由 --p 驅動) */
+@media (min-width: 860px) {
+  .gallery-photo-card img {
+    /* 滾動比例控制的漸變與失焦到對焦 */
+    opacity: calc(var(--p, 0) * 2.8 - 0.2);
+    filter: blur(calc(8px - var(--p, 0) * 8px)) saturate(calc(0.6 + var(--p, 0) * 0.4)) contrast(calc(0.92 + var(--p, 0) * 0.08));
+  }
+  
+  .gallery-card-story {
+    will-change: opacity, transform;
+    opacity: calc(var(--p, 0) * 3 - 0.3);
+    transform: translateY(calc(30px - var(--p, 0) * 30px));
+  }
+}
+
+/* 幾何款待引導線 (與 45° 百合等細節對位) */
+.guiding-angle-line {
+  position: absolute;
+  height: 1px;
+  background: rgba(197, 160, 101, 0.8);
+  z-index: 10;
+  will-change: clip-path;
+  pointer-events: none;
+}
+
+/* 工筆感註記標籤 */
+.guiding-label {
+  position: absolute;
+  font-size: 0.65rem;
+  color: var(--skylark-gold);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  will-change: opacity;
+}
+
+@media (min-width: 860px) {
+  .guiding-angle-line {
+    /* 隨滾動自發繪製 */
+    clip-path: inset(0 calc((1 - var(--p, 0)) * 100%) 0 0);
+  }
+  .guiding-label {
+    opacity: calc(var(--p, 0) * 2.5 - 0.8);
+  }
+}
+
+/* 情感小箋過渡卡片 (Bridges) */
+.story-bridge-card {
+  padding: 60px 40px;
+  border-radius: 20px;
+  border: 1px dashed var(--skylark-gold);
+  background: rgba(197, 160, 101, 0.03);
+  margin: 100px 0;
+  position: relative;
+}
+
+/* 行動端自適應 */
+@media (max-width: 859px) {
+  .gallery-split-section {
+    display: block;
+    background: var(--gallery-bg);
+  }
+  
+  .gallery-sticky-sidebar {
+    height: auto;
+    padding: 50px 20px 20px;
+    border-right: none;
+    border-bottom: 1px solid var(--gallery-line);
+  }
+  
+  .sticky-floor-num {
+    font-size: 70px;
+    margin-bottom: 10px;
+  }
+  
+  .gallery-scroll-content {
+    padding: 40px 20px;
+  }
+  
+  .gallery-photo-card img {
+    height: 34vh;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  
+  .gallery-card-story {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .story-bridge-card {
+    margin: 50px 0;
+    padding: 30px 20px;
+  }
+  
+  .guiding-angle-line, .guiding-label {
+    display: none !important;
+  }
+}

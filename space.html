@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天喜の跡｜全台款待空間巡禮 - 天喜の記憶</title>
+  <meta name="description" content="沉浸式重溫天喜旅行社台北總部（2F、10F~12F）與台中、高雄、花蓮支店的款待空間美學。探尋旅亭、最上川通道、新都里吧台、招月庭圍爐等傳奇款待符號。">
+  <meta name="keywords" content="天喜旅行社總部, 天喜台中支店, 天喜高雄支店, 天喜花蓮支店, 郭正利設計, 辦公室美學, 江戶圍爐, 款待精神">
+  <meta name="author" content="天喜の記憶 Memory">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#F9F7F2">
+  <link rel="icon" href="assets/images/logo/favicon.webp" type="image/png">
+
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/space-gallery.css">
+
+  <style>
+    /* 滾動式層次感專屬樣式 */
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .scroll-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-parallax-bg {
+      position: relative;
+      height: 70vh;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .scroll-parallax-bg::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 28, 54, 0.55);
+      z-index: 1;
+    }
+
+    .parallax-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      padding: 0 20px;
+    }
+
+    /* 支店卡片精緻和紙質感 */
+    .branch-card {
+      background: #FAF6ED;
+      border: 1px solid rgba(197, 160, 101, 0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(15, 28, 54, 0.05);
+      transition: all 0.4s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .branch-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(197, 160, 101, 0.15);
+      border-color: rgba(197, 160, 101, 0.4);
+    }
+
+    .branch-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+    }
+
+    .branch-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .branch-card:hover .branch-img-wrapper img {
+      transform: scale(1.06);
+    }
+
+    /* 頂部導航底色微調 */
+    .navbar-skylark {
+      background: rgba(249, 247, 242, 0.9) !important;
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 頂部導覽列 (全站統一) -->
+  <nav class="navbar navbar-expand-lg navbar-light navbar-skylark sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/images/logo/logo2.png" alt="天喜旅行社" height="42" class="me-2">
+        <div class="brand-text">
+          <span class="brand-title">天喜の記憶</span>
+          <small class="brand-subtitle d-block">Skylark Memory</small>
+        </div>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">序 <small class="d-block text-muted" style="font-size: 0.6em;">Home</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="origin.html">源 <small class="d-block text-muted" style="font-size: 0.6em;">Origin</small></a></li>
+          <li class="nav-item"><a class="nav-link active" href="history.html">跡 <small class="d-block text-muted" style="font-size: 0.6em;">History</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="memory.html">憶 <small class="d-block text-muted" style="font-size: 0.6em;">Memory</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="vision.html">願 <small class="d-block text-muted" style="font-size: 0.6em;">Vision</small></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Parallax Hero Banner -->
+    <header class="scroll-parallax-bg" style="background-image: url('assets/images/space/space_10f_lobby.jpg');">
+      <div class="parallax-content text-center">
+        <span class="chapter-tag text-white-50 mb-3 d-inline-block">【 跡 ‧ 空間之記憶 】</span>
+        <h1 class="text-white fw-bold display-4 mb-3" style="font-family: var(--font-heading); letter-spacing: 0.15em;">全台款待空間巡禮</h1>
+        <p class="text-white-50 lead mx-auto" style="max-width: 600px; font-weight: 300; font-size: 1.1rem; letter-spacing: 0.08em;">
+          從台北總部的和風烏托邦，到台中、高雄、花蓮的款待足跡。
+        </p>
+      </div>
+    </header>
+
+    <!-- 壹｜台北總部：垂直空間漫遊 -->
+    <div class="gallery-wrapper">
+      
+      <!-- ==================== 2F 旅亭與梯廳 ==================== -->
+      <section class="gallery-split-section motion-scene" id="gallery-2f" data-section-id="gallery-2f">
+        <div class="gallery-sticky-sidebar">
+          <div class="sticky-floor-badge">
+            <div class="sticky-floor-num">2F</div>
+            <div class="sticky-floor-title">旅亭 ‧ 梯廳</div>
+          </div>
+        </div>
+        
+        <div class="gallery-scroll-content">
+          <div class="time-thread-rail"><div class="time-thread-line"></div></div>
+          
+          <!-- 第 1 站：1F-2F 旅亭 -->
+          <div class="gallery-photo-card scroll-fade">
+            <img src="assets/images/space/space_1f_2f_ryotei.jpg" alt="1F 至 2F 中庭手扶梯旅亭">
+          </div>
+          <div class="gallery-card-story mb-5 pb-5">
+            <span class="chapter-tag">第 1 站 ‧ 旅亭</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">旅亭 ‧ 出發前的停留</h3>
+            <p class="body-text text-muted">
+              從博愛路街道踏上這座被翠綠草皮與向日葵環繞的雙向手扶梯，在天喜內部美學中被命名為「旅亭」。這裡沒有辦理手續的催促，只有旅遊手冊散發的紙張氣味與溫馨的木質暖光。在您出發前往日本前，旅程的序章已在這裡悄然展開。
+            </p>
+          </div>
+
+          <!-- 第 2 站：2F 電梯大廳 -->
+          <div class="gallery-photo-card scroll-fade">
+            <img src="assets/images/space/space_2f_elevator.jpg" alt="2F 電梯大廳四季布置">
+          </div>
+          <div class="gallery-card-story mb-5">
+            <span class="chapter-tag">第 2 站 ‧ 梯廳</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">流水與四季的自然轉折</h3>
+            <p class="body-text text-muted">
+              扶梯上升的盡頭，是一面溫潤流動的水牆。這裡並非普通的辦公室梯廳，而是配合日本的「春櫻、夏綠、秋楓、冬雪」，由專人親手佈置季節盆藝與花道。流淌的水聲阻隔了外界的嘈雜，讓您等候電梯的片刻，就已經進入了旅行的寧靜。
+            </p>
+          </div>
+
+          <!-- 情感過渡一 -->
+          <div class="story-bridge-card scroll-fade">
+            <span class="chapter-tag mb-3 d-inline-block" style="font-size: 0.75rem;">時光迴響 ‧ 高度與心靈的跨越</span>
+            <p class="body-text text-muted mb-0" style="font-style: italic; font-size: 0.92rem; line-height: 1.8; font-weight: 300;">
+              「電梯向上，我們跨越了物理的樓層，卻走得離客人的心更近。<br>
+              從 2F 水牆的季節流動，到 10F 那道寫著『請往這走』的溫慢木門。<br>
+              天喜的款待，始終在您抵達的第一秒，就完成了它的儀式。」
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 10F 迎賓與作戰中樞 ==================== -->
+      <section class="gallery-split-section motion-scene" id="gallery-10f" data-section-id="gallery-10f">
+        <div class="gallery-sticky-sidebar">
+          <div class="sticky-floor-badge">
+            <div class="sticky-floor-num">10F</div>
+            <div class="sticky-floor-title">迎賓 ‧ 本社</div>
+          </div>
+        </div>
+        
+        <div class="gallery-scroll-content">
+          <div class="time-thread-rail"><div class="time-thread-line"></div></div>
+          
+          <!-- 第 3 站：10F 迎賓玄關 -->
+          <div class="gallery-photo-card scroll-fade" style="position: relative;">
+            <img src="assets/images/space/space_10f_entrance.jpg" alt="10F 迎賓入口處">
+            <!-- 45度百合幾何引導線 -->
+            <div class="guiding-angle-line" style="bottom: 25%; right: 28%; width: 120px; transform: rotate(-45deg); transform-origin: left center;"></div>
+            <div class="guiding-label" style="bottom: 38%; right: 10%;">[ 45° 迎客百合 ─ こちらへどうぞ ]</div>
+          </div>
+          <div class="gallery-card-story mb-5 pb-5">
+            <span class="chapter-tag">第 3 站 ‧ 迎賓玄關</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">こちらへどうぞ。請往這裡走</h3>
+            <p class="body-text text-muted">
+              走出十樓電梯，大門旁的木架上寫著溫柔的「こちらへどうぞ」。原木長桌上每日供奉著新鮮綻放的黃百合花藝，插花方向固定向外傾斜 45 度角，那是日文「請往這走」的手勢比喻。大廳中央的圓形服務台命名為「小豆島 1001」，完成對客人的第一秒款待。
+            </p>
+          </div>
+
+          <!-- 第 4 站：10F 業務與OP作戰大廳 -->
+          <div class="gallery-photo-card scroll-fade">
+            <img src="assets/images/space/space_10f_work_area.jpg" alt="10F 業務OP作戰大廳">
+          </div>
+          <div class="gallery-card-story mb-5">
+            <span class="chapter-tag">第 4 站 ‧ 業務 OP 區</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">實木與暖燈間的業務心臟</h3>
+            <p class="body-text text-muted">
+              這裡打破了傳統旅行社雜亂的 OA 隔屏，採用「現代時尚雅韻」的實木質地與柔和燈光佈置。樑柱中央高高懸掛著「大黑天與惠比壽」福神面具，默默守護著每一段出發的腳步。大阪、廣島、東京等戰隊在此運籌帷幄，是天喜最繁忙的作戰核心。
+            </p>
+          </div>
+
+          <!-- 情感過渡二 -->
+          <div class="story-bridge-card scroll-fade">
+            <span class="chapter-tag mb-3 d-inline-block" style="font-size: 0.75rem;">時光迴響 ‧ 從效率到安寧</span>
+            <p class="body-text text-muted mb-0" style="font-style: italic; font-size: 0.92rem; line-height: 1.8; font-weight: 300;">
+              「在十樓，是同仁為了您的旅程日夜伏案、運籌帷幄的效率心臟；<br>
+              而當我們沿著『最上川』的走道拾級而上，茶香撲鼻，我們便走入了十一樓的暖意中。<br>
+              這是為了告訴每位前來的旅人：在紛擾的日常裡，總有一處和風烏托邦，正為您溫慢圍爐。」
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 11F 和風款待烏托邦 ==================== -->
+      <section class="gallery-split-section motion-scene" id="gallery-11f" data-section-id="gallery-11f" style="background-color: var(--gallery-tatami);">
+        <div class="gallery-sticky-sidebar" style="border-right-color: rgba(197, 160, 101, 0.15);">
+          <div class="sticky-floor-badge">
+            <div class="sticky-floor-num">11F</div>
+            <div class="sticky-floor-title">招月庭 ‧ 沙龍</div>
+          </div>
+        </div>
+        
+        <div class="gallery-scroll-content">
+          <div class="time-thread-rail"><div class="time-thread-line"></div></div>
+          
+          <!-- 第 5 站：11F 迎賓玄關 -->
+          <div class="gallery-photo-card scroll-fade">
+            <img src="assets/images/space/space_11f_entrance.jpg" alt="11F 迎賓玄關入口">
+          </div>
+          <div class="gallery-card-story mb-5 pb-5">
+            <span class="chapter-tag">第 5 站 ‧ 11F 入口</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">走入極致和風的玄關</h3>
+            <p class="body-text text-muted">
+              踏入十一樓，迎面而來的是古色古香的屏風與插花，將辦公大樓的生硬感完全隔開。從這裡開始，空間的節奏慢了下來，空氣中開始散發著淡淡的塌塌米草香與線香，指引著貴賓走入天喜為您精心打造的和風沙龍。
+            </p>
+          </div>
+
+          <!-- 第 6 站：11F 最上川、長良川與和風吧台 -->
+          <div class="gallery-photo-card scroll-fade">
+            <img src="assets/images/space/space_11f_waterway_bar.jpg" alt="11F 最上川、長良川與和風吧台">
+          </div>
+          <div class="gallery-card-story mb-5 pb-5">
+            <span class="chapter-tag">第 6 站 ‧ 新都里吧台</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">最上川通道與新都里吧台</h3>
+            <p class="body-text text-muted">
+              設計圖上，郭大哥親筆手寫標註了「最上川」與「長良川」兩條日本名川，以此命名這條溫潤的實木長廊。水流的動線引導著貴賓前行，匯聚在純日式的「新都里吧台」。在這裡，有專人為每位貴賓沏上等的日式綠茶，在出發前就感受到款待的凝視。
+            </p>
+          </div>
+
+          <!-- 第 7 站：11F 江戶圍爐榻榻米 -->
+          <div class="gallery-photo-card scroll-fade" style="position: relative;">
+            <img src="assets/images/space/space_11f_tatami.jpg" alt="11F 江戶圍爐榻榻米招月庭">
+            <!-- 圍爐吊魚幾何引導線 -->
+            <div class="guiding-angle-line" style="top: 25%; left: 35%; width: 140px; transform: rotate(45deg); transform-origin: left center;"></div>
+            <div class="guiding-label" style="top: 15%; left: 55%;">[ 招月庭 ‧ 古民家自在鉤 ]</div>
+          </div>
+          <div class="gallery-card-story mb-5 pb-5">
+            <span class="chapter-tag">第 7 站 ‧ 招月庭</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">江戶古民家的茶香與溫暖</h3>
+            <p class="body-text text-muted">
+              這是一個架高的塌塌米茶室空間。中央設有古民家圍爐（Irori），上方懸掛著魚形自在鉤。塌塌米後方整齊排列著多尊手工木雕的日本東北「芥子娃娃 (Kokeshi)」，地上鋪設白色碎石與木屐。在這裡，沒有推銷的急迫，只有對旅行心願的細緻聆聽。
+            </p>
+          </div>
+
+          <!-- 第 8 站：11F 竹軒（切團區） -->
+          <div class="gallery-photo-card scroll-fade">
+            <img src="assets/images/space/space_11f_bamboo_cut.jpg" alt="11F 竹軒切團區">
+          </div>
+          <div class="gallery-card-story mb-5 pb-5">
+            <span class="chapter-tag">第 8 站 ‧ 竹軒</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">竹軒 ‧ 掌控機位資源的作戰核心</h3>
+            <p class="body-text text-muted">
+              表面上是幽靜的竹林商談區「竹軒」，在天喜的實務運作中，卻是掌控全省日本線機位資源的「切團區」。同仁在此進行團體切位與機票控位，是天喜強大成團實力與後勤的保證。旁邊的「利園」則是決策核心，為每一趟旅程提供最堅實的支持。
+            </p>
+          </div>
+
+          <!-- 第 9 站：11F 集會齋（導遊室） -->
+          <div class="gallery-photo-card scroll-fade">
+            <img src="assets/images/space/space_11f_guide_room.jpg" alt="11F 集會齋導遊室">
+          </div>
+          <div class="gallery-card-story mb-5 pb-5">
+            <span class="chapter-tag">第 9 站 ‧ 集會齋</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">集會齋 ‧ 傳奇導遊軍團的孵化地</h3>
+            <p class="body-text text-muted">
+              圖紙上標記為集慧齋的會議室，對於天喜人而言，這裡是無數傳奇導遊的「導遊室」。多少個深夜，導遊們在此繳交客戶意見表、相互傳承款待的真功夫，在嚴厲的大會審查與無私的經驗分享中，將「款待」的信念代代傳承下去。
+            </p>
+          </div>
+
+          <!-- 第 10 站：11F 枯山水花園 -->
+          <div class="gallery-photo-card scroll-fade">
+            <img src="assets/images/space/space_11f_garden.jpg" alt="11F 和風庭園枯山水">
+          </div>
+          <div class="gallery-card-story mb-5">
+            <span class="chapter-tag">第 10 站 ‧ 利園花園</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">大樓高空中的枯山水</h3>
+            <p class="body-text text-muted">
+              於高空辦公大樓中，築起一抹和風庭園。這是郭正利將室內設計才華，發揮在帶給職員安靜撫慰的空間哲學。他相信，只有職員每天工作時能感受到放鬆與愉悅，客人的抱怨就會減少，服務的溫度才能真正傳遞出去。
+            </p>
+          </div>
+
+          <!-- 情感過渡三 -->
+          <div class="story-bridge-card scroll-fade">
+            <span class="chapter-tag mb-3 d-inline-block" style="font-size: 0.75rem;">時光迴響 ‧ 專業與靈魂的對位</span>
+            <p class="body-text text-muted mb-0" style="font-style: italic; font-size: 0.92rem; line-height: 1.8; font-weight: 300;">
+              「所有的感動都不是憑空而來。<br>
+              十一樓的茶香、圍爐的煙火氣，在十二樓的高效率票務與大會決策中，化成了最堅實的後盾。<br>
+              款待是靈魂，而專業是骨骼。這，是一切創意的原點。」
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 12F 決策與票務核心 ==================== -->
+      <section class="gallery-split-section motion-scene" id="gallery-12f" data-section-id="gallery-12f">
+        <div class="gallery-sticky-sidebar">
+          <div class="sticky-floor-badge">
+            <div class="sticky-floor-num">12F</div>
+            <div class="sticky-floor-title">集會齋 ‧ 決策</div>
+          </div>
+        </div>
+        
+        <div class="gallery-scroll-content">
+          <div class="time-thread-rail"><div class="time-thread-line"></div></div>
+          
+          <!-- 第 11 站：12F 自由行票務迎賓 -->
+          <div class="gallery-photo-card scroll-fade">
+            <img src="assets/images/space/space_12f_welcome.jpg" alt="12F 自由行票務迎賓處">
+          </div>
+          <div class="gallery-card-story mb-5 pb-5">
+            <span class="chapter-tag">第 11 站 ‧ 12F 迎賓</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">自由行票務 ‧ 堅實的商務後盾</h3>
+            <p class="body-text text-muted">
+              十二樓是高效率票務與商務訂單的後盾，也是天喜「海鷗隊」（國際自由行）與「金讚隊」（主力團體）等王牌業務戰隊的作戰基地。這裡有著對票務運作的極高專注，在繁忙的電話聲中，以零出錯 of 專業，守護著每一位旅客的航程。
+            </p>
+          </div>
+
+          <!-- 第 12 站：12F 大集會齋會議室 -->
+          <div class="gallery-photo-card scroll-fade">
+            <img src="assets/images/space/space_12f_meeting.jpg" alt="12F 大集會齋會議室">
+          </div>
+          <div class="gallery-card-story mb-5">
+            <span class="chapter-tag">第 12 站 ‧ 大集會齋</span>
+            <h3 class="my-3" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">飛向創意的原點</h3>
+            <p class="body-text text-muted">
+              大集會齋（會議室）融合中式雕花家具與日式紙障門。這是高層召開戰略大會、腦力激盪出無數震撼業界的行銷方案的「創意原點」。我們深深地相信，所有服務與創意的原點，皆源自對旅人一舉一動的細膩凝視。
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 中間視差過渡區 -->
+    <section class="scroll-parallax-bg" style="background-image: url('assets/images/space/space_2f_elevator.jpg');">
+      <div class="parallax-content text-center">
+        <h2 class="founder-quote text-white mb-4">「便宜的價格會被遺忘，但極致的感動會被記住。」</h2>
+        <p class="text-white-50 small">天喜大樓 2F 電梯搭乘大廳 ‧ 水牆與四季風情佈置</p>
+      </div>
+    </section>
+
+    <!-- 貳｜全台支店美學 (新增支店展示區) -->
+    <section class="section-padding" style="background: var(--skylark-bg);">
+      <div class="container">
+        <div class="text-center mb-5 scroll-fade">
+          <span class="chapter-tag">美學版圖</span>
+          <h2 class="manifesto-title mt-3">遍地開花的向日葵：全台支店</h2>
+          <p class="text-muted small mt-2">天喜的和風美學不只在台北。台中、高雄、花蓮，皆承襲了同等尊榮的款待規格。</p>
+        </div>
+
+        <div class="row scroll-fade">
+          <!-- 台中支店 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="branch-card">
+              <div class="branch-img-wrapper">
+                <img src="assets/images/space/branch_taichung.jpg" alt="天喜台中支店">
+              </div>
+              <div class="p-4">
+                <h5 style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">天喜 台中支店 (大墩十街)</h5>
+                <p class="text-muted small mb-0">延續本社的暖色調實木設計與挑高大廳，為中台灣的貴賓提供最優雅的和風諮詢環境。</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 高雄支店 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="branch-card">
+              <div class="branch-img-wrapper">
+                <img src="assets/images/space/branch_kaohsiung.jpg" alt="天喜高雄支店">
+              </div>
+              <div class="p-4">
+                <h5 style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">天喜 高雄支店</h5>
+                <p class="text-muted small mb-0">自購上百坪辦公室，以現代時尚的櫃台和貼心的日本觀光資料展示牆，守護南部旅人的心願。</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 花蓮支店 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="branch-card">
+              <div class="branch-img-wrapper">
+                <img src="assets/images/space/branch_hualien.jpg" alt="天喜花蓮支店">
+              </div>
+              <div class="p-4">
+                <h5 style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">天喜 花蓮支店 (中山路)</h5>
+                <p class="text-muted small mb-0">溫潤的純木質接待區，將款待的觸角延伸至東台灣，展現天喜對全台旅人一視同仁的情義與溫度。</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 時光迴響 2：提前多想的幾步 -->
+          <div class="row justify-content-center mt-5 pt-4 scroll-fade">
+            <div class="col-lg-8 text-center">
+              <div class="p-4 rounded" style="background: rgba(197, 160, 101, 0.04); border: 1px solid rgba(197, 160, 101, 0.15); border-left: 4px solid var(--skylark-gold) !important;">
+                <span class="chapter-tag mb-3 d-inline-block" style="font-size: 0.75rem;">時光迴響 ‧ 提前多想的幾步</span>
+                <p class="body-text text-muted mb-0" style="font-style: italic; font-size: 0.95rem; line-height: 1.8; font-weight: 300;">
+                  「在博愛路總部規劃的每一趟旅程，都在機場出發的那一刻得到印證。<br>
+                  郭大哥總是要求導遊，在機場親手為您的行李套上透明防塵套，並遞上一朵紅玫瑰。<br>
+                  天喜人常說，我們的服務不是 SOP，而是對每個人一舉一動的深切凝視。<br>
+                  因為款待，是讓人感到被好好照顧的尊嚴。」
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    <!-- 參｜空間の解讀 ‧ 垂直空間指南 -->
+    <section class="section-padding bg-white border-top">
+      <div class="container">
+        <div class="text-center mb-5 scroll-fade">
+          <span class="chapter-tag">美學考證</span>
+          <h2 class="manifesto-title mt-3">空間の解讀 ‧ 垂直空間指南</h2>
+          <p class="text-muted small mt-2">比對原始中文存檔說明與設計空間之核心印記，還原當年博愛路本社的設計魂</p>
+        </div>
+
+        <div class="row justify-content-center scroll-fade">
+          <div class="col-lg-10">
+            <div class="jp-guide-box">
+              
+              <!-- 2F -->
+              <div class="jp-guide-item">
+                <div class="jp-guide-floor">2F</div>
+                <div class="jp-guide-body">
+                  <div class="jp-guide-title">電梯大廳 ‧ 流水四季的自然轉折</div>
+                  <div class="jp-guide-desc">
+                    從一樓大廳搭乘中庭雙向手扶梯「旅亭」緩緩上升，二樓梯廳是一座溫潤流動的水牆。這裡並非普通的辦公室玄關，而是配合日本的「春櫻、夏綠、秋楓、冬雪」四季律動，由專人親手更換四季盆藝與花道，作為迎接您的第一道風景。流水聲阻隔了外界的塵囂，讓您在等電梯的片刻，就已經進入了旅行的狀態。
+                  </div>
+                </div>
+              </div>
+
+              <!-- 10F -->
+              <div class="jp-guide-item">
+                <div class="jp-guide-floor">10F</div>
+                <div class="jp-guide-body">
+                  <div class="jp-guide-title">迎賓玄關（小豆島） & 業務 OP 作戰中樞</div>
+                  <div class="jp-guide-desc">
+                    踏入十樓，映入眼簾的是寫著「こちらへどうぞ (請往這走)」的迎客門與每日新鮮綻放的黃百合花藝。大廳中央的圓形服務台「小豆島 1001」象徵旅人靠港的第一個溫暖島嶼。大阪、廣島、東京等業務區打破傳統 OA 屏風的冰冷，採用深色木格柵與柔和 LED 暖燈佈置，並在二樓樑柱懸掛「大黑天與惠比壽」福神面具，守護同仁在極具禪意與效率的環境中工作。
+                  </div>
+                </div>
+              </div>
+
+              <!-- 11F -->
+              <div class="jp-guide-item">
+                <div class="jp-guide-floor">11F</div>
+                <div class="jp-guide-body">
+                  <div class="jp-guide-title">和風款待烏托邦 ── 吧台、切團與傳奇導遊室</div>
+                  <div class="jp-guide-desc">
+                    十一樓是天喜日式服務的極致縮影。最左側為架高的江戶古民家圍爐榻榻米「招月庭」，中央則是「新都里和風吧台」，由專人現沏上等綠茶。通道以日本名川「最上川」與「長良川」命名，寓意川流不息；「竹軒」實為掌控全省機票資源的「切團區」；而「集會齋」則是導遊們的「導遊室」，是傳奇導遊軍團在此繳交報告、研習常客禁忌的靈魂孵化地。
+                  </div>
+                </div>
+              </div>
+
+              <!-- 12F -->
+              <div class="jp-guide-item" style="border-bottom: none;">
+                <div class="jp-guide-floor">12F</div>
+                <div class="jp-guide-body">
+                  <div class="jp-guide-title">大/中集慧齋 & 自由行票務核心</div>
+                  <div class="jp-guide-desc">
+                    十二樓是處理大量票務訂單與大會召開的戰略重地。設有中、大集慧齋會議室，同業部與商務部。這裡是天喜「海鷗隊」（國際自由行）與「金讚隊」（主力團體）等王牌業務戰隊的作戰基地。我們深深地相信，所有創意的「原點」，皆源自對旅人一舉一動的細膩凝視。
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 肆｜返航按鈕 -->
+    <section class="section-padding text-center bg-white border-top">
+      <div class="container scroll-fade">
+        <div class="col-lg-6 mx-auto">
+          <h4 class="mb-4" style="color: var(--skylark-dark-blue); font-family: var(--font-heading);">時光旅行未完</h4>
+          <p class="text-muted small mb-4">
+            空間承載了天喜的魂，而歷史則記錄了天喜人的路。<br>
+            回到 35 年的大事記長河，繼續探索這段傳奇。
+          </p>
+          <a href="history.html" class="btn-skylark px-5 py-3 shadow-sm">← 返回：跡 History 大事記</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 頁尾 Footer -->
+  <footer class="footer-skylark">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-md-6 text-md-start text-center">
+          <div class="footer-brand d-flex align-items-center justify-content-md-start justify-content-center">
+            <img src="assets/images/logo/logo2.png" alt="天喜&middot;喜達旅行社" class="footer-logo">
+            <div class="footer-tagline">
+              <p class="mb-1">天喜の記憶</p>
+              <small class="text-muted">精彩回憶，依然天喜</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-md-end text-center">
+          <p class="copyright mb-0">&copy; 2026 天喜の記憶. All Rights Reserved. &middot; <a href="memory.html" style="color: var(--skylark-gold); text-decoration: none;">記憶的治療</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // 滾動淡入 (Scroll Reveal)
+    document.addEventListener("DOMContentLoaded", function () {
+      const scrollEls = document.querySelectorAll(".scroll-fade");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.1 });
+      scrollEls.forEach(el => observer.observe(el));
+    });
+
+    // 2.0D 滾動進度變數驅動 (--p) ─ 用於獨立 space-gallery.css
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const clamp = (n, min = 0, max = 1) => Math.min(max, Math.max(min, n));
+
+    function getSectionProgress(el) {
+      const rect = el.getBoundingClientRect();
+      const start = window.innerHeight * 0.95; // 進入螢幕下緣 95% 開始
+      const end = -rect.height * 0.15;        // 移出螢幕上緣 15% 結束
+      return clamp((start - rect.top) / (start - end));
+    }
+
+    const motionScenes = document.querySelectorAll('.motion-scene');
+
+    function onScrollFrame() {
+      if (!prefersReduced) {
+        motionScenes.forEach(el => {
+          const p = getSectionProgress(el);
+          el.style.setProperty('--p', p.toFixed(4));
+        });
+      }
+    }
+
+    window.addEventListener('scroll', onScrollFrame, { passive: true });
+    window.addEventListener('resize', onScrollFrame);
+    onScrollFrame(); // 初始渲染一次
+  </script>
+</body>
+
+</html>

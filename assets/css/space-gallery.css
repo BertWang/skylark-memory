@@ -4,9 +4,12 @@
 
 /* 核心變數延伸 */
 :root {
-  --gallery-bg: #F9F7F2;      /* 極淡和風米白紙質色 */
-  --gallery-line: rgba(197, 160, 101, 0.22); /* 天喜金細線 */
-  --gallery-tatami: #FAF6ED;  /* 11F 暖和風塌塌米色 */
+  --gallery-bg: #F9F7F2;
+  /* 極淡和風米白紙質色 */
+  --gallery-line: rgba(197, 160, 101, 0.22);
+  /* 天喜金細線 */
+  --gallery-tatami: #FAF6ED;
+  /* 11F 暖和風塌塌米色 */
 }
 
 /* 記憶長廊容器架構 */
@@ -20,7 +23,8 @@
   .gallery-split-section {
     display: grid;
     grid-template-columns: 42% 58%;
-    min-height: 120vh; /* 留出滾動空間 */
+    min-height: 120vh;
+    /* 留出滾動空間 */
     position: relative;
     border-bottom: 1px solid var(--gallery-line);
     background: var(--gallery-bg);
@@ -122,7 +126,7 @@
     filter: brightness(calc(0.82 + var(--p, 0) * 0.18)) saturate(calc(0.72 + var(--p, 0) * 0.28));
     transition: transform 0.2s ease-out, filter 0.2s ease-out;
   }
-  
+
   .gallery-card-story {
     will-change: opacity, transform;
     opacity: calc(var(--p, 0) * 3 - 0.3);
@@ -245,6 +249,7 @@
     /* 隨滾動自發繪製 */
     clip-path: inset(0 calc((1 - var(--p, 0)) * 100%) 0 0);
   }
+
   .guiding-label {
     opacity: calc(var(--p, 0) * 2.5 - 0.8);
   }
@@ -266,52 +271,53 @@
     display: block;
     background: var(--gallery-bg);
   }
-  
+
   .gallery-sticky-sidebar {
     height: auto;
     padding: 50px 20px 20px;
     border-right: none;
     border-bottom: 1px solid var(--gallery-line);
   }
-  
+
   .sticky-floor-num {
     font-size: 70px;
     margin-bottom: 10px;
   }
-  
+
   .gallery-scroll-content {
     padding: 40px 20px;
   }
-  
+
   .gallery-photo-card img {
     height: 34vh;
     opacity: 1 !important;
     filter: none !important;
   }
-  
+
   .gallery-card-story {
     opacity: 1 !important;
     transform: none !important;
   }
-  
+
   .story-bridge-card {
     margin: 50px 0;
     padding: 30px 20px;
   }
-  
-  .guiding-angle-line, .guiding-label {
+
+  .guiding-angle-line,
+  .guiding-label {
     display: none !important;
   }
 
   .jp-guide-box {
     padding: 2rem 1.2rem;
   }
-  
+
   .jp-guide-item {
     display: block;
     padding: 1.5rem 0;
   }
-  
+
   .jp-guide-floor {
     margin-bottom: 12px;
   }
